@@ -1,0 +1,24 @@
+*{margin:0;padding:0;list-style-type:none;}
+canvas {display: block;}
+a,img{border:0;}
+body {
+	padding:0;
+	margin:0;
+	text-align: center;
+	overflow:hidden;
+	background: black;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+canvas {
+	padding:0;
+	margin:0;
+	opacity:1;
+}
+
+    .centered {
+       margin: 0 auto;
+       text-align: left;
+       width: 800px;
+   }

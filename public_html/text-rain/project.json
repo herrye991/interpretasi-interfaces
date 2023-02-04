@@ -1,0 +1,28 @@
+{
+	"camera" : 
+	{
+		"center" : "0.000 0.000 -1.000",
+		"eye" : "0.000 0.000 0.000",
+		"up" : "0.000 1.000 0.000"
+	},
+	"contentrating" : "Everyone",
+	"file" : "index.html",
+	"general" : 
+	{
+		"properties" : 
+		{
+			"schemecolor" : 
+			{
+				"order" : 0,
+				"text" : "ui_browse_properties_scheme_color",
+				"type" : "color",
+				"value" : "0 0 0"
+			}
+		}
+	},
+	"preview" : "preview.jpg",
+	"tags" : [ "Game" ],
+	"title" : "k",
+	"type" : "web",
+	"visibility" : "public"
+}
