@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -29,7 +29,7 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-function Example() {
+export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -110,8 +110,6 @@ function Example() {
   );
 }
 
-export default Example;
-
-if (document.getElementById('example')) {
-    ReactDOM.render(<Example />, document.getElementById('example'));
+if (document.getElementById('signin')) {
+  ReactDOM.render(<SignIn />, document.getElementById('signin'));
 }
