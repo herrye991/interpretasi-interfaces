@@ -1,3 +1,7 @@
+:root {
+    --color-primary: #5541f8;
+}
+
 img.wp-smiley,
 img.emoji {
     display: inline !important;
