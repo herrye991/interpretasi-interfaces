@@ -30,7 +30,8 @@
         
         <div class="clearfix"></div>
 
-        @yield('content')
+        <div id="elementor_page_builder">
+        </div>
 
         <div class="clearfix"></div>
     </div>
@@ -39,6 +40,7 @@
     @include('components.layouts.includes.switch-theme')
         
     <script src="{{ asset('assets/js/app.js') }}" defer></script>
+    <script src="{{ asset('assets/js/react.js') }}" defer></script>
 </body>
 
 </html>

@@ -61682,7 +61682,8 @@ section.no-results.not-found .searchform {
 }
 
 .benqu___post_grid_th .pfy-post-item a.benqu-cate-badge {
-    margin-bottom: 12px
+    margin-bottom: 12px;
+    background-color:#fc16a8;
 }
 
 .benqu___post_grid_th .pfy-post-item .pfy-post-title {
