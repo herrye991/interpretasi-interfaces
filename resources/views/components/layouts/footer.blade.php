@@ -3,7 +3,6 @@
         <div class="container">
             <div class="row">
                 @include('components.layouts.footers.abouts')
-                @include('components.layouts.footers.links')
                 @include('components.layouts.footers.populars')
                 @include('components.layouts.footers.tags')
             </div>

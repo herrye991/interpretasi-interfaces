@@ -1,6 +1,6 @@
 <div class="recent-posts-widget">
-    @foreach ($populars as $row)
     <div class="pfy-post-grid-wrap grid-style-tb">
+    @foreach ($populars as $row)
         <div class="pfy-post-item pfy-scale pfy-img-commn-style">
             <div class="benqu__post-content pfy-scale d-flex">
                 <div class="pfy-post-thumb">
@@ -17,6 +17,6 @@
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
-    @endforeach
 </div>

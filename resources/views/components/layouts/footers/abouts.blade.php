@@ -1,4 +1,4 @@
-<div class="col-xl-3 col-md-6 ft_widget-item">
+<div class="col-xl-4 col-md-6 ft_widget-item">
     <div id="media_image-2" class="widget widget_media_image pfy-footer-widget-item">
         @include('components.layouts.footers.includes.logo')
     </div>
