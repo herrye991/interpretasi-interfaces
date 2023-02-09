@@ -12,7 +12,6 @@
     <div class="pfy-footer-bottm">
         <div class="container">
             <div class="row">
-                @include('components.layouts.footers.includes.categories')
                 @include('components.layouts.footers.includes.copyright')
             </div>
         </div>
