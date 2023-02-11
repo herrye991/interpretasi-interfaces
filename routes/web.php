@@ -16,4 +16,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [AppController::class, 'index']);
-Route::get('/account/accept/{token}', [AuthController::class, 'verify']);
+
+
+Route::group(['prefix' => 'account'], function() {
+    Route::group(['prefix' => 'accept'], function() {
+        Route::get('/{token}', [AuthController::class, 'verify']);
+    });
+    Route::group(['prefix' => 'reset'], function() {
+        Route::get('/{token}', [AuthController::class, 'reset']);
+        Route::post('/{token}', [AuthController::class, 'resetPost']);
+    });
+    
+});

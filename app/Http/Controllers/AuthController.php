@@ -37,14 +37,18 @@ class AuthController extends Controller
         }
     }
 
-    public function reset($token)
+    public function reset($token, Request $request)
     {
-        $reset = PasswordReset::where('created_at', '>=', $this->now->subMinutes(15)->toDateTimeString())
-        ->where('token', $token)->first();
-        if (!is_null($reset)) {
-            return view("auth.password-reset", compact('token'));
+        if ($request->header('Accept') == 'application/json') {
+            $reset = PasswordReset::where('created_at', '>=', $this->now->subMinutes(15)->toDateTimeString())
+            ->where('token', $token)->first();
+            if (!is_null($reset)) {
+                return response()->json(['validity' => true, 'token' => csrf_token()]);
+            }
+            return response()->json(['validity' => false, 'token' => null]);
         }
-        return 'Token expired!';
+        $type = 'reset-password';
+        return view('components.empty', compact('type'));
     }
 
     public function resetPost(Request $request, $token)

@@ -36,13 +36,13 @@ function EmailVerified() {
     }, []);
     
     var icon = <AccessTimeOutlinedIcon />
-    var message = 'Checking...';
+    var message = 'Memuat...';
     if (responseData.id == null) {
         icon = <DangerousOutlinedIcon />
-        message = 'Token expired!';
+        message = 'Token kedaluwarsa!';
     } else {
         icon = <VerifiedUserOutlinedIcon />
-        message = 'Your account has been verified!';
+        message = 'Akun kamu telah terverifikasi!';
     }
     
     return (
