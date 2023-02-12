@@ -1,6 +1,6 @@
 import React from "react";
 
-function TrendingSectionContent() {
+function SecondSectionContent() {
     return (
         <div className="pfy-post-grid-carousel owl-carousel" id="benqu-post-car-2fa23fd" data-navs="" data-dots="true" data-autoplay="">
             <div className="pfy-post-item pfy-scale pfy-img-commn-style">
@@ -97,4 +97,4 @@ function TrendingSectionContent() {
     );
 }
 
-export default TrendingSectionContent
+export default SecondSectionContent

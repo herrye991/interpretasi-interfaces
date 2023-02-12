@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TopSection from './includes/TopSection';
-import TrendingSection from './includes/TrendingSection';
+import FirstSection from './includes/FirstSection';
+import SecondSection from './includes/SecondSection';
+import ThirdSection from './includes/ThirdSection';
 
 function App() {
     return (
         <div data-elementor-type="wp-page" data-elementor-id="12" className="elementor elementor-12">
-            <TopSection></TopSection>
-            <TrendingSection></TrendingSection>
+            <FirstSection />
+            <SecondSection />
+            <ThirdSection />
         </div>
     );
 }
