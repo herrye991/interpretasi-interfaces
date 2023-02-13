@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import FirstSection from './includes/FirstSection';
 import SecondSection from './includes/SecondSection';
 import ThirdSection from './includes/ThirdSection';
+import FourthSection from './includes/FourthSection';
 
 function App() {
     return (
@@ -10,6 +11,7 @@ function App() {
             <FirstSection />
             <SecondSection />
             <ThirdSection />
+            <FourthSection />
         </div>
     );
 }
