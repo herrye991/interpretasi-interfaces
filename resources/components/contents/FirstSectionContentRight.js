@@ -1,6 +1,6 @@
 import React from "react";
 
-function FirstSectionContentRight() {
+export default function FirstSectionContentRight() {
     return (
         
             <div className="elementor-widget-wrap elementor-element-populated">
@@ -109,5 +109,3 @@ function FirstSectionContentRight() {
             </div>
     );
 }
-
-export default FirstSectionContentRight;

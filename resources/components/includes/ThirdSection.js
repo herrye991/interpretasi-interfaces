@@ -2,7 +2,7 @@ import React from "react";
 import ThirdSectionContentLeft from "../contents/ThirdSectionContentLeft";
 import ThirdSectionContentRight from "../contents/ThirdSectionContentRight";
 
-function ThirdSection() {
+export default function ThirdSection() {
     return (
         <section className="elementor-section elementor-top-section elementor-element elementor-element-20f2fe5 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="20f2fe5" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
             <div className="elementor-container elementor-column-gap-default">
@@ -16,5 +16,3 @@ function ThirdSection() {
         </section>
     );
 }
-
-export default ThirdSection

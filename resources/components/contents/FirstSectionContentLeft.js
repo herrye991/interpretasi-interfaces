@@ -1,6 +1,6 @@
 import React from "react";
 
-function FirstSectionContentLeft() {
+export default function FirstSectionContentLeft() {
     return (
         <div className="elementor-widget-wrap elementor-element-populated">
             <div className="elementor-element elementor-element-c71dec9 elementor-widget elementor-widget-benqu-post-overlay-v2" data-id="c71dec9" data-element_type="widget" data-widget_type="benqu-post-overlay-v2.default">
@@ -98,5 +98,3 @@ function FirstSectionContentLeft() {
         </div>
     );
 }
-
-export default FirstSectionContentLeft;

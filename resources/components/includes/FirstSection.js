@@ -2,7 +2,7 @@ import React from 'react';
 import FirstSectionContentLeft from '../contents/FirstSectionContentLeft';
 import FirstSectionContentRight from '../contents/FirstSectionContentRight';
 
-function FirstSection() {
+export default function FirstSection() {
     return (
         <section className="elementor-section elementor-top-section elementor-element elementor-element-a32e7b8 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a32e7b8" data-element_type="section">
             <div className="elementor-container elementor-column-gap-default">
@@ -16,5 +16,3 @@ function FirstSection() {
         </section>
     );
 }
-
-export default FirstSection

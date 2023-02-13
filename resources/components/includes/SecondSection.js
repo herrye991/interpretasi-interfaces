@@ -1,7 +1,7 @@
 import React from "react";
 import SecondSectionContent from "../contents/SecondSectionContent";
 
-function SecondSection() {
+export default function SecondSection() {
     return (
         <section className="elementor-section elementor-top-section elementor-element elementor-element-59a47fd elementor-section-full_width benqu-dark-one elementor-section-height-default elementor-section-height-default" data-id="59a47fd" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
             <div className="elementor-container elementor-column-gap-default">
@@ -32,5 +32,3 @@ function SecondSection() {
         </section>
     );
 }
-
-export default SecondSection
