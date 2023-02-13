@@ -7,13 +7,13 @@ export default function EigthSectionContentRight() {
                 <div className="elementor-widget-container">
                     <div className="pfy-mailsubscribe-form-tow">
                         <div className="newsletter-info text-center">
-                            <div className="newlater-icon"> <img decoding="async" src="https://interpretasi.id/assets/images/articles/default.png.png" alt="" /> </div>
+                            <div className="newlater-icon"> <img decoding="async" src="https://interpretasi.id/assets/images/articles/default.png" alt="" /> </div>
                             <h3>Daily Newsletter</h3>
                             <p>Get all the top stories from Papurfy to keep track.</p>
                             <div className="pfy-forom-group">
                                 <form id="mc4wp-form-2" className="mc4wp-form mc4wp-form-448" method="post" data-id="448" data-name="Newslater">
-                                    <div className="mc4wp-form-fields"><input type="email" name="EMAIL" placeholder="Your email address" required /><input type="submit" value="Subscribe" /> <label className="checkbox-holder"> <input type="checkbox" className="show-message" /> Don't show this popup again! </label> </div>
-                                    <label style={{ display: "none !important" }}>Leave this field empty if you're human: <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off" /></label><input type="hidden" name="_mc4wp_timestamp" value="1675184785" /><input type="hidden" name="_mc4wp_form_id" value="448" /><input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-2" />
+                                    <div className="mc4wp-form-fields"><input type="email" name="EMAIL" placeholder="Your email address" required /><input type="submit" defaultValue="Subscribe" /> <label className="checkbox-holder"> <input type="checkbox" className="show-message" /> Don't show this popup again! </label> </div>
+                                    <label style={{ display: "none !important" }}>Leave this field empty if you're human: <input type="text" name="_mc4wp_honeypot" defaultValue="" tabIndex="-1" autoComplete="off" /></label><input type="hidden" name="_mc4wp_timestamp" defaultValue="1675184785" /><input type="hidden" name="_mc4wp_form_id" defaultValue="448" /><input type="hidden" name="_mc4wp_form_element_id" defaultValue="mc4wp-form-2" />
                                     <div className="mc4wp-response"></div>
                                 </form>
                             </div>
