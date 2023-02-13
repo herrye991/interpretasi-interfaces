@@ -7,6 +7,7 @@ import FourthSection from './includes/FourthSection';
 import FifthSection from './includes/FifthSection';
 import SixthSection from './includes/SixthSection';
 import SeventhSection from './includes/SeventhSection';
+import EigthSection from './includes/EigthSection';
 
 export default function App() {
     return (
@@ -18,6 +19,7 @@ export default function App() {
             <FifthSection />
             <SixthSection />
             <SeventhSection />
+            <EigthSection />
         </div>
     );
 }
