@@ -8,7 +8,7 @@ export default function SecondSection() {
             <div className="elementor-element elementor-element-9800928 elementor-widget elementor-widget-benqu-section-title" data-id="9800928" data-element_type="widget" data-widget_type="benqu-section-title.default">
                 <div className="elementor-widget-container">
                     <div className="benqu-section-title-wrap text-center">
-                        <h2>Entertainment</h2>
+                        <h2>News</h2>
                         <span></span>
                     </div>
                 </div>
