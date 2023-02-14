@@ -37,7 +37,7 @@ function Category (id) {
     ];
 
     const category = categories.filter(categories => categories.id === id)
-    return category[0].name
+    return category
 }
 
 export default Category;

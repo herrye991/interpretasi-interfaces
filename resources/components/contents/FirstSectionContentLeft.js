@@ -6,6 +6,7 @@ import Moment from 'moment';
 import Category from "../helpers/Category";
 
 export default function FirstSectionContentLeft() {
+    let [categoryData, setCategoryData] = React.useState([])
     let [firstData, setFirstData] = React.useState([])
     let [firstDataUser, setFirstDataUser] = React.useState([])
     let [secondData, setSecondData] = React.useState([])
@@ -29,7 +30,6 @@ export default function FirstSectionContentLeft() {
             });
         }
         fetchData();
-        console.log(Category(1))
     }, []);
     return (
         <div className="elementor-widget-wrap elementor-element-populated">
@@ -42,7 +42,7 @@ export default function FirstSectionContentLeft() {
                             </div>
                             <div className="pfy-post-content">
                                 <a className="benqu-cate-badge" href="#">
-                                    <span></span>
+                                    { Category(firstData.category_id).map((res, index) => { return <span key={ index }>{ res.name }</span> }) }
                                 </a>
                                 <h1 className="pfy-post-title">
                                     <a href={ Env.baseURL('article/' + firstData.url) }>{firstData.title}</a>
