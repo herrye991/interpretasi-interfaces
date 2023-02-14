@@ -9,10 +9,10 @@ export default function FirstSectionContentLeft() {
     let [firstData, setFirstData] = React.useState([])
     let [firstDataUser, setFirstDataUser] = React.useState([])
     let [secondData, setSecondData] = React.useState([])
+    const requestOptions = {
+        headers: { 'Accept': 'application/json' },
+    };
     useEffect(() => {
-        const requestOptions = {
-            headers: { 'Accept': 'application/json' },
-        };
         async function firstData() { 
             axios.get(Env.apiURL('article/?tending=1&skip=0&take=1'), requestOptions).then((response) => {
                 setFirstData(response.data.data[0])
@@ -41,7 +41,7 @@ export default function FirstSectionContentLeft() {
                                 <a title={ firstData.title } href={ Env.baseURL('article/' + firstData.url) }><img loading="lazy" width="1500" height="1000" src={firstData.image} className="attachment-full size-full wp-post-image" alt="" decoding="async" /></a>
                             </div>
                             <div className="pfy-post-content">
-                                { Category(firstData.category_id).map((cat, index) => { return <a key={ index } className="benqu-cate-badge" style={ cat.color } href={ Env.apiURL('category/' + cat.id) }><span>{ cat.name }</span></a> }) }
+                                { Category(firstData.category_id).map((cat, index) => { return <a key={ index } className="benqu-cate-badge" style={ cat.background_color } href={ Env.apiURL('category/' + cat.id) }><span>{ cat.name }</span></a> }) }
                                 <h1 className="pfy-post-title">
                                     <a href={ Env.baseURL('article/' + firstData.url) }>{firstData.title}</a>
                                 </h1>
@@ -68,7 +68,7 @@ export default function FirstSectionContentLeft() {
                                 <div className="pfy-post-item pfy-scale pfy-ch">
                                     <div className="pfy-post-thumb pfy-img-commn-style">
                                         <a className="post-thumb" href={ Env.baseURL('article/' + res.url) }><img width="1500" height="1000" src="https://interpretasi.id/assets/images/articles/default.png" className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" /></a>
-                                        { Category(res.category_id).map((cat, index) => { return <a key={ index } className="benqu-cate-badge" style={ cat.color } href={ Env.baseURL("category/" + cat.id ) }><span>{ cat.name }</span></a> }) }
+                                        { Category(res.category_id).map((cat, index) => { return <a key={ index } className="benqu-cate-badge" style={ cat.background_color } href={ Env.baseURL("category/" + cat.id ) }><span>{ cat.name }</span></a> }) }
                                     </div>
                                     <div className="pfy-post-content">
                                         <h3 className="pfy-post-title"><a href={ Env.baseURL('article/' + res.url) }>{ res.title }</a></h3>
