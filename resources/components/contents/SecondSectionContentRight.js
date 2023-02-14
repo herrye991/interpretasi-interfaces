@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function FourthSectionContentRight() {
+export default function SecondSectionContentRight() {
     return (
         <div className="elementor-widget-wrap elementor-element-populated">
             <div className="elementor-element elementor-element-46834cb elementor-widget elementor-widget-benqu-post-list" data-id="46834cb" data-element_type="widget" data-widget_type="benqu-post-list.default">

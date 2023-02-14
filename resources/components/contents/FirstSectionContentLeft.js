@@ -9,7 +9,6 @@ export default function FirstSectionContentLeft() {
     let [firstData, setFirstData] = React.useState([])
     let [firstDataUser, setFirstDataUser] = React.useState([])
     let [secondData, setSecondData] = React.useState([])
-    let [secondDataUser, setSecondDataUser] = React.useState([])
     useEffect(() => {
         const requestOptions = {
             headers: { 'Accept': 'application/json' },

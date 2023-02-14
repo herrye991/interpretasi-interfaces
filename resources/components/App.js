@@ -4,10 +4,6 @@ import FirstSection from './includes/FirstSection';
 import SecondSection from './includes/SecondSection';
 import ThirdSection from './includes/ThirdSection';
 import FourthSection from './includes/FourthSection';
-import FifthSection from './includes/FifthSection';
-import SixthSection from './includes/SixthSection';
-import SeventhSection from './includes/SeventhSection';
-import EigthSection from './includes/EigthSection';
 
 export default function App() {
     return (
@@ -16,10 +12,6 @@ export default function App() {
             <SecondSection />
             <ThirdSection />
             <FourthSection />
-            <FifthSection />
-            <SixthSection />
-            <SeventhSection />
-            <EigthSection />
         </div>
     );
 }
