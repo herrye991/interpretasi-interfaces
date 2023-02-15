@@ -12,14 +12,13 @@ export default function SecondSectionContentRight() {
     };
 
     useEffect(() => {
-        axios.get(Env.apiURL('article/?orderBy=mostView&skip=4&take=5'), requestOptions).then((response) => {
+        axios.get(Env.apiURL('article?orderBy=mostView&category=1&skip=4&take=5'), requestOptions).then((response) => {
             setResponseData(response.data.data)
         }).catch((error) => {
             console.log(error)
         });
     }, []);
     return (
-
         <div className="elementor-widget-wrap elementor-element-populated">
             <div className="elementor-element elementor-element-46834cb elementor-widget elementor-widget-benqu-post-list" data-id="46834cb" data-element_type="widget" data-widget_type="benqu-post-list.default">
                 <div className="elementor-widget-container">
