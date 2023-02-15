@@ -11,15 +11,15 @@
         </div>
         <div class="menu-primary-menu-container">
             <ul id="pfy-mobile-menu" class="menu">
-                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1767"><a href="#">Utama</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1767"><a href="{{ url('/') }}}">Utama</a></li>
                 @foreach ($first_categories as $row)
-                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1767"><a href="#">{{ $row->name }}</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1767"><a href="{{ url('category/'.$row->id) }}">{{ $row->name }}</a></li>
                 @endforeach
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1767">
-                    <a href="#index.html" aria-current="page">Lainnya</a>
+                    <a href="javascript:void(0);" aria-current="page">Lainnya</a>
                     <ul class="sub-menu">
                         @foreach ($etc_categories as $row)
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-12 current_page_item menu-item-1721"><a href="#" aria-current="page">{{ $row->name }}</a></li>
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-12 current_page_item menu-item-1721"><a href="{{ url('category/'.$row->id) }}" aria-current="page">{{ $row->name }}</a></li>
                         @endforeach
                     </ul>
                 </li>
