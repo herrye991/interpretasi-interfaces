@@ -10,30 +10,26 @@ export default function FirstSectionContentRight() {
     let [latestData, setLatestData] = React.useState([]);
     let [popularData, setPopularData] = React.useState([]);
     let [trendingData, setTrendingData] = React.useState([])
+    const requestOptions = {
+        headers: { 'Accept': 'application/json' },
+    };
 
     useEffect(() => {
-        const requestOptions = {
-            headers: { 'Accept': 'application/json' },
-        };
-
         axios.get(Env.apiURL('article/?skip=0&take=6&orderBy=latest'), requestOptions).then((response) => {
             setLatestData(response.data.data)
         }).catch((error) => {
             console.log(error)
         });
-
         axios.get(Env.apiURL('article/?skip=0&take=6&trending=0'), requestOptions).then((response) => {
             setPopularData(response.data.data)
         }).catch((error) => {
             console.log(error)
         });
-
         axios.get(Env.apiURL('article/?skip=3&take=6&trending=1'), requestOptions).then((response) => {
             setTrendingData(response.data.data)
         }).catch((error) => {
             console.log(error)
         });
-
     }, []);
 
     return (
