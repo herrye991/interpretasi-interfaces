@@ -67,7 +67,7 @@ export default function FirstSectionContentLeft() {
                             <div className="col-lg-6 col-md-6 col-xl-6" key={index}>
                                 <div className="pfy-post-item pfy-scale pfy-ch">
                                     <div className="pfy-post-thumb pfy-img-commn-style">
-                                        <a className="post-thumb" href={ Env.baseURL('article/' + res.url) }><img width="1500" height="1000" src="https://interpretasi.id/assets/images/articles/default.png" className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" /></a>
+                                        <a className="post-thumb" href={ Env.baseURL('article/' + res.url) }><img width="1500" height="1000" src={ res.image } className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" /></a>
                                         { Category(res.category_id).map((cat, index) => { return <a key={ index } className="benqu-cate-badge" style={ cat.background_color } href={ Env.baseURL("category/" + cat.id ) }><span>{ cat.name }</span></a> }) }
                                     </div>
                                     <div className="pfy-post-content">

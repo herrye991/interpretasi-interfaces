@@ -1,20 +1,43 @@
-import React from 'react'
+import React from "react";
+import { useEffect } from 'react';
+import axios from 'axios';
+import Env from "../helpers/Env";
+import Moment from 'moment';
+import Category from "../helpers/Category";
 
 export default function SecondSectionContentLeft() {
+    let [firstData, setFirstData] = React.useState([])
+    let [firstDataUser, setFirstDataUser] = React.useState([])
+    let [secondData, setSecondData] = React.useState([])
+    const requestOptions = {
+        headers: { 'Accept': 'application/json' },
+    };
+    useEffect(() => {
+        axios.get(Env.apiURL('article?orderBy=mostView&category=1&skip=0&take=1'), requestOptions).then((response) => {
+            setFirstData(response.data.data[0])
+            setFirstDataUser(response.data.data[0].user)
+        }).catch((error) => {
+            console.log(error)
+        });
+        axios.get(Env.apiURL('article?orderBy=mostView&category=1&skip=0&take=3'), requestOptions).then((response) => {
+            setSecondData(response.data.data)
+        }).catch((error) => {
+            console.log(error)
+        });
+    }, []);
     return (
         <div className="elementor-widget-wrap elementor-element-populated">
             <div className="elementor-element elementor-element-5d3934d elementor-widget elementor-widget-benqu-post-overlay-v3" data-id="5d3934d" data-element_type="widget" data-widget_type="benqu-post-overlay-v3.default">
                 <div className="elementor-widget-container">
                     <div className="pfy-post-grid-wrap pfy-overlay-style-10">
                         <div className="pfy-post-item pfy-scale">
-                            <div className="pfy-post-thumb pfy-img-commn-style"> <a title="Using Sports Ahead Your Competiti on The Best Coworking Space for Technical Developers" href="#using-sports-ahead-your-competiti-on-the-best-coworking-space-for-technical-developers"><img width="1500" height="1001" src="https://interpretasi.id/assets/images/articles/default.png" className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" srcSet="https://interpretasi.id/assets/images/articles/default.png 1500w, https://interpretasi.id/assets/images/articles/default.png 300w, https://interpretasi.id/assets/images/articles/default.png 1024w, https://interpretasi.id/assets/images/articles/default.png 768w" sizes="(max-width: 1500px) 100vw, 1500px" /></a> </div>
+                            <div className="pfy-post-thumb pfy-img-commn-style"> <a title={firstData.title} href={Env.baseURL('article/' + firstData.url)}><img width="1500" height="1001" src={firstData.image} className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" sizes="(max-width: 1500px) 100vw, 1500px" /></a> </div>
                             <div className="pfy-post-content">
-                                <a className="benqu-cate-badge" href="#category/tech" style={{ backgroundColor: "#007bff" }}> <span>Tech</span> </a>
-                                <h2 className="pfy-post-title"><a href="#using-sports-ahead-your-competiti-on-the-best-coworking-space-for-technical-developers">Using Sports Ahead Your Competiti on The Best Coworking Space for Technical Developers</a></h2>
+                                <h2 className="pfy-post-title"><a href={Env.baseURL('article/' + firstData.url)}>{firstData.title}</a></h2>
                                 <ul className="pfy-post-gd-meta">
-                                    <li>BY <a href="#author/bnque" title="Posts by David" rel="author">David</a></li>
-                                    <li><i className="fal fa-calendar-alt"></i> Jul 07, 2022</li>
-                                    <li><i className="far fa-comments"></i> 0 Comments </li>
+                                    <li>OLEH <a href={Env.baseURL('user' + firstDataUser.id)} title={"Posts by " + firstDataUser.name} rel="author">{firstDataUser.name}</a></li>
+                                    <li><i className="fal fa-calendar-alt"></i> {Moment(firstData.created_at).format('d MMM, YYYY')}</li>
+                                    <li><i className="far fa-comments"></i> {firstData.comments_count} Komentar </li>
                                 </ul>
                             </div>
                         </div>
@@ -25,39 +48,23 @@ export default function SecondSectionContentLeft() {
                 <div className="elementor-widget-container">
                     <div className="pfy-post-grid-wrap grid-style-4">
                         <div className="row">
-                            <div className="col-lg-4 col-xl-4 col-md-6">
-                                <div className="pfy-post-item pfy-scale">
-                                    <div className="pfy-post-thumb pfy-img-commn-style"> <a className="post-thumb" href="#copa-america-suarez-devastated-us"><img width="1500" height="1000" src="https://interpretasi.id/assets/images/articles/default.png" className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" srcSet="https://interpretasi.id/assets/images/articles/default.png, https://interpretasi.id/assets/images/articles/default.png 300w, https://interpretasi.id/assets/images/articles/default.png 1024w, https://interpretasi.id/assets/images/articles/default.png 768w" sizes="(max-width: 1500px) 100vw, 1500px" /></a> <a className="benqu-cate-badge" href="#category/sports" style={{ backgroundColor: "#52a815" }}> <span>Sports</span> </a> </div>
-                                    <div className="pfy-post-content">
-                                        <h4 className="pfy-post-title"><a href="#copa-america-suarez-devastated-us">Copa America: Suarez devastated US</a></h4>
-                                        <ul className="pfy-post-gd-meta">
-                                            <li><i className="fal fa-calendar-alt"></i> Jul 07, 2022 </li>
-                                        </ul>
+                            {/* Start Map */}
+                            {secondData.map((res, index) =>
+                                <div key={index} className="col-lg-4 col-xl-4 col-md-6">
+                                    <div className="pfy-post-item pfy-scale">
+                                        <div className="pfy-post-thumb pfy-img-commn-style">
+                                            <a className="post-thumb" href={Env.baseURL('article/' + res.url)}><img width="1500" height="1125" src={res.image} className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" sizes="(max-width: 1500px) 100vw, 1500px" /></a>
+                                        </div>
+                                        <div className="pfy-post-content">
+                                            <h4 className="pfy-post-title"><a href={Env.baseURL('article/' + res.url)} title={ res.title }>{res.title.length > 58 ? `${res.title.substring(0, 58)}...` : res.title}</a></h4>
+                                            <ul className="pfy-post-gd-meta">
+                                                <li><i className="fal fa-calendar-alt"></i> {Moment(res.created_at).format('d MMM, YYYY')} </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="col-lg-4 col-xl-4 col-md-6">
-                                <div className="pfy-post-item pfy-scale">
-                                    <div className="pfy-post-thumb pfy-img-commn-style"> <a className="post-thumb" href="#smarter-food-choices-101-tips-for-the-busy-women"><img width="1500" height="1000" src="https://interpretasi.id/assets/images/articles/default.png" className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" srcSet="https://interpretasi.id/assets/images/articles/default.png, https://interpretasi.id/assets/images/articles/default.png 300w, https://interpretasi.id/assets/images/articles/default.png 1024w, https://interpretasi.id/assets/images/articles/default.png 768w" sizes="(max-width: 1500px) 100vw, 1500px" /></a> <a className="benqu-cate-badge" href="#category/food" style={{ backgroundColor: "#ff4f00" }}> <span>Food</span> </a> </div>
-                                    <div className="pfy-post-content">
-                                        <h4 className="pfy-post-title"><a href="#smarter-food-choices-101-tips-for-the-busy-women">Smarter Food Choices 101 Tips For The Busy Women</a></h4>
-                                        <ul className="pfy-post-gd-meta">
-                                            <li><i className="fal fa-calendar-alt"></i> Jul 07, 2022 </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-4 col-xl-4 col-md-6">
-                                <div className="pfy-post-item pfy-scale">
-                                    <div className="pfy-post-thumb pfy-img-commn-style"> <a className="post-thumb" href="#congratulations-your-are-sports-is-the-relevant"><img width="1500" height="1125" src="https://interpretasi.id/assets/images/articles/default.png" className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" srcSet="https://interpretasi.id/assets/images/articles/default.png, https://interpretasi.id/assets/images/articles/default.png 300w, https://interpretasi.id/assets/images/articles/default.png 1024w, https://interpretasi.id/assets/images/articles/default.png 768w" sizes="(max-width: 1500px) 100vw, 1500px" /></a> <a className="benqu-cate-badge" href="#category/sports" style={{ backgroundColor: "#52a815" }}> <span>Sports</span> </a> </div>
-                                    <div className="pfy-post-content">
-                                        <h4 className="pfy-post-title"><a href="#congratulations-your-are-sports-is-the-relevant">Congratulations! Your are SPORTS Is the Relevant</a></h4>
-                                        <ul className="pfy-post-gd-meta">
-                                            <li><i className="fal fa-calendar-alt"></i> Jul 07, 2022 </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            )}
+                            {/* End Map */}
                         </div>
                     </div>
                 </div>
