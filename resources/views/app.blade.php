@@ -30,8 +30,7 @@
         
         <div class="clearfix"></div>
 
-        <div id="elementor_page_builder">
-        </div>
+        {!! $element !!}
 
         <div class="clearfix"></div>
     </div>

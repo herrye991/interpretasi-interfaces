@@ -16,6 +16,6 @@ export default function App() {
     );
 }
 
-if (document.getElementById('elementor_page_builder')) {
-    ReactDOM.render(<App />, document.getElementById('elementor_page_builder'));
+if (document.getElementById('index')) {
+    ReactDOM.render(<App />, document.getElementById('index'));
 }
