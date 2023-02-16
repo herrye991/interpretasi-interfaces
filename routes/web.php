@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppController;
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [AppController::class, 'index']);
-
+Route::resource('/article', ArticleController::class)->only(['index', 'show']);
 
 Route::group(['prefix' => 'account'], function() {
     Route::group(['prefix' => 'accept'], function() {

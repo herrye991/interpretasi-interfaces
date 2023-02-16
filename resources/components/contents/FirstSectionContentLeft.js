@@ -47,7 +47,7 @@ export default function FirstSectionContentLeft() {
                                 </h1>
                                 <ul className="pfy-post-gd-meta">
                                     <li>Oleh <a href={Env.baseURL('user/' + firstDataUser.id)} title={"Diposting oleh" + firstDataUser.name} rel="author">{ firstDataUser.name }</a></li>
-                                    <li><i className="fal fa-calendar-alt"></i> {Moment(firstData.created_at).format('d MMM, YYYY')}</li>
+                                    <li><i className="fal fa-calendar-alt"></i> { Moment(firstData.created_at).format('d MMM, YYYY') }</li>
                                     <li><i className="far fa-comments"></i> { firstData.comments_count } Komentar </li>
                                     <li><i className="far fa-eye"></i> { firstData.viewers } Dilihat </li>
                                 </ul>

@@ -4,8 +4,9 @@ import FirstSection from './includes/FirstSection';
 import SecondSection from './includes/SecondSection';
 import ThirdSection from './includes/ThirdSection';
 import FourthSection from './includes/FourthSection';
+import ArticleShow from './includes/ArticleShow';
 
-export default function App() {
+function Index() {
     return (
         <div data-elementor-type="wp-page" data-elementor-id="12" className="elementor elementor-12">
             <FirstSection />
@@ -16,6 +17,16 @@ export default function App() {
     );
 }
 
+function Show() {
+    return (
+        <ArticleShow />
+    );
+}
+
 if (document.getElementById('index')) {
-    ReactDOM.render(<App />, document.getElementById('index'));
+    ReactDOM.render(<Index />, document.getElementById('index'));
+}
+
+if (document.getElementById('show')) {
+    ReactDOM.render(<Show />, document.getElementById('show'));
 }
