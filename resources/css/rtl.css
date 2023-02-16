@@ -1,0 +1,260 @@
+.pfy-logo {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+span.pfy-sidebarnav {
+    margin-right: 0;
+    margin-left: 20px;
+}
+.mainmenu .site-navigation .navigation li a {
+    padding-right: 0;
+    padding-left: 50px;
+}
+
+.mainmenu .site-navigation .navigation li.menu-item-has-children:after {right: -15px;}
+
+.pfy-post-list-wrap.list-style-1 .pfy-post-thumb {
+    margin-right: 0;
+    margin-left: 20px;
+}
+.pfy-post-date i {
+    margin-right: 0;
+    padding-left: 5px;
+}
+.pfy-post-content ul li i {
+    margin-right: 0;
+    margin-left: 5px;
+}
+.pfy-post-gd-meta li:not(:last-child) {
+    padding-right: 0;
+    padding-left: 25px;
+}
+.header-right .menu-right {
+    margin-left: 0;
+    margin-right: 12px;
+}
+.pfy-post-list-wrap.list-style-2 .pfy-post-thumb {
+    margin-left: 20px;
+}
+
+.bnq-search button {
+    right: auto;
+    left: 15px;
+}
+.user-login {
+    padding-right: 0;
+    padding-left: 20px;
+    margin-right: 0;
+    margin-left: 20px;
+}
+.pfy-post-list-wrap.list-style-3 .pfy-post-thumb {
+    margin-right: 0;
+    margin-left: 15px;
+}
+.social-info a {
+    padding-left: 0;
+    padding-right: 10px;
+}
+.pfy-post-grid-wrap.pfy-overlay-style-2 .pfy-post-item .pfy-post-content .pfy-post-title {
+    text-align: right;
+}
+.pfy-post-tab-list .nav .nav-item:last-child .nav-link {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.pfy-post-tab-list .nav .nav-item:first-child .nav-link {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+.pfy-post-tab-list .nav .nav-item:not(:last-child){
+    margin-right: 0;
+    margin-left: 9px;
+}
+.tabs-to-dropdown .nav-wrapper {
+    right: auto;
+    left: 0;
+}
+
+.bnq-tab-info .benqu-section-title-wrap span {
+    margin-right: 0;
+    margin-left: 120px;
+}
+.owl-stage-outer {
+    direction: ltr;
+}
+.pfy-post-grid-wrap.grid-style-tb .pfy-post-item .pfy-post-thumb {
+    margin-right: 0;
+    margin-left: 10px;
+}
+.pfy-post-grid-wrap.grid-style-tb .pfy-post-item .benqu-cate-name {
+    padding-right: 0;
+    padding-left: 15px;
+}
+.pfy-post-grid-wrap.grid-style-tb .pfy-post-item .benqu-cate-name:after {
+    right: auto;
+    left: 8px;
+    top: 6px;
+}
+.pfy-post-grid-wrap.grid-style-tb .pfy-post-item .pfy-post-meta-tb {
+    justify-content: flex-start;
+}
+.insta-feed-authore {
+    margin-left: 12px;
+    margin-right: 0;
+}
+
+.mainmenu .site-navigation .navigation ul.sub-menu {
+    left: auto;
+    right: 0;
+}
+.pfy-post-grid-wrap.pfy-overlay-style-2.style-3 .pfy-post-title {
+    text-align: center !important;
+}
+
+.pfy-post-list-wrap.list-style-4 .pfy-post-thumb {
+    margin-right: 0;
+    margin-left: 15px;
+}
+.pfy-post-grid-wrap.pfy-overlay-style-2.style-4 .pfy-post-gd-meta {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: end;
+}
+.social-counter-wrap.style-2 .pfy-social-counter-item a {
+    padding-right: 10px;
+}
+.pfy-footer-widget-item .pfy-post-content {
+    padding-right: 5px;
+    padding-left: 50px;
+}
+.pfy-footer-top .widget.widget_text.pfy-footer-widget-item .textwidget {
+    padding-right: 0;
+    padding-left: 30px;
+}
+.pfy-contact-info ul li i {
+    margin-right: 0;
+    margin-left: 5px;
+}
+.pfy-global-social ul li {
+    padding-right: 0;
+    padding-left: 20px;
+}
+.authore__bio_wrap .benqu__author_bio__Wrapper .author-thumb {
+    margin-left: 0;
+}
+
+.authore__bio_wrap .benqu__author_bio__Wrapper:after {
+    position: relative;
+}
+.widget-area #searchform .pfy-search-form button {
+    right: auto;
+    left: 0;
+}
+.pfy-post-grid-wrap.grid-style-5 .pfy-post-item .pfy-post-thumb {
+    margin-right: 0;
+    margin-left: 20px;
+}
+.pfy-single-post-meta ul li {
+    padding-right: 0;
+    padding-left: 30px;
+}
+.social-box.socila-box-two {
+    padding-right: 0;
+    padding-left: 23px;
+}
+.entry-content .bnq-post-list li:after {
+    left: auto;
+    right: 0;
+}
+.bnqu__popup_ineer input[type="submit"] {
+    right: auto;
+    left: 0;
+}
+.entry-content .bnq-post-list li {
+    padding-left: 0;
+    padding-right: 24px;
+}
+.pfy_single_post_wrapper span.tags-links a:not(:last-child) {
+    margin-right: 0;
+    margin-left: 5px;
+}
+.nav-post-item.prev-post-item .bnq-navi__thumb img {
+    margin-right: 0;
+    margin-left: 15px;
+}
+
+.nav-post-item.next-post-item .bnq-navi__thumb img {
+    margin-left: 0;
+    margin-right: 15px;
+}
+.benqu__author_bio__Wrapper .theme_author_Info {
+    padding-left: 0;
+    padding-right: 30px;
+}
+.comment-reply-title #cancel-comment-reply-link {
+    margin-right: 15px;
+    margin-left: 0;
+}
+
+.comments-area .children .comment-body {
+    padding-left: 0;
+    padding-right: 80px;
+}
+.comment-footer .comment-reply-link {
+    left: 0;
+    right: auto;
+}
+.comments-area .comment-body .author-thumb {
+    left: auto;
+    right: 0;
+}
+.comments-area .comment-body {
+    padding-left: 0;
+    padding-right: 80px;
+}
+.comments-area .children .comment-body {
+    margin-left: 0;
+    margin-right: 80px;
+}
+.benqu-breadcrumb .breadcrumb-item li a, .benqu-breadcrumb .breadcrumb-item li {
+    padding-right: 0;
+    margin-right: 0;
+    padding-left: 8px;
+    margin-left: 8px;
+}
+.benqu-breadcrumb .breadcrumb-item li a:after, .benqu-breadcrumb .breadcrumb-item li:after {
+    left: 0;
+    right: -22px;
+}
+.benqu-switch-box-wrap {
+    right: auto;
+    left: 20px;
+}
+h2.widget-title {
+    margin-right: 0;
+    margin-left: 15px;
+}
+.back-top-btn {
+    left: 30px;
+    right: auto;
+}
+.pfy-ad {
+    padding-left: 0;
+    padding-right: 40px;
+}
+.pfy-single-post-meta ul li i {
+    margin-right: 0;
+    margin-left: 3px;
+}
+@media (max-width: 767px) {
+    .header-right {
+        right: auto;
+        left: 18px;
+    }
+}

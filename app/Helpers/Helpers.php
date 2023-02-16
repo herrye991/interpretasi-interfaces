@@ -22,7 +22,7 @@ class Helpers
         $element = '<div id="'. $id .'"></div>';
         /** End Element */
         return compact([
-            'first_categories', 'etc_categories', 'all_categories', 'populars', 'trendings', 'element'
+            'first_categories', 'etc_categories', 'all_categories', 'populars', 'trendings', 'element', 'id'
         ]);
     }
 }

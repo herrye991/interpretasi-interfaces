@@ -1,0 +1,117 @@
+
+.pfy-sidebar-wrap .pfy-sidebar-overlay {
+    right: 100%;
+    top: 0;
+    position: fixed;
+    z-index: 101;
+    height: 100%;
+    opacity: 0;
+    width: 100%;
+    visibility: hidden;
+    -webkit-transition: all .4s ease-in .8s;
+    -o-transition: all .4s ease-in .8s;
+    transition: all .4s ease-in .8s;
+}
+
+.pfy-sidebar-wrap .pfy-sidebar-close-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 30px;
+    background: #fff;
+    border-bottom-right-radius: 150px;
+}
+
+.pfy-sidebar-nav-widget {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 450px;
+    z-index: 999999;
+    overflow: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background-color: #0a0d12;
+    -webkit-transition: all 0.5s cubic-bezier(0.9, 0.03, 0, 0.96) 0.6s;
+    -o-transition: all 0.5s cubic-bezier(0.9, 0.03, 0, 0.96) 0.6s;
+    transition: all 1.5s cubic-bezier(0.9, 0.03, 0, 0.96) 0.6s;
+    visibility: hidden;
+    opacity: 0
+}
+.pfy-sidebar-nav-widget::-webkit-scrollbar {
+    display: none;
+}
+.sidebar-logo a.site-logo.light-logo {
+    display: block;
+    margin-bottom: 15px;
+}
+.pfy-sidebar-info-content .pfy-post-date {
+    color: #aeabab;
+}
+.pfy-sidebar-wrap.active .pfy-sidebar-nav-widget {
+    opacity: 1;
+    visibility: visible;
+    left: 0;
+    -webkit-transition: all 0.7s cubic-bezier(0.9, 0.03, 0, 0.96) 0.4s;
+    -o-transition: all 0.7s cubic-bezier(0.9, 0.03, 0, 0.96) 0.4s;
+    transition: all 0.7s cubic-bezier(0.9, 0.03, 0, 0.96) 0.4s
+}
+
+.pfy-sidebar-content .sidebar-style {
+    padding: 55px 60px 40px 60px;
+    border-bottom: 1px solid #494949;
+}
+.pfy-sidebar-close {
+    color: #3b60fe;
+    font-size: 19px;
+    display: block;
+    position: absolute;
+    top: 8px;
+    left: 18px;
+}
+
+.pfy-sidebar-wid-wrap {
+    position: relative;
+    top: 150px;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all .3s ease-in .3s;
+    -o-transition: all .3s ease-in .3s;
+    transition: all .3s ease-in .3s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden
+}
+
+.pfy-sidebar-wrap.active .pfy-sidebar-wid-wrap {
+    top: 0px;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: all 1s ease-in 1.2s;
+    -o-transition: all 1s ease-in 1.2s;
+    transition: all 1s ease-in 1.2s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    will-change: transform;
+    transition-property: -webkit-transform;
+    transition-property: transform;
+    transition-property: transform,-webkit-transform;
+}
+
+.pfy-sidebar-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .5;
+    z-index: 0
+}
+
+.pfy-sidebar-return {
+    background-color: #222222
+}
+
