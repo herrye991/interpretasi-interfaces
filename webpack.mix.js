@@ -13,39 +13,12 @@ const mix = require('laravel-mix');
 mix.setPublicPath('public_html/');
 
 mix.styles([
-    // 'resources/css/animation.css',
-    // 'resources/css/animation.min.css',
-    // 'resources/css/benqu-main.min.css',
-    // 'resources/css/benqu-post.min.css',
-    // 'resources/css/benqu-responsive.min.css',
-    // 'resources/css/benqu-style.css',
-    // 'resources/css/benqu-theme-custom-style.min.css',
-    // 'resources/css/benqu-woocommerce.min.css',
-    // 'resources/css/bootstrap.min.css',
-    // 'resources/css/custom-style.css',
-    // 'resources/css/magnific-popup.css',
-    // 'resources/css/magnific-popup.min.css',
-    // 'resources/css/metis-menu.css',
-    // 'resources/css/metis-menu.min.css',
-    // 'resources/css/owl.carousel.min.css',
-    // 'resources/css/post-style.css',
-    // 'resources/css/responsive.css',
-    // 'resources/css/rtl.css',
-    // 'resources/css/sidebarnav.min.css',
-    // 'resources/css/slick.css',
-    // 'resources/css/woocommerce.css',
+    'resources/css/show.css',
+    'resources/css/index.css',
     'resources/css/style.css',
     'resources/fonts/latin.css',
     'resources/fonts/roboto.css',
 ], 'public_html/assets/css/app.css').version();
-
-mix.styles([
-    'resources/css/show.css',
-], 'public_html/assets/css/show.css').version();
-
-mix.styles([
-    'resources/css/index.css',
-], 'public_html/assets/css/index.css').version();
 
 mix.scripts([
     'resources/js/style.js',

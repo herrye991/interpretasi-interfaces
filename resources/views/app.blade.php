@@ -8,7 +8,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Interpretasi ID &#8211; Website baca berita dan artikel.</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/' . $id . '.css') }}" media="all" />
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" media="all" />
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon">
     <script src="{{ asset('assets/js/jquery/jquery.mina7a0.js') }}" id="jquery-core-js"></script>
@@ -30,7 +29,7 @@
         @include('components.layouts.includes.mobile-navbar')
         
         <div class="clearfix"></div>
-
+        <div id="pfy_reading_progress"></div>
         {!! $element !!}
 
         <div class="clearfix"></div>
