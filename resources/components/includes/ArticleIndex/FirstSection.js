@@ -1,6 +1,6 @@
 import React from 'react';
-import FirstSectionContentLeft from '../contents/FirstSectionContentLeft';
-import FirstSectionContentRight from '../contents/FirstSectionContentRight';
+import FirstSectionContentLeft from '../../contents/ArticleIndex/FirstSectionContentLeft';
+import FirstSectionContentRight from '../../contents/ArticleIndex/FirstSectionContentRight';
 
 export default function FirstSection() {
     return (

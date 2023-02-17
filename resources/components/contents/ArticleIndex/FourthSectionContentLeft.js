@@ -1,9 +1,9 @@
 import React from "react";
 import { useEffect } from 'react';
 import axios from 'axios';
-import Env from "../helpers/Env";
+import Env from "../../helpers/Env";
 import Moment from 'moment';
-import Category from "../helpers/Category";
+import Category from "../../helpers/Category";
 
 export default function FourthSectionContentLeft() {
     let [firstData, setFirstData] = React.useState([])

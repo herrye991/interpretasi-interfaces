@@ -1,7 +1,20 @@
 import React from "react";
-import ArticleShowContent from "../contents/ArticleShowContent";
+import ArticleShowContent from "../contents/ArticleShow/ArticleShowContent";
+import OwlCarousel from 'react-owl-carousel';
+import ArticleShowContentAuthor from "../contents/ArticleShow/ArticleShowContentAuthor";
 
 export default function () {
+    const options = {
+        loop: true,
+        center: true,
+        items: 1,
+        margin: 0,
+        autoplay: true,
+        dots: true,
+        autoplayTimeout: 8500,
+        smartSpeed: 450,
+        nav: false,
+    };
     return (
         <div className="pfy_single_post_wrapper pfy-inter-wraap" style={{ transform: "none"  }}>
             <div className="container" style={{ transform: "none"  }}>
@@ -10,245 +23,8 @@ export default function () {
                         <div className="theiaStickySidebar" style={{ paddingTop: "0px", paddingBottom: "1px", position: "static", transform: "none" }}>
                             <div className="ajax-scroll-post">
                                 <div className="bnq__post_wap_loop">
-                                    <article id="post-1" className="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-fashion tag-fashion tag-feature">
-                                        <header className="entry-header">
-                                            <a className="benqu-cate-badge" href="https://itcroctheme.com/wp/demos/themes/benqu/category/fashion/" style={{ backgroundColor:"#fc16a8" }}>
-                                                <span>Fashion</span>
-                                            </a>
-                                            <h1 className="entry-title">Fasion Trends and Li Edelkoort the Culture Shock Special Report</h1>
-                                            <div className="pfy-single-post-meta d-flex align-items-center">
-                                                <ul>
-                                                    <li>
-                                                        <span className="auth_by">BY</span> David
-                                                    </li>
-                                                    <li>
-                                                        <i className="fal fa-calendar-alt"></i> July 13, 2022
-                                                    </li>
-                                                    <li>
-                                                        <i className="far fa-comments"></i> 1 Comment
-                                                    </li>
-                                                    <li>
-                                                        <i className="fal fa-eye"></i> 1.27K Views
-                                                    </li>
-                                                </ul>
-                                                <div className="bnq__social-top">
-                                                    <div className="social-box socila-box-two">
-                                                        <a className="fb" onclick="window.open('http://www.facebook.com/sharer.php?u=https://itcroctheme.com/wp/demos/themes/benqu/fasion-trends-and-li-edelkoort-the-culture-shock-special-report/','Facebook','width=600,height=300,left='+(screen.availWidth/2-300)+',top='+(screen.availHeight/2-150)+''); return false;" href="http://www.facebook.com/sharer.php?u=https://itcroctheme.com/wp/demos/themes/benqu/fasion-trends-and-li-edelkoort-the-culture-shock-special-report/">
-                                                            <i className="fab fa-facebook-f"></i>
-                                                        </a>
-                                                        <a className="wh" onclick="window.open('https://api.whatsapp.com/send?text=https://itcroctheme.com/wp/demos/themes/benqu/fasion-trends-and-li-edelkoort-the-culture-shock-special-report/&amp;text=Fasion Trends and Li Edelkoort the Culture Shock Special Report','Linkedin share','width=600,height=300,left='+(screen.availWidth/2-300)+',top='+(screen.availHeight/2-150)+''); return false;" href="https://api.whatsapp.com/send?text=https://itcroctheme.com/wp/demos/themes/benqu/fasion-trends-and-li-edelkoort-the-culture-shock-special-report/&amp;text=Fasion%20Trends%20and%20Li%20Edelkoort%20the%20Culture%20Shock%20Special%20Report">
-                                                            <i className="fab fa-whatsapp"></i>
-                                                        </a>
-                                                        <a className="pt" href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
-                                                            <i className="fab fa-pinterest"></i>
-                                                        </a>
-                                                        <a className="em" href="mailto:?subject=&quot;Fasion Trends and Li Edelkoort the Culture Shock Special Report&amp;https://itcroctheme.com/wp/demos/themes/benqu/fasion-trends-and-li-edelkoort-the-culture-shock-special-report/&quot;">
-                                                            <i className="fal fa-envelope"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </header>
-                                        <div className="pfy-single-post-thumb">
-                                            <img width="1296" height="700" src="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/07/fashion-1296x700.jpg" className="img-fluid wp-post-image" alt="" decoding="async" srcSet="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/07/fashion-1296x700.jpg 1296w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/07/fashion-960x520.jpg 960w" sizes="(max-width: 1296px) 100vw, 1296px" />
-                                        </div>
-                                        <div className="bnq-single-con ">
-                                            <div className="bnq-inner-social">
-                                                <div className="social-box socila-box-two">
-                                                    <a className="fb" onclick="window.open('http://www.facebook.com/sharer.php?u=https://itcroctheme.com/wp/demos/themes/benqu/fasion-trends-and-li-edelkoort-the-culture-shock-special-report/','Facebook','width=600,height=300,left='+(screen.availWidth/2-300)+',top='+(screen.availHeight/2-150)+''); return false;" href="http://www.facebook.com/sharer.php?u=https://itcroctheme.com/wp/demos/themes/benqu/fasion-trends-and-li-edelkoort-the-culture-shock-special-report/">
-                                                        <i className="fab fa-facebook-f"></i>
-                                                    </a>
-                                                    <a className="wh" onclick="window.open('https://api.whatsapp.com/send?text=https://itcroctheme.com/wp/demos/themes/benqu/fasion-trends-and-li-edelkoort-the-culture-shock-special-report/&amp;text=Fasion Trends and Li Edelkoort the Culture Shock Special Report','Linkedin share','width=600,height=300,left='+(screen.availWidth/2-300)+',top='+(screen.availHeight/2-150)+''); return false;" href="https://api.whatsapp.com/send?text=https://itcroctheme.com/wp/demos/themes/benqu/fasion-trends-and-li-edelkoort-the-culture-shock-special-report/&amp;text=Fasion%20Trends%20and%20Li%20Edelkoort%20the%20Culture%20Shock%20Special%20Report">
-                                                        <i className="fab fa-whatsapp"></i>
-                                                    </a>
-                                                    <a className="pt" href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
-                                                        <i className="fab fa-pinterest"></i>
-                                                    </a>
-                                                    <a className="em" href="mailto:?subject=&quot;Fasion Trends and Li Edelkoort the Culture Shock Special Report&amp;https://itcroctheme.com/wp/demos/themes/benqu/fasion-trends-and-li-edelkoort-the-culture-shock-special-report/&quot;">
-                                                        <i className="fal fa-envelope"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div className="entry-content">
-                                                <p>Grursus mal suada faci lisis Lorem ipsum dolarorit ametion consectetur elit. a Vesti at bulum nec odio aea the dumm the at ipsumm ipsum that dolocons rsus mal suada and to fadolorit to the consectetur elit. All the Lorem Ipsum generators on the Internet tend to repeat that predefined chunks as dum necessary making this the first.</p>
-                                                <p>Lorem reasonable. Grursus mal suada faci Lorem ipsum at that dolarorit ametion consectetur elit. Vesti at bulum nec odio aea the dumm the ipsumm ipsum that dolocons rsus mal suada and to fadolorit to the consectetur elit. All the Lorem Ipsum generators on the Internet</p>
-                                                <p>tend to repeat that predefined the chunks as dum necessary true ready combined Lorem reasonable true many generator combined is no ready to Works.</p>
-                                                <h3>Benqu Projects: A Multi-purpose Joomla Template for NFT and Portfolio</h3>
-                                                <p>Grursus mal suada faci lisis Lorem ipsum dolarorit ametion consectetur elit. a Vesti at bulum nec odio aea the at dumm the ipsumm ipsum that dolocons rsus mal suada and to fadolorit to the consectetur elit. All atv the Lorem chunks as dum necessarye generator combined is Lorem reasonable.</p>
-                                                <div className="is-layout-flex wp-container-3 wp-block-columns">
-                                                    <div className="is-layout-flow wp-block-column">
-                                                        <p>Grursus mal suada faci lisis Lorem ipsum dolarorit ametion consectetur elit. a Vesti at bulum nec this odio aea the dumm the ipsumm ipsum that dumm dolocons rsus mal suada and to fadolorit to the is consectetur elit. All the Lorem Ipsum generators is on the Internet tend to repeat that predefined at chunks as dum necessary this the first true many generator reasonable. Grursus mal suada faci lisis Lorem ipsum dolarorit ametion consectetur elit. a Vesti at bulum nec odio aea the dumm .</p>
-                                                    </div>
-                                                    <div className="is-layout-flow wp-block-column">
-                                                        <figure className="wp-block-image size-full">
-                                                            <img decoding="async" loading="lazy" width="431" height="304" src="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/07/single-food.jpg" alt="" className="wp-image-855" srcSet="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/07/single-food.jpg 431w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/07/single-food-300x212.jpg 300w" sizes="(max-width: 431px) 100vw, 431px" />
-                                                        </figure>
-                                                    </div>
-                                                </div>
-                                                <div className="is-layout-flex wp-container-6 wp-block-columns">
-                                                    <div className="is-layout-flow wp-block-column">
-                                                        <figure className="wp-block-image size-full">
-                                                            <img decoding="async" loading="lazy" width="960" height="600" src="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/07/foodis-nnn.jpg" alt="" className="wp-image-865" srcSet="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/07/foodis-nnn.jpg 960w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/07/foodis-nnn-300x188.jpg 300w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/07/foodis-nnn-768x480.jpg 768w" sizes="(max-width: 960px) 100vw, 960px" />
-                                                        </figure>
-                                                    </div>
-                                                    <div className="is-layout-flow wp-block-column">
-                                                        <figure className="wp-block-image size-full">
-                                                            <img decoding="async" loading="lazy" width="960" height="600" src="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/07/single-noduls.jpg" alt="" className="wp-image-867" srcSet="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/07/single-noduls.jpg 960w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/07/single-noduls-300x188.jpg 300w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/07/single-noduls-768x480.jpg 768w" sizes="(max-width: 960px) 100vw, 960px" />
-                                                        </figure>
-                                                    </div>
-                                                </div>
-                                                <div className="is-layout-flex wp-container-9 wp-block-columns">
-                                                    <div className="is-layout-flow wp-block-column">
-                                                        <h3>Global meets hyperlocal</h3>
-                                                        <p>Grursus mal suada faci lisis Lorem ipsum dolarorit ametion consectetur elit. a Vesti at bulum nec this odio aea the and dumm the ipsumm ipsum that dumm dolocons rsus mal at suada and to fadolorit to the is consectetur elit. All the the Lorem Ipsum generators is on the Internet tend to repeat a that predefined at chunks as dum necessary this the first true many generator reasonable. </p>
-                                                    </div>
-                                                    <div className="is-layout-flow wp-block-column">
-                                                        <h3>Ready Food Talent</h3>
-                                                        <p>Grursus mal suada faci lisis Lorem ipsum dolarorit ametion consectetur elit. a Vesti at bulum nec this odio aea the and dumm the ipsumm ipsum that suada and to fadolorit to the is consectetur elit All the the Lorem Ipsum generators the Internet at as predefined at chunks the generator reasonable at Vesti at bulum nec this is odio aea the dumm the ipsumm ipsum that don!</p>
-                                                    </div>
-                                                </div>
-                                                <h2>You Might Also Like</h2>
-                                                <div className="is-layout-flex wp-container-12 wp-block-columns">
-                                                    <div className="is-layout-flow wp-block-column">
-                                                        <ul className="bnq-post-list">
-                                                            <li>Lorem ipsum dolarorit ametion consectetur</li>
-                                                            <li>The Blues Kitchen woks Podcast</li>
-                                                            <li>Chasing Dreams in Slow Motion</li>
-                                                            <li>If you use this site regularly and would like to help keep the site on the Internet,</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div className="is-layout-flow wp-block-column">
-                                                        <ul className="bnq-post-list">
-                                                            <li>Dolarorit ametion consectetur elit.</li>
-                                                            <li>Modern Office Must-Have in 2021</li>
-                                                            <li>If you are going to use a passage of Lorem</li>
-                                                            <li>Lorem ipsum consectetur elit.</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <p>Grursus mal suada faci lisis Lorem ipsum dolarorit ametion consectetur elit. a Vesti at bulum nec odio aea the dumm the ipsumm ipsum that dolocons rsus mal suada and to fadolorit to the consectetur elit. All the Lorem chunks dum first true many generator Lorem reasonable.</p>
-                                                <p>Grursus mal suada faci lisis Lorem ipsum dolarorit ametion consectetur elit. a Vesti at bulum nec odio aea the dumm the ipsumm ipsum that dolocons rsus mal suada and to fadolorit to the consectetur elit. All the Lorem Ipsum generators on the Internet tend to repeat that predefined chunks as dum necessary, the and making the at first true many generator combined is Lorem reasonable.</p>
-                                                <blockquote className="wp-block-quote">
-                                                    <p>Trust us we looked for a very long time and wasted thousands of the dollars testing other teams freelancers, outsource companies.</p>
-                                                    <p>
-                                                        <strong>Harvard Alexander</strong>
-                                                    </p>
-                                                    <cite>CEO Omix</cite>
-                                                </blockquote>
-                                                <p>Grursus mal suada faci lisis Lorem ipsum dolarorit ametion consectetur elit. Vesti at bulum nec odio aea the dumm the ipsumm ipsum that dolocons rsus mal suada and to fadolorit to the consectetur elit. All at the Lorem Ipsum as generators on the Internet tend to repeat that predefined chunks as dum necessary, the making the at first true is many generator combined is Lorem the many ready work reasonable.</p>
-                                                <p>All the Lorem Ipsum generators on the Internet tend to repeat that predefined chunks as dum necessary, the making this the first true many generator combined is Lorem reasonable.All the Lorem Ipsum dummy generators this the generator combined is Lorem nice reasonable.</p>
-                                                <figure className="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-4-3 wp-has-aspect-ratio">
-                                                    <div className="wp-block-embed__wrapper">
-                                                        <iframe loading="lazy" title="4K Video ( Ultra HD ) The Most Beautiful Places On Earth 4K ULTRA HD / 4K TV" width="640" height="480" src="https://www.youtube.com/embed/_-WWwNt8AzU?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-                                                    </div>
-                                                </figure>
-                                                <h3>Explore the city and new places</h3>
-                                                <p>Grursus mal suada faci lisis Lorem ipsum dolarorit ametion consectetur elit. a Vesti at bulum nec odio an aea the dumm the ipsumm ipsum that dolocons.</p>
-                                                <p>Grursus mal suada faci lisis Lorem ipsum dolarorit ametion consectetur elit. a Vesti at bulum nec odio at aea the dumm the ipsumm ipsum that dolocons rsus mal suada and to fadolorit to the consectetur elit. All the Lorem Ipsum generators on the Internet tend to repeat.</p>
-                                                <h3>Breaking News!</h3>
-                                                <p>Grursus mal suada faci lisis Lorem ipsum dolarorit ametion consectetur elit. a Vesti at bulum nec odio an aea the dumm the ipsumm ipsum that dolocons.</p>
-                                                <ul>
-                                                    <li>Struggling to sell one multi-million dollar home currently on the market</li>
-                                                    <li>Lopez has reportedly added to her real estate holdings an eight-plus acre</li>
-                                                    <li>The property, complete with a 30-seat screening room, a 100-seat amphit</li>
-                                                    <li>Lo managed to make it hers for $28 million. As the Bronx native acquires</li>
-                                                    <li>Lopez has reportedly added to her real estate holdings an eight-plus acre</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <footer className="entry-footer">
-                                            <div className="row align-items-center">
-                                                <div className="col-lg-6 col-6">
-                                                    <span className="tags-links">
-                                                        <a href="https://itcroctheme.com/wp/demos/themes/benqu/tag/fashion/" rel="tag">Fashion</a>
-                                                        <a href="https://itcroctheme.com/wp/demos/themes/benqu/tag/feature/" rel="tag">Feature</a>
-                                                    </span>
-                                                </div>
-                                                <div className="col-lg-6 col-6 text-end">
-                                                    <div className="social-box">
-                                                        <a className="fb" onclick="window.open('http://www.facebook.com/sharer.php?u=https://itcroctheme.com/wp/demos/themes/benqu/fasion-trends-and-li-edelkoort-the-culture-shock-special-report/','Facebook','width=600,height=300,left='+(screen.availWidth/2-300)+',top='+(screen.availHeight/2-150)+''); return false;" href="http://www.facebook.com/sharer.php?u=https://itcroctheme.com/wp/demos/themes/benqu/fasion-trends-and-li-edelkoort-the-culture-shock-special-report/">
-                                                            <i className="fab fa-facebook-f"></i>
-                                                        </a>
-                                                        <a className="wh" onclick="window.open('https://api.whatsapp.com/send?text=https://itcroctheme.com/wp/demos/themes/benqu/fasion-trends-and-li-edelkoort-the-culture-shock-special-report/&amp;text=Fasion Trends and Li Edelkoort the Culture Shock Special Report','Linkedin share','width=600,height=300,left='+(screen.availWidth/2-300)+',top='+(screen.availHeight/2-150)+''); return false;" href="https://api.whatsapp.com/send?text=https://itcroctheme.com/wp/demos/themes/benqu/fasion-trends-and-li-edelkoort-the-culture-shock-special-report/&amp;text=Fasion%20Trends%20and%20Li%20Edelkoort%20the%20Culture%20Shock%20Special%20Report">
-                                                            <i className="fab fa-whatsapp"></i>
-                                                        </a>
-                                                        <a className="pt" href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
-                                                            <i className="fab fa-pinterest"></i>
-                                                        </a>
-                                                        <a className="em" href="mailto:?subject=&quot;Fasion Trends and Li Edelkoort the Culture Shock Special Report&amp;https://itcroctheme.com/wp/demos/themes/benqu/fasion-trends-and-li-edelkoort-the-culture-shock-special-report/&quot;">
-                                                            <i className="fal fa-envelope"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </footer>
-                                    </article>
-                                    <div className="post-next-prev pfy__post_np">
-                                        <div className="row">
-                                            <div className="col-md-5">
-                                                <div className="nav-post-item prev-post-item d-flex align-items-center">
-                                                    <div className="post_nav_inner">
-                                                        <a className="navi-link" href="https://itcroctheme.com/wp/demos/themes/benqu/fasion-trends-and-li-edelkoort-the-culture-shock-special-report/">
-                                                            <div className="bnq-navi__thumb">
-                                                                <img src="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/07/fashion-150x150.jpg" alt="Fasion Trends and Li Edelkoort the Culture Shock Special Report" />
-                                                            </div>
-                                                            <div className="bnq-navi__info">
-                                                                <span>
-                                                                    <i className="fal fa-angle-left"></i> Previous </span>
-                                                                <h4>Fasion Trends and Li Edelkoort the Culture Shock Special Report</h4>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="col-md-2 d-flex justify-content-center align-items-center">
-                                                <span className="navi-shape"></span>
-                                            </div>
-                                            <div className="col-md-5">
-                                                <div className="nav-post-item next-post-item d-flex align-items-center">
-                                                    <div className="post_nav_inner">
-                                                        <a className="navi-link" href="https://itcroctheme.com/wp/demos/themes/benqu/if-you-went-round-the-world-which-places-could/">
-                                                            <div className="bnq-navi__info">
-                                                                <span>Next <i className="fal fa-angle-right"></i>
-                                                                </span>
-                                                                <h4>If you went round the world which places could</h4>
-                                                            </div>
-                                                            <div className="bnq-navi__thumb">
-                                                                <img src="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/07/travel-150x150.jpg" alt="Fasion Trends and Li Edelkoort the Culture Shock Special Report" />
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="benqu__author_bio__Wrapper">
-                                        <div className="author-thumb">
-                                            <img alt="" src="https://secure.gravatar.com/avatar/3678875efe72d406dedb8b7f6cdb7e19?s=180&amp;d=mm&amp;r=g" srcSet="https://secure.gravatar.com/avatar/3678875efe72d406dedb8b7f6cdb7e19?s=360&amp;d=mm&amp;r=g 2x" className="avatar avatar-180 photo" height="180" width="180" loading="lazy" decoding="async" />
-                                        </div>
-                                        <div className="theme_author_Info">
-                                            <h4 className="theme_author__Name">David</h4>
-                                            <h6 className="theme_author_Title">About Author</h6>
-                                            <p className="theme_author__Description">There are many variations of passages of Lorem Ipsum available the majority have suffered alteration in that some form by injected humour or randomised words which of Lorem Ipsum embarrassing.</p>
-                                            <div className="theme_author_socials_icon">
-                                                <a href="#" target="_blank" rel="nofollow" className="fb_aut" title="Facebook">
-                                                    <i className="fab fa-facebook-f"></i>
-                                                </a>
-                                                <a href="#" target="_blank" rel="nofollow" className="twi_aut" title="Twitter">
-                                                    <i className="fab fa-twitter"></i>
-                                                </a>
-                                                <a href="#" target="_blank" rel="nofollow" className="inst_aut" title="Instagram">
-                                                    <i className="fab fa-instagram"></i>
-                                                </a>
-                                                <a href="#" target="_blank" rel="nofollow" className="pint_aut" title="Pinterest">
-                                                    <i className="fab fa-pinterest-p"></i>
-                                                </a>
-                                                <a href="#" target="_blank" rel="nofollow" className="link_aut" title="linkedin">
-                                                    <i className="fab fa-linkedin-in"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ArticleShowContent />
+                                    <ArticleShowContentAuthor />
                                     <div id="comments" className="comments-area">
                                         <h2 className="comments-title"> 1 Comment </h2>
                                         <ol className="comment-list">
@@ -275,7 +51,7 @@ export default function () {
                                                 <a rel="nofollow" id="cancel-comment-reply-link" href="/wp/demos/themes/benqu/fasion-trends-and-li-edelkoort-the-culture-shock-special-report/#respond" style= {{ display:"none" }}>Cancel reply</a>
                                             </small>
                                             </h3>
-                                            <form action="https://itcroctheme.com/wp/demos/themes/benqu/wp-comments-post.php" method="post" id="commentform" className="comment-form" novalidate="">
+                                            <form action="https://itcroctheme.com/wp/demos/themes/benqu/wp-comments-post.php" method="post" id="commentform" className="comment-form" noValidate="">
                                                 <p className="comment-notes">
                                                     <span id="email-notes">Your email address will not be published.</span>
                                                     <span className="required-field-message">Required fields are marked <span className="required">*</span>
@@ -400,10 +176,10 @@ export default function () {
                                                         <h2 className="widget-title">Trending</h2>
                                                         <span></span>
                                                     </div>
-                                                    <div className="widget-post-slider-wrap owl-carousel owl-loaded owl-drag">
+                                                    <OwlCarousel className="widget-post-slider-wrap owl-carousel owl-loaded owl-drag owl-theme" {...options}>
                                                         <div className="owl-stage-outer">
                                                             <div className="owl-stage" style={{ transform: "translate3d(-1333px, 0px, 0px)", transition: "all 0s ease 0s", width: "4667px" }}>
-                                                                <div className="owl-item cloned" style={{ width: "666.656px;" }}>
+                                                                <div className="owl-item cloned" style={{ width: "666.656px" }}>
                                                                     <div className="pfy-post-slider-item pfy-img-commn-style">
                                                                         <a className="post-thumbnil" href="https://itcroctheme.com/wp/demos/themes/benqu/assassins-creed-clip-swiss-as-state-secretart-for/">
                                                                             <img width="1920" height="1200" src="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last.jpg" className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" srcSet="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last.jpg 1920w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last-300x188.jpg 300w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last-1024x640.jpg 1024w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last-768x480.jpg 768w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last-1536x960.jpg 1536w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last-600x375.jpg 600w" sizes="(max-width: 1920px) 100vw, 1920px" />
@@ -425,7 +201,7 @@ export default function () {
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div className="owl-item cloned" style={{ width: "666.656px;" }}>
+                                                                <div className="owl-item cloned" style={{ width: "666.656px" }}>
                                                                     <div className="pfy-post-slider-item pfy-img-commn-style">
                                                                         <a className="post-thumbnil" href="https://itcroctheme.com/wp/demos/themes/benqu/monster-jam-titans-success-farms-their-efforts/">
                                                                             <img width="2500" height="1563" src="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/fantacy-1.jpg" className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" srcSet="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/fantacy-1.jpg 2500w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/fantacy-1-300x188.jpg 300w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/fantacy-1-1024x640.jpg 1024w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/fantacy-1-768x480.jpg 768w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/fantacy-1-1536x960.jpg 1536w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/fantacy-1-2048x1280.jpg 2048w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/fantacy-1-600x375.jpg 600w" sizes="(max-width: 2500px) 100vw, 2500px" />
@@ -447,7 +223,7 @@ export default function () {
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div className="owl-item active" style={{ width: "666.656px;" }}>
+                                                                <div className="owl-item active" style={{ width: "666.656px" }}>
                                                                     <div className="pfy-post-slider-item pfy-img-commn-style">
                                                                         <a className="post-thumbnil" href="https://itcroctheme.com/wp/demos/themes/benqu/we-believe-announce-will-the-iphone-this-day-3/">
                                                                             <img width="2500" height="1593" src="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/heros-img.jpg" className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" srcSet="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/heros-img.jpg 2500w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/heros-img-300x191.jpg 300w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/heros-img-1024x652.jpg 1024w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/heros-img-768x489.jpg 768w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/heros-img-1536x979.jpg 1536w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/heros-img-2048x1305.jpg 2048w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/heros-img-600x382.jpg 600w" sizes="(max-width: 2500px) 100vw, 2500px" />
@@ -469,7 +245,7 @@ export default function () {
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div className="owl-item" style={{ width: "666.656px;" }}>
+                                                                <div className="owl-item" style={{ width: "666.656px" }}>
                                                                     <div className="pfy-post-slider-item pfy-img-commn-style">
                                                                         <a className="post-thumbnil" href="https://itcroctheme.com/wp/demos/themes/benqu/assassins-creed-clip-swiss-as-state-secretart-for/">
                                                                             <img width="1920" height="1200" src="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last.jpg" className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" srcSet="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last.jpg 1920w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last-300x188.jpg 300w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last-1024x640.jpg 1024w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last-768x480.jpg 768w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last-1536x960.jpg 1536w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last-600x375.jpg 600w" sizes="(max-width: 1920px) 100vw, 1920px" />
@@ -491,7 +267,7 @@ export default function () {
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div className="owl-item" style={{ width: "666.656px;" }}>
+                                                                <div className="owl-item" style={{ width: "666.656px" }}>
                                                                     <div className="pfy-post-slider-item pfy-img-commn-style">
                                                                         <a className="post-thumbnil" href="https://itcroctheme.com/wp/demos/themes/benqu/monster-jam-titans-success-farms-their-efforts/">
                                                                             <img width="2500" height="1563" src="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/fantacy-1.jpg" className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" srcSet="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/fantacy-1.jpg 2500w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/fantacy-1-300x188.jpg 300w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/fantacy-1-1024x640.jpg 1024w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/fantacy-1-768x480.jpg 768w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/fantacy-1-1536x960.jpg 1536w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/fantacy-1-2048x1280.jpg 2048w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/fantacy-1-600x375.jpg 600w" sizes="(max-width: 2500px) 100vw, 2500px" />
@@ -513,7 +289,7 @@ export default function () {
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div className="owl-item cloned" style={{ width: "666.656px;" }}>
+                                                                <div className="owl-item cloned" style={{ width: "666.656px" }}>
                                                                     <div className="pfy-post-slider-item pfy-img-commn-style">
                                                                         <a className="post-thumbnil" href="https://itcroctheme.com/wp/demos/themes/benqu/we-believe-announce-will-the-iphone-this-day-3/">
                                                                             <img width="2500" height="1593" src="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/heros-img.jpg" className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" srcSet="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/heros-img.jpg 2500w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/heros-img-300x191.jpg 300w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/heros-img-1024x652.jpg 1024w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/heros-img-768x489.jpg 768w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/heros-img-1536x979.jpg 1536w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/heros-img-2048x1305.jpg 2048w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/heros-img-600x382.jpg 600w" sizes="(max-width: 2500px) 100vw, 2500px" />
@@ -535,7 +311,7 @@ export default function () {
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div className="owl-item cloned" style={{ width: "666.656px;" }}>
+                                                                <div className="owl-item cloned" style={{ width: "666.656px" }}>
                                                                     <div className="pfy-post-slider-item pfy-img-commn-style">
                                                                         <a className="post-thumbnil" href="https://itcroctheme.com/wp/demos/themes/benqu/assassins-creed-clip-swiss-as-state-secretart-for/">
                                                                             <img width="1920" height="1200" src="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last.jpg" className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" srcSet="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last.jpg 1920w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last-300x188.jpg 300w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last-1024x640.jpg 1024w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last-768x480.jpg 768w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last-1536x960.jpg 1536w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/action-last-600x375.jpg 600w" sizes="(max-width: 1920px) 100vw, 1920px" />
@@ -567,18 +343,7 @@ export default function () {
                                                                 <span aria-label="Next">›</span>
                                                             </button>
                                                         </div>
-                                                        <div className="owl-dots">
-                                                            <button role="button" className="owl-dot active">
-                                                                <span></span>
-                                                            </button>
-                                                            <button role="button" className="owl-dot">
-                                                                <span></span>
-                                                            </button>
-                                                            <button role="button" className="owl-dot">
-                                                                <span></span>
-                                                            </button>
-                                                        </div>
-                                                    </div>
+                                                    </OwlCarousel>
                                                 </div>
                                             </div>
                                         </section>

@@ -1,18 +1,18 @@
 import React from "react";
 import { useEffect } from 'react';
 import axios from 'axios';
-import Env from "../helpers/Env";
+import Env from "../../helpers/Env";
 import Moment from 'moment';
-import Category from "../helpers/Category";
+import Category from "../../helpers/Category";
 
-export default function SecondSectionContentRight() {
+export default function FourthSectionContentRight() {
     let [responseData, setResponseData] = React.useState([]);
     const requestOptions = {
         headers: { 'Accept': 'application/json' },
     };
 
     useEffect(() => {
-        axios.get(Env.apiURL('article?orderBy=mostView&category=1&skip=4&take=5'), requestOptions).then((response) => {
+        axios.get(Env.apiURL('article?orderBy=mostView&category=2&skip=4&take=5'), requestOptions).then((response) => {
             setResponseData(response.data.data)
         }).catch((error) => {
             console.log(error)

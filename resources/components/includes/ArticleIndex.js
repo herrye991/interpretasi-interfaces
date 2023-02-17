@@ -1,8 +1,8 @@
 import React from 'react';
-import FirstSection from './FirstSection';
-import SecondSection from './SecondSection';
-import ThirdSection from './ThirdSection';
-import FourthSection from './FourthSection';
+import FirstSection from './ArticleIndex/FirstSection';
+import SecondSection from './ArticleIndex/SecondSection';
+import ThirdSection from './ArticleIndex/ThirdSection';
+import FourthSection from './ArticleIndex/FourthSection';
 
 export default function ArticleIndex() {
     return (

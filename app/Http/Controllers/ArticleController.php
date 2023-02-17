@@ -20,6 +20,7 @@ class ArticleController extends Controller
 
     public function show($url)
     {
+        Article::where('url', $url)->firstOrFail();
         return view('app', Helpers::requirements('show'));
     }
 }
