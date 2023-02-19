@@ -51,7 +51,15 @@ export default function ArticleShowContent() {
             const response = await API.trend();
             setTrend(response.data.data);
         }
+        const postPreview = async () => {
+            const response = await API.preview();
+            console.log(response.data.data);
+        }
         getArticle(); getComment(); getNewest(); getTrend();
+        setTimeout(() => {
+            postPreview();
+        }, 30000);
+        return () => clearTimeout(timeout);
     }, []);
     return (
         <div className="row benqu-sticky-wrap" style={{ transform: "none" }}>

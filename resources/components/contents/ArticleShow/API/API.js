@@ -47,6 +47,14 @@ const API = {
         } catch (error) {
             console.error('error',error);
         }
+    },
+    preview: async () => {
+        try {
+            const data = await axios.post(Env.apiURL('article/' + id + '/preview'), requestOptions)
+            return data
+        } catch (error) {
+            console.error('error',error);
+        }
     }
 }
 
