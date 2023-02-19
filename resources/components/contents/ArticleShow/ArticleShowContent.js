@@ -1,9 +1,9 @@
 import React from "react";
+import Moment from 'moment';
 import { useEffect } from 'react';
 import Env from "../../helpers/Env";
-import Moment from 'moment';
 import Category from "../../helpers/Category";
-import * as API from './API/Article';
+import API from './API/API';
 
 export default function ArticleShowContent() {
     let [article, setArticle] = React.useState([]);
@@ -12,7 +12,7 @@ export default function ArticleShowContent() {
     
     useEffect(() => {
         const fetchData = async () => {
-            const response = await API.getArticle();
+            const response = await API.article();
             setArticle(response.data.data);
             setArticleUser(response.data.data.user);
             setArticleTags(response.data.data.tags);
@@ -81,7 +81,7 @@ export default function ArticleShowContent() {
             <footer className="entry-footer">
                 <div className="row align-items-center">
                     <div className="col-lg-6 col-6">
-                        { articleTags.map((tags, index) => { return <span key={ index } className="tags-links"><a href={ Env.baseURL('tag/' + tags) }>{ tags }</a></span> })}
+                        {/* { articleTags.map((tags, index) => { return <span key={ index } className="tags-links"><a href={ Env.baseURL('tag/' + tags) }>{ tags }</a></span> })} */}
                     </div>
                     <div className="col-lg-6 col-6 text-end">
                         <div className="social-box">
