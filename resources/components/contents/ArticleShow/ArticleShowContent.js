@@ -303,7 +303,7 @@ export default function ArticleShowContent() {
                                 <div className="recent-posts-widget">
                                     <div className="pfy-post-grid-wrap grid-style-tb">
                                         {newest.map((row, idx) =>
-                                            <div className="pfy-post-item pfy-scale pfy-img-commn-style">
+                                            <div key={idx} className="pfy-post-item pfy-scale pfy-img-commn-style">
                                                 <div className="benqu__post-content pfy-scale d-flex">
                                                     <div className="pfy-post-thumb">
                                                         <a href={Env.baseURL('article/' + row.url)}>

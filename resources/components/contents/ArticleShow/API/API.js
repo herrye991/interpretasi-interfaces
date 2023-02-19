@@ -34,7 +34,7 @@ const API = {
     },
     trend: async () => {
         try {
-            const data = await axios.get(Env.apiURL('article?trending=1&skip=0&take=4'), requestOptions)
+            const data = await axios.get(Env.apiURL('article?trending=1&random=4'), requestOptions)
             return data
         } catch (error) {
             console.error('error',error);
