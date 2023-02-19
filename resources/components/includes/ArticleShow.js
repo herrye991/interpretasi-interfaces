@@ -1,9 +1,6 @@
 import React from "react";
-import ArticleShowContent from "../contents/ArticleShow/ArticleShowContent";
+import ArticleShowContentLeft from "../contents/ArticleShow/ArticleShowContentLeft";
 import OwlCarousel from 'react-owl-carousel';
-import ArticleShowContentAuthor from "../contents/ArticleShow/ArticleShowContentAuthor";
-import ArticleShowContentComment from "../contents/ArticleShow/ArticleShowContentComment";
-import ArticleShowContentRelated from "../contents/ArticleShow/ArticleShowContentRelated";
 
 export default function () {
     const options = {
@@ -22,24 +19,7 @@ export default function () {
             <div className="container" style={{ transform: "none" }}>
                 <div className="row benqu-sticky-wrap" style={{ transform: "none" }}>
                     <div className="col-xl-8 benqu-sticky-item" style={{ position: "relative", overflow: "visible", boxSizing: "border-box", minHeight: "1px" }}>
-                        <div className="theiaStickySidebar" style={{ paddingTop: "0px", paddingBottom: "1px", position: "static", transform: "none" }}>
-                            <div className="ajax-scroll-post">
-                                <div className="bnq__post_wap_loop">
-                                    <ArticleShowContent />
-                                    <ArticleShowContentAuthor />
-                                    <ArticleShowContentComment />
-                                </div>
-                            </div>
-                            <ArticleShowContentRelated />
-                            <div className="resize-sensor" style={{ position: "absolute", inset: "0px", overflow: "hidden", zIndex: "-1", visibility: "hidden" }}>
-                                <div className="resize-sensor-expand" style={{ position: "absolute", left: "0", top: "0", right: "0", bottom: "0", overflow: "hidden", zIndex: "-1", visibility: "hidden" }}>
-                                    <div style={{ position: "absolute", left: "0px", top: "0px", transition: "all 0s ease 0s", width: "1046px", height: "6389px" }}></div>
-                                </div>
-                                <div className="resize-sensor-shrink" style={{ position: "absolute", left: "0", top: "0", right: "0", bottom: "0", overflow: "hidden", zIndex: "-1", visibility: "hidden" }}>
-                                    <div style={{ position: "absolute", left: "0", top: "0, transition: 0s", width: "200%", height: "200%" }}></div>
-                                </div>
-                            </div>
-                        </div>
+                        <ArticleShowContentLeft />
                     </div>
                     <div className="col-xl-4 col-lg-8 mx-auto benqu-sticky-item" style={{ position: "relative", overflow: "visible", boxSizing: "border-box", minHeight: "1px" }}>
                         <div className="theiaStickySidebar" style={{ paddingTop: "0px", paddingBottom: "1px", position: "static", transform: "none" }}>

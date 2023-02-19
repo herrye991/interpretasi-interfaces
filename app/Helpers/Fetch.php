@@ -23,7 +23,7 @@ class Fetch
             $categories = Category::take(4)->get();
         }
         if($type == 'etc') {
-            $categories = Category::skip(4)->take(4)->get();
+            $categories = Category::skip(4)->take(7)->get();
         }
         if($type == 'all') {
             $categories = Category::get();
