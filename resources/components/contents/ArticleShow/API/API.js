@@ -24,9 +24,25 @@ const API = {
             console.error('error',error);
         }
     },
-    related: async (id) => {
+    related: async (cat_id) => {
         try {
-            const data = await axios.get(Env.apiURL('article?random=1&skip=0&take=2&category=' + id), requestOptions)
+            const data = await axios.get(Env.apiURL('article?random=2&category=' + cat_id), requestOptions)
+            return data
+        } catch (error) {
+            console.error('error',error);
+        }
+    },
+    trend: async () => {
+        try {
+            const data = await axios.get(Env.apiURL('article?trending=1&skip=0&take=4'), requestOptions)
+            return data
+        } catch (error) {
+            console.error('error',error);
+        }
+    },
+    newest: async () => {
+        try {
+            const data = await axios.get(Env.apiURL('article?skip=0&take=6&orderBy=latest'), requestOptions)
             return data
         } catch (error) {
             console.error('error',error);

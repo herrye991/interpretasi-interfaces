@@ -39,7 +39,7 @@ function Category (id) {
         },
         {
             "id": 6,
-            "name": "Wisata dan Kuliner",
+            "name": "Wisata & Kuliner",
             "color": { color:"#00baff" },
             "background_color": { backgroundColor:"#00baff" },
             "image": ""
@@ -75,6 +75,13 @@ function Category (id) {
         {
             "id": 11,
             "name": "Karir & Info Loker",
+            "color": { color:"#52a815" },
+            "background_color": { backgroundColor:"#52a815" },
+            "image": ""
+        },
+        {
+            "id": 12,
+            "name": "Hiburan",
             "color": { color:"#52a815" },
             "background_color": { backgroundColor:"#52a815" },
             "image": ""
