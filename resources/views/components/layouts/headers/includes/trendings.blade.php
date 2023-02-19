@@ -3,7 +3,7 @@
     <div class="pfy-breakingnews">
         <ul class="breaking-headline-active owl-carousel">
             @foreach ($trendings as $row)
-            <li><a title="{{ $row->title }}" href="#">{{ $row->title }}</a></li>
+            <li><a title="{{ $row->title }}" href="{{ url('article/' . $row->url) }}">{{ $row->title }}</a></li>
             @endforeach
         </ul>
     </div>
