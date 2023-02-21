@@ -3,7 +3,13 @@
     <div class="pfy-breakingnews">
         <ul class="breaking-headline-active owl-carousel">
             @foreach ($trendings as $row)
-            <li><a title="{{ $row->title }}" href="{{ url('article/' . $row->url) }}">{{ $row->title }}</a></li>
+            @php
+            $title = $row->title;
+            if(strlen($row->title)  >= 60) {
+                $title = substr($row->title, 0, 60) . '...';
+            };
+            @endphp
+            <li><a title="{{ $row->title }}" href="{{ url('article/' . $row->url) }}">{{ $title }}</a></li>
             @endforeach
         </ul>
     </div>
