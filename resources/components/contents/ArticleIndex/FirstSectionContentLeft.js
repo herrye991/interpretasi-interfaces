@@ -3,6 +3,7 @@ import {useEffect} from 'react';
 import ENV from "../../helpers/ENV";
 import Moment from 'moment';
 import Category from "../../helpers/Category";
+import CategoryAPI from "../../helpers/CategoryAPI";
 import API from "./API/API";
 
 export default function FirstSectionContentLeft() {
