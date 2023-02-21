@@ -10,7 +10,7 @@ async function CategoryAPI(id) {
         const API = await axios.get(ENV.apiURL('article?type=categories'), requestOptions)
         const response = API.data.data
         const result = response.filter(data => data.id === id)
-        return result[0]
+        return result
     } catch (error) {
         console.error('error', error);
     }
