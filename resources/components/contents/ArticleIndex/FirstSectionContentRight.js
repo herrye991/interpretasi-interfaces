@@ -1,35 +1,36 @@
 import React from "react";
 import { useEffect } from 'react';
 import axios from 'axios';
-import Env from "../../helpers/Env";
+import ENV from "../../helpers/ENV";
 import Moment from 'moment';
 import Category from "../../helpers/Category";
+import API from "./API/API";
 
 export default function FirstSectionContentRight() {
 
-    let [latestData, setLatestData] = React.useState([]);
-    let [popularData, setPopularData] = React.useState([]);
-    let [trendingData, setTrendingData] = React.useState([])
+    let [latest, setLatest] = React.useState([]);
+    let [popular, setPopular] = React.useState([]);
+    let [trending, setTrending] = React.useState([])
     const requestOptions = {
         headers: { 'Accept': 'application/json' },
     };
 
     useEffect(() => {
-        axios.get(Env.apiURL('article/?skip=0&take=6&orderBy=latest'), requestOptions).then((response) => {
-            setLatestData(response.data.data)
-        }).catch((error) => {
-            console.log(error)
-        });
-        axios.get(Env.apiURL('article/?skip=0&take=6&trending=0'), requestOptions).then((response) => {
-            setPopularData(response.data.data)
-        }).catch((error) => {
-            console.log(error)
-        });
-        axios.get(Env.apiURL('article/?skip=3&take=6&trending=1'), requestOptions).then((response) => {
-            setTrendingData(response.data.data)
-        }).catch((error) => {
-            console.log(error)
-        });
+        const getLatest = async () => {
+            const response = await API.latest()
+            setLatest(response.data.data);
+        }
+        getLatest();
+        const getPopular = async () => {
+            const response = await API.latest()
+            setPopular(response.data.data);
+        }
+        getPopular();
+        const getTrending = async () => {
+            const response = await API.latest()
+            setTrending(response.data.data);
+        }
+        getTrending();
     }, []);
 
     return (
@@ -46,12 +47,12 @@ export default function FirstSectionContentRight() {
                             <div className="tab-pane animated fadeInUp show active" id="pfy-post-item-lp-1" role="tabpanel" aria-labelledby="pfy-post-item-tb-1">
                                 <div className="pfy-post-grid-wrap grid-style-tb">
                                     {/* Start Map */}
-                                    {latestData.map((res, index) =>
+                                    {latest.map((res, index) =>
                                         <div key={index} className="pfy-post-item pfy-scale pfy-img-commn-style">
-                                            <div className="pfy-post-thumb"> <a href={Env.baseURL('article/' + res.url)}><img width="2500" height="1593" src={res.image} className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" /></a> </div>
+                                            <div className="pfy-post-thumb"> <a href={ENV.baseURL('article/' + res.url)}><img width="2500" height="1593" src={res.image} className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" /></a> </div>
                                             <div className="pfy-post-content">
-                                                <div className="pfy-post-meta-tb d-flex"> {Category(res.category_id).map((cat, index) => <a key={index} className="benqu-cate-name" href={Env.baseURL('category/' + cat.id)} style={cat.color}> <span>{cat.name}</span> </a>)} <span className="pfy-post-date"><i className="fal fa-calendar-alt"></i> {Moment(res.created_at).format('d MMM, YYYY')}</span> </div>
-                                                <h4 className="pfy-post-title"><a href={Env.baseURL('article/' + res.url)}>{res.title.length > 58 ? `${res.title.substring(0, 58)}...` : res.title}</a></h4>
+                                                <div className="pfy-post-meta-tb d-flex"> {Category(res.category_id).map((cat, index) => <a key={index} className="benqu-cate-name" href={ENV.baseURL('category/' + cat.id)} style={cat.color}> <span>{cat.name}</span> </a>)} <span className="pfy-post-date"><i className="fal fa-calendar-alt"></i> {Moment(res.created_at).format('d MMM, YYYY')}</span> </div>
+                                                <h4 className="pfy-post-title"><a href={ENV.baseURL('article/' + res.url)}>{res.title.length > 58 ? `${res.title.substring(0, 58)}...` : res.title}</a></h4>
                                             </div>
                                         </div>
                                     )}
@@ -61,12 +62,12 @@ export default function FirstSectionContentRight() {
                             <div className="tab-pane animated fadeInUp" id="pfy-post-item-lp-2" role="tabpanel" aria-labelledby="pfy-post-item-tb-2">
                                 <div className="pfy-post-grid-wrap grid-style-tb">
                                     {/* Start Map */}
-                                    {popularData.map((res, index) =>
+                                    {popular.map((res, index) =>
                                         <div key={index} className="pfy-post-item pfy-scale pfy-img-commn-style">
-                                            <div className="pfy-post-thumb"> <a href={Env.baseURL('article/' + res.url)}><img width="2500" height="1593" src={res.image} className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" /></a> </div>
+                                            <div className="pfy-post-thumb"> <a href={ENV.baseURL('article/' + res.url)}><img width="2500" height="1593" src={res.image} className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" /></a> </div>
                                             <div className="pfy-post-content">
-                                                <div className="pfy-post-meta-tb d-flex"> {Category(res.category_id).map((cat, index) => <a key={index} className="benqu-cate-name" href={Env.baseURL('category/' + cat.id)} style={cat.color}> <span>{cat.name}</span> </a>)} <span className="pfy-post-date"><i className="fal fa-calendar-alt"></i> {Moment(res.created_at).format('d MMM, YYYY')}</span> </div>
-                                                <h4 className="pfy-post-title"><a href={Env.baseURL('article/' + res.url)}>{res.title.length > 58 ? `${res.title.substring(0, 58)}...` : res.title}</a></h4>
+                                                <div className="pfy-post-meta-tb d-flex"> {Category(res.category_id).map((cat, index) => <a key={index} className="benqu-cate-name" href={ENV.baseURL('category/' + cat.id)} style={cat.color}> <span>{cat.name}</span> </a>)} <span className="pfy-post-date"><i className="fal fa-calendar-alt"></i> {Moment(res.created_at).format('d MMM, YYYY')}</span> </div>
+                                                <h4 className="pfy-post-title"><a href={ENV.baseURL('article/' + res.url)}>{res.title.length > 58 ? `${res.title.substring(0, 58)}...` : res.title}</a></h4>
                                             </div>
                                         </div>
                                     )}
@@ -76,12 +77,12 @@ export default function FirstSectionContentRight() {
                             <div className="tab-pane animated fadeInUp " id="pfy-post-item-lp-3" role="tabpanel" aria-labelledby="pfy-post-item-tb-3">
                                 <div className="pfy-post-grid-wrap grid-style-tb">
                                     {/* Start Map */}
-                                    {trendingData.map((res, index) =>
+                                    {trending.map((res, index) =>
                                         <div key={index} className="pfy-post-item pfy-scale pfy-img-commn-style">
-                                            <div className="pfy-post-thumb"> <a href={Env.baseURL('article/' + res.url)}><img width="2500" height="1593" src={res.image} className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" /></a> </div>
+                                            <div className="pfy-post-thumb"> <a href={ENV.baseURL('article/' + res.url)}><img width="2500" height="1593" src={res.image} className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" /></a> </div>
                                             <div className="pfy-post-content">
-                                                <div className="pfy-post-meta-tb d-flex"> {Category(res.category_id).map((cat, index) => <a key={index} className="benqu-cate-name" href={Env.baseURL('category/' + cat.id)} style={cat.color}> <span>{cat.name}</span> </a>)} <span className="pfy-post-date"><i className="fal fa-calendar-alt"></i> {Moment(res.created_at).format('d MMM, YYYY')}</span> </div>
-                                                <h4 className="pfy-post-title"><a href={Env.baseURL('article/' + res.url)}>{res.title.length > 58 ? `${res.title.substring(0, 58)}...` : res.title}</a></h4>
+                                                <div className="pfy-post-meta-tb d-flex"> {Category(res.category_id).map((cat, index) => <a key={index} className="benqu-cate-name" href={ENV.baseURL('category/' + cat.id)} style={cat.color}> <span>{cat.name}</span> </a>)} <span className="pfy-post-date"><i className="fal fa-calendar-alt"></i> {Moment(res.created_at).format('d MMM, YYYY')}</span> </div>
+                                                <h4 className="pfy-post-title"><a href={ENV.baseURL('article/' + res.url)}>{res.title.length > 58 ? `${res.title.substring(0, 58)}...` : res.title}</a></h4>
                                             </div>
                                         </div>
                                     )}

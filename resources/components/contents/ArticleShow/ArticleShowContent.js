@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import Moment from 'moment';
-import Env from "../../helpers/Env";
+import ENV from '../../helpers/ENV';
 import Category from "../../helpers/Category";
 import API from './API/API';
 import OwlCarousel from 'react-owl-carousel';
@@ -53,7 +53,6 @@ export default function ArticleShowContent() {
         }
         const postPreview = async () => {
             const response = await API.preview();
-            console.log(response.data.data);
         }
         getArticle(); getComment(); getNewest(); getTrend();
         setTimeout(() => {
@@ -69,7 +68,7 @@ export default function ArticleShowContent() {
                         <div className="bnq__post_wap_loop">
                             <article id="post-1" className="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-fashion tag-fashion tag-feature">
                                 <header className="entry-header">
-                                    {Category(article.category_id).map((cat, idx) => { return <a key={idx} className="benqu-cate-badge" href={Env.baseURL('category/' + cat.id)} style={cat.background_color}><span>{cat.name}</span></a> })}
+                                    {Category(article.category_id).map((cat, idx) => { return <a key={idx} className="benqu-cate-badge" href={ENV.baseURL('category/' + cat.id)} style={cat.background_color}><span>{cat.name}</span></a> })}
                                     <h1 className="entry-title">{article.title}</h1>
                                     <div className="pfy-single-post-meta d-flex align-items-center">
                                         <ul>
@@ -128,7 +127,7 @@ export default function ArticleShowContent() {
                                 <footer className="entry-footer">
                                     <div className="row align-items-center">
                                         <div className="col-lg-6 col-6">
-                                            {/* { tags.map((tags, idx) => { return <span key={ idx } className="tags-links"><a href={ Env.baseURL('tag/' + tags) }>{ tags }</a></span> })} */}
+                                            {/* { tags.map((tags, idx) => { return <span key={ idx } className="tags-links"><a href={ ENV.baseURL('tag/' + tags) }>{ tags }</a></span> })} */}
                                         </div>
                                         <div className="col-lg-6 col-6 text-end">
                                             <div className="social-box">
@@ -148,10 +147,10 @@ export default function ArticleShowContent() {
                             </article>
                             <div className="benqu__author_bio__Wrapper">
                                 <div className="author-thumb">
-                                    <a href={Env.baseURL('user/' + author.id)}><img alt="" src={author.photo} className="avatar avatar-180 photo" height="180" width="180" loading="lazy" decoding="async" /></a>
+                                    <a href={ENV.baseURL('user/' + author.id)}><img alt="" src={author.photo} className="avatar avatar-180 photo" height="180" width="180" loading="lazy" decoding="async" /></a>
                                 </div>
                                 <div className="theme_author_Info">
-                                    <a href={Env.baseURL('user/' + author.id)}><h4 className="theme_author__Name">{author.name}</h4></a>
+                                    <a href={ENV.baseURL('user/' + author.id)}><h4 className="theme_author__Name">{author.name}</h4></a>
                                     <h6 className="theme_author_Title">Tentang Penulis</h6>
                                     <p className="theme_author__Description">{author.bio}</p>
                                     {/* <div className="theme_author_socials_icon">
@@ -180,11 +179,11 @@ export default function ArticleShowContent() {
                                         {comment.map((comment, idx) =>
                                             <div key={idx} className="comment-body">
                                                 <div className="author-thumb">
-                                                    <a href={Env.baseURL('user/' + comment.user.id)}><img alt="" src={comment.user.photo} className="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async" /></a>
+                                                    <a href={ENV.baseURL('user/' + comment.user.id)}><img alt="" src={comment.user.photo} className="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async" /></a>
                                                 </div>
                                                 <div className="comment-content">
                                                     <h4 className="name">
-                                                        <a href={Env.baseURL('user/' + comment.user.id)} rel="external nofollow ugc" className="url">{comment.user.name}</a>
+                                                        <a href={ENV.baseURL('user/' + comment.user.id)} rel="external nofollow ugc" className="url">{comment.user.name}</a>
                                                     </h4>
                                                     <span className="comment-date text-end">{Moment(comment.created_at).format('d MMM, YYYY')}</span>
                                                     <p>{comment.body}</p>
@@ -224,19 +223,19 @@ export default function ArticleShowContent() {
                                     <div key={idx} className="col-lg-6 pfy-grid-item">
                                         <div className="pfy-post-item item-act pfy-scale">
                                             <div className="pfy-post-thumb pfy-img-commn-style">
-                                                <a className="post-thumb" href={Env.baseURL('article/' + row.id)}>
+                                                <a className="post-thumb" href={ENV.baseURL('article/' + row.id)}>
                                                     <img width="1500" height="1000" src={row.image} className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" sizes="(max-width: 1500px) 100vw, 1500px" />
                                                 </a>
                                             </div>
                                             <div className="pfy-post-content">
-                                                {Category(row.category_id).map((cat, idx) => { return <a key={idx} className="benqu-cate-badge" href={Env.baseURL('category/' + cat.id)} style={cat.background_color}><span>{cat.name}</span></a> })}
+                                                {Category(row.category_id).map((cat, idx) => { return <a key={idx} className="benqu-cate-badge" href={ENV.baseURL('category/' + cat.id)} style={cat.background_color}><span>{cat.name}</span></a> })}
                                                 <h4 className="pfy-post-title">
-                                                    <a href={Env.baseURL('article/' + row.url)}>{row.title}</a>
+                                                    <a href={ENV.baseURL('article/' + row.url)}>{row.title}</a>
                                                 </h4>
                                                 <ul className="pfy-post-gd-meta">
                                                     <li>
                                                         <i className="far fa-user"></i>
-                                                        <a href={ Env.baseURL('user/' + row.user.id) } title={"Diposting oleh" + row.user.name} rel="author">{row.user.name}</a>
+                                                        <a href={ ENV.baseURL('user/' + row.user.id) } title={"Diposting oleh" + row.user.name} rel="author">{row.user.name}</a>
                                                     </li>
                                                     <li>
                                                         <i className="fal fa-calendar-alt"></i> {Moment(row.created_at).format('d MMM, YYYY')}
@@ -276,13 +275,13 @@ export default function ArticleShowContent() {
                                                     {trend.map((row, idx) =>
                                                         <div key={idx} className="owl-item" style={{ width: "666.656px" }}>
                                                             <div className="pfy-post-slider-item pfy-img-commn-style">
-                                                                <a className="post-thumbnil" href={Env.baseURL('article/' + row.url)}>
+                                                                <a className="post-thumbnil" href={ENV.baseURL('article/' + row.url)}>
                                                                     <img width="1920" height="1200" src={row.image} className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" sizes="(max-width: 1920px) 100vw, 1920px" />
                                                                 </a>
                                                                 <div className="pfy-post-content text-center">
-                                                                    {Category(row.category_id).map((cat, idx) => { return <a key={idx} className="benqu-cate-badge" href={Env.baseURL('category/' + cat.id)} style={cat.background_color}><span>{cat.name}</span></a> })}
+                                                                    {Category(row.category_id).map((cat, idx) => { return <a key={idx} className="benqu-cate-badge" href={ENV.baseURL('category/' + cat.id)} style={cat.background_color}><span>{cat.name}</span></a> })}
                                                                     <h4 className="pfy-post-title">
-                                                                        <a href={Env.baseURL('article/' + row.url)}>{row.title}</a>
+                                                                        <a href={ENV.baseURL('article/' + row.url)}>{row.title}</a>
                                                                     </h4>
                                                                     <div className="pfy-post-meta">
                                                                         <ul className="justify-content-center">
@@ -314,18 +313,18 @@ export default function ArticleShowContent() {
                                             <div key={idx} className="pfy-post-item pfy-scale pfy-img-commn-style">
                                                 <div className="benqu__post-content pfy-scale d-flex">
                                                     <div className="pfy-post-thumb">
-                                                        <a href={Env.baseURL('article/' + row.url)}>
+                                                        <a href={ENV.baseURL('article/' + row.url)}>
                                                             <img width="640" height="408" src={row.image} className="attachment-large size-large wp-post-image" alt="" decoding="async" loading="lazy" sizes="(max-width: 640px) 100vw, 640px" />
                                                         </a>
                                                     </div>
                                                     <div className="pfy-post-content">
                                                         <div className="pfy-post-meta-tb d-flex">
-                                                            {Category(row.category_id).map((cat, idx) => { return <a key={idx} className="benqu-cate-name" href={Env.baseURL('category/' + cat.id)} style={cat.color}><span>{cat.name}</span></a> })}
+                                                            {Category(row.category_id).map((cat, idx) => { return <a key={idx} className="benqu-cate-name" href={ENV.baseURL('category/' + cat.id)} style={cat.color}><span>{cat.name}</span></a> })}
                                                             <span className="pfy-post-date">
                                                                 <i className="fal fa-calendar-alt"></i> Aug 08, 2022 </span>
                                                         </div>
                                                         <h4 className="benqu__post-title pfy-post-title hover-title">
-                                                            <a href={Env.baseURL('article/' + row.url)} rel="bookmark" title={row.title}>{row.title.length > 58 ? `${row.title.substring(0, 58)}...` : row.title}</a>
+                                                            <a href={ENV.baseURL('article/' + row.url)} rel="bookmark" title={row.title}>{row.title.length > 58 ? `${row.title.substring(0, 58)}...` : row.title}</a>
                                                         </h4>
                                                     </div>
                                                 </div>
@@ -341,7 +340,7 @@ export default function ArticleShowContent() {
                                 <span></span>
                             </div>
                             <div className="tagcloud">
-                                {tags.map((tags, idx) => { return <a key={idx} href={Env.baseURL('tag/' + tags)} className="tag-cloud-link tag-link-21 tag-link-position-1" style={{ fontSize: "13.833333333333pt" }} aria-label={tags}>{tags}</a> })}
+                                {tags.map((tags, idx) => { return <a key={idx} href={ENV.baseURL('tag/' + tags)} className="tag-cloud-link tag-link-21 tag-link-position-1" style={{ fontSize: "13.833333333333pt" }} aria-label={tags}>{tags}</a> })}
                             </div>
                         </section>
                         <section id="media_image-3" className="widget widget_media_image">

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Env from '../../../helpers/Env';
+import ENV from '../../../helpers/ENV';
 
 const currentURL = window.location.pathname;
 const id = currentURL.replace('/article/', '')
@@ -10,7 +10,7 @@ const requestOptions = {
 const API = {
     article: async () => {
         try {
-            const data = await axios.get(Env.apiURL('article/' + id), requestOptions)
+            const data = await axios.get(ENV.apiURL('article/' + id), requestOptions)
             return data
         } catch (error) {
             console.error('error',error);
@@ -18,7 +18,7 @@ const API = {
     },
     comment: async () => {
         try {
-            const data = await axios.get(Env.apiURL('article/' + id + '/comment'), requestOptions)
+            const data = await axios.get(ENV.apiURL('article/' + id + '/comment'), requestOptions)
             return data
         } catch (error) {
             console.error('error',error);
@@ -26,7 +26,7 @@ const API = {
     },
     related: async (cat_id) => {
         try {
-            const data = await axios.get(Env.apiURL('article?random=2&category=' + cat_id), requestOptions)
+            const data = await axios.get(ENV.apiURL('article?random=2&category=' + cat_id), requestOptions)
             return data
         } catch (error) {
             console.error('error',error);
@@ -34,7 +34,7 @@ const API = {
     },
     trend: async () => {
         try {
-            const data = await axios.get(Env.apiURL('article?trending=1&random=4'), requestOptions)
+            const data = await axios.get(ENV.apiURL('article?trending=1&random=4'), requestOptions)
             return data
         } catch (error) {
             console.error('error',error);
@@ -42,7 +42,7 @@ const API = {
     },
     newest: async () => {
         try {
-            const data = await axios.get(Env.apiURL('article?skip=0&take=6&orderBy=latest'), requestOptions)
+            const data = await axios.get(ENV.apiURL('article?skip=0&take=6&orderBy=latest'), requestOptions)
             return data
         } catch (error) {
             console.error('error',error);
@@ -50,7 +50,7 @@ const API = {
     },
     preview: async () => {
         try {
-            const data = await axios.post(Env.apiURL('article/' + id + '/preview'), requestOptions)
+            const data = await axios.post(ENV.apiURL('article/' + id + '/preview'), requestOptions)
             return data
         } catch (error) {
             console.error('error',error);

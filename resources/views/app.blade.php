@@ -10,7 +10,6 @@
     <title>Interpretasi ID &#8211; Website baca berita dan artikel.</title>
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" media="all" />
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}" type="image/x-icon">
-    <script src="{{ asset('assets/js/jquery/jquery.mina7a0.js') }}" id="jquery-core-js"></script>
     <noscript>
         <style>
             .woocommerce-product-gallery {
@@ -40,6 +39,7 @@
         
     <script src="{{ asset('assets/js/app.js') }}" defer></script>
     <script src="{{ asset('assets/js/react.js') }}" defer></script>
+    <script src="{{ asset('assets/js/jquery/jquery.min.js') }}" id="jquery-core-js"></script>
 </body>
 
 </html>

@@ -34,7 +34,6 @@ function ResetPassword() {
         axios(window.location.href, requestOptions)
             .then((response) => {
                 setResponseData(response.data)
-                console.log(response)
             })
             .catch((error) => {
                 console.log(error)
@@ -74,6 +73,7 @@ function ResetPassword() {
                                 name="_token"
                                 type="hidden"
                                 defaultValue={`${token}`}
+                                style={{ display: "none" }}
                             />
                             <TextField
                                 margin="normal"
