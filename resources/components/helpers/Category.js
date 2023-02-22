@@ -99,9 +99,11 @@ function Category(id) {
             "image": ""
         }
     ];
-
-    const category = categories.filter(categories => categories.id === id)
-    return category
+    if (isNaN(id)) {
+        return categories.filter(categories => categories.unique_name === id)
+    } else {
+        return categories.filter(categories => categories.id === id)
+    }
 }
 
 export default Category;

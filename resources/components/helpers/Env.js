@@ -20,6 +20,10 @@ const ENV = {
     tagURL:
     function(path = null) {
         return 'https://interpretasi.id/tag/' + path;
+    },
+    userURL:
+    function(path = null) {
+        return 'https://interpretasi.id/user/' + path;
     }
 }
 

@@ -109,7 +109,7 @@ export default function ArticleShowContentRight() {
                 </section>
                 <section id="media_image-3" className="widget widget_media_image">
                     <a href="#" style={{ contentAlign: "center" }}>
-                        <img width="351" height="545" src="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/adds.jpg" className="image wp-image-1492  attachment-full size-full" alt="" decoding="async" loading="lazy" style={{ maxWidth: "100%", height: "auto" }} srcSet="https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/adds.jpg 351w, https://itcroctheme.com/wp/demos/themes/benqu/wp-content/uploads/2022/08/adds-193x300.jpg 193w" sizes="(max-width: 351px) 100vw, 351px" />
+                        <img width="351" height="545" src="https://interpretasi.id/assets/images/adds.jpg" className="image wp-image-1492  attachment-full size-full" alt="" decoding="async" loading="lazy" style={{ maxWidth: "100%", height: "auto" }} sizes="(max-width: 351px) 100vw, 351px" />
                     </a>
                 </section>
             </aside>
