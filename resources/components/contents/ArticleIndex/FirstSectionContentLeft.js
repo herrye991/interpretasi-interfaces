@@ -33,7 +33,7 @@ export default function FirstSectionContentLeft() {
                                 <a title={ first.title } href={ ENV.baseURL('article/' + first.url) }><img loading="lazy" width="1500" height="1000" src={first.image} className="attachment-full size-full wp-post-image" alt="" decoding="async" /></a>
                             </div>
                             <div className="pfy-post-content">
-                                { Category(first.category_id).map((cat, idx) => { return <a key={ idx } className="benqu-cate-badge" style={ cat.background_color } href={ ENV.apiURL('category/' + cat.id) }><span>{ cat.name }</span></a> }) }
+                                { Category(first.category_id).map((cat, idx) => { return <a key={ idx } className="benqu-cate-badge" style={ cat.background_color } href={ ENV.baseURL('category/' + cat.unique_name) }><span>{ cat.name }</span></a> }) }
                                 <h1 className="pfy-post-title">
                                     <a href={ ENV.baseURL('article/' + first.url) }>{first.title}</a>
                                 </h1>
@@ -60,7 +60,7 @@ export default function FirstSectionContentLeft() {
                                 <div className="pfy-post-item pfy-scale pfy-ch">
                                     <div className="pfy-post-thumb pfy-img-commn-style">
                                         <a className="post-thumb" href={ ENV.baseURL('article/' + row.url) }><img width="1500" height="1000" src={ row.image } className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" /></a>
-                                        { Category(row.category_id).map((cat, idx) => { return <a key={ idx } className="benqu-cate-badge" style={ cat.background_color } href={ ENV.baseURL("category/" + cat.id ) }><span>{ cat.name }</span></a> }) }
+                                        { Category(row.category_id).map((cat, idx) => { return <a key={ idx } className="benqu-cate-badge" style={ cat.background_color } href={ ENV.baseURL("category/" + cat.unique_name ) }><span>{ cat.name }</span></a> }) }
                                     </div>
                                     <div className="pfy-post-content">
                                         <h3 className="pfy-post-title"><a href={ ENV.baseURL('article/' + row.url) }>{ row.title }</a></h3>
