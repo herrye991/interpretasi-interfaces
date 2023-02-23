@@ -24,4 +24,9 @@ class AppController extends Controller
         Category::where('unique_name', $name)->firstOrFail();
         return view('app', Helpers::requirements('category'));
     }
+
+    public function search()
+    {
+        return view('app', Helpers::requirements('search'));
+    }
 }

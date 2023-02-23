@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [AppController::class, 'index']);
 Route::get('/article/{url}', [AppController::class, 'show']);
 Route::get('/category/{name}', [AppController::class, 'category']);
+Route::get('/search', [AppController::class, 'search']);
 
 Route::group(['prefix' => 'account'], function() {
     Route::group(['prefix' => 'accept'], function() {
