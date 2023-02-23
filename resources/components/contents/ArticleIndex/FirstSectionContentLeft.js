@@ -39,7 +39,7 @@ export default function FirstSectionContentLeft() {
                                 </h1>
                                 <ul className="pfy-post-gd-meta">
                                     <li>Oleh <a href={ENV.baseURL('user/' + firstUser.id)} title={"Diposting oleh" + firstUser.name} rel="author">{ firstUser.name }</a></li>
-                                    <li><i className="fal fa-calendar-alt"></i> { Moment(first.created_at).format('d MMM, YYYY') }</li>
+                                    <li><i className="fal fa-calendar-alt"></i> { Moment(first.created_at).format('d MMM YYYY') }</li>
                                     <li><i className="far fa-comments"></i> { first.comments_count } Komentar </li>
                                     <li><i className="far fa-eye"></i> { first.viewers } Dilihat </li>
                                 </ul>
@@ -66,7 +66,7 @@ export default function FirstSectionContentLeft() {
                                         <h3 className="pfy-post-title"><a href={ ENV.baseURL('article/' + row.url) }>{ row.title }</a></h3>
                                         <ul>
                                             <li><span className="auth_by">Oleh &nbsp;</span><a href={ ENV.baseURL('user/' + row.user.id) } title={"Diposting oleh " + row.user.name} rel="author"> {row.user.name }</a></li>
-                                            <li><i className="fal fa-calendar-alt"></i> {Moment(row.created_at).format('d MMM, YYYY')}</li>
+                                            <li><i className="fal fa-calendar-alt"></i> {Moment(row.created_at).format('d MMM YYYY')}</li>
                                             <li><i className="far fa-comments"></i> { row.comments_count } Komentar </li>
                                         </ul>
                                     </div>

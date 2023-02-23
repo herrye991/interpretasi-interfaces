@@ -51,7 +51,7 @@ export default function FirstSectionContentRight() {
                                         <div key={index} className="pfy-post-item pfy-scale pfy-img-commn-style">
                                             <div className="pfy-post-thumb"> <a href={ENV.baseURL('article/' + res.url)}><img width="2500" height="1593" src={res.image} className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" /></a> </div>
                                             <div className="pfy-post-content">
-                                                <div className="pfy-post-meta-tb d-flex"> {Category(res.category_id).map((cat, index) => <a key={index} className="benqu-cate-name" href={ENV.baseURL('category/' + cat.unique_name)} style={cat.color}> <span>{cat.name}</span> </a>)} <span className="pfy-post-date"><i className="fal fa-calendar-alt"></i> {Moment(res.created_at).format('d MMM, YYYY')}</span> </div>
+                                                <div className="pfy-post-meta-tb d-flex"> {Category(res.category_id).map((cat, index) => <a key={index} className="benqu-cate-name" href={ENV.baseURL('category/' + cat.unique_name)} style={cat.color}> <span>{cat.name}</span> </a>)} <span className="pfy-post-date"><i className="fal fa-calendar-alt"></i> {Moment(res.created_at).format('d MMM YYYY')}</span> </div>
                                                 <h4 className="pfy-post-title"><a href={ENV.baseURL('article/' + res.url)}>{res.title.length > 58 ? `${res.title.substring(0, 58)}...` : res.title}</a></h4>
                                             </div>
                                         </div>
@@ -66,7 +66,7 @@ export default function FirstSectionContentRight() {
                                         <div key={index} className="pfy-post-item pfy-scale pfy-img-commn-style">
                                             <div className="pfy-post-thumb"> <a href={ENV.baseURL('article/' + res.url)}><img width="2500" height="1593" src={res.image} className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" /></a> </div>
                                             <div className="pfy-post-content">
-                                                <div className="pfy-post-meta-tb d-flex"> {Category(res.category_id).map((cat, index) => <a key={index} className="benqu-cate-name" href={ENV.baseURL('category/' + cat.unique_name)} style={cat.color}> <span>{cat.name}</span> </a>)} <span className="pfy-post-date"><i className="fal fa-calendar-alt"></i> {Moment(res.created_at).format('d MMM, YYYY')}</span> </div>
+                                                <div className="pfy-post-meta-tb d-flex"> {Category(res.category_id).map((cat, index) => <a key={index} className="benqu-cate-name" href={ENV.baseURL('category/' + cat.unique_name)} style={cat.color}> <span>{cat.name}</span> </a>)} <span className="pfy-post-date"><i className="fal fa-calendar-alt"></i> {Moment(res.created_at).format('d MMM YYYY')}</span> </div>
                                                 <h4 className="pfy-post-title"><a href={ENV.baseURL('article/' + res.url)}>{res.title.length > 58 ? `${res.title.substring(0, 58)}...` : res.title}</a></h4>
                                             </div>
                                         </div>
@@ -81,7 +81,7 @@ export default function FirstSectionContentRight() {
                                         <div key={index} className="pfy-post-item pfy-scale pfy-img-commn-style">
                                             <div className="pfy-post-thumb"> <a href={ENV.baseURL('article/' + res.url)}><img width="2500" height="1593" src={res.image} className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" /></a> </div>
                                             <div className="pfy-post-content">
-                                                <div className="pfy-post-meta-tb d-flex"> {Category(res.category_id).map((cat, index) => <a key={index} className="benqu-cate-name" href={ENV.baseURL('category/' + cat.unique_name)} style={cat.color}> <span>{cat.name}</span> </a>)} <span className="pfy-post-date"><i className="fal fa-calendar-alt"></i> {Moment(res.created_at).format('d MMM, YYYY')}</span> </div>
+                                                <div className="pfy-post-meta-tb d-flex"> {Category(res.category_id).map((cat, index) => <a key={index} className="benqu-cate-name" href={ENV.baseURL('category/' + cat.unique_name)} style={cat.color}> <span>{cat.name}</span> </a>)} <span className="pfy-post-date"><i className="fal fa-calendar-alt"></i> {Moment(res.created_at).format('d MMM YYYY')}</span> </div>
                                                 <h4 className="pfy-post-title"><a href={ENV.baseURL('article/' + res.url)}>{res.title.length > 58 ? `${res.title.substring(0, 58)}...` : res.title}</a></h4>
                                             </div>
                                         </div>

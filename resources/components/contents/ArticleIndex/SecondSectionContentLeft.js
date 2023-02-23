@@ -33,7 +33,7 @@ export default function SecondSectionContentLeft() {
                                 <h2 className="pfy-post-title"><a href={ENV.baseURL('article/' + first.url)}>{first.title}</a></h2>
                                 <ul className="pfy-post-gd-meta">
                                     <li>OLEH <a href={ENV.baseURL('user' + firstUser.id)} title={"Posts by " + firstUser.name} rel="author">{firstUser.name}</a></li>
-                                    <li><i className="fal fa-calendar-alt"></i> {Moment(first.created_at).format('d MMM, YYYY')}</li>
+                                    <li><i className="fal fa-calendar-alt"></i> {Moment(first.created_at).format('d MMM YYYY')}</li>
                                     <li><i className="far fa-comments"></i> {first.comments_count} Komentar </li>
                                 </ul>
                             </div>
@@ -55,7 +55,7 @@ export default function SecondSectionContentLeft() {
                                         <div className="pfy-post-content">
                                             <h4 className="pfy-post-title"><a href={ENV.baseURL('article/' + res.url)} title={ res.title }>{res.title.length > 58 ? `${res.title.substring(0, 58)}...` : res.title}</a></h4>
                                             <ul className="pfy-post-gd-meta">
-                                                <li><i className="fal fa-calendar-alt"></i> {Moment(res.created_at).format('d MMM, YYYY')} </li>
+                                                <li><i className="fal fa-calendar-alt"></i> {Moment(res.created_at).format('d MMM YYYY')} </li>
                                             </ul>
                                         </div>
                                     </div>

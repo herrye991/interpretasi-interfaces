@@ -53,7 +53,7 @@ export default function ArticleShowContentLeft() {
                                         <span className="auth_by">OLEH</span> {author.name}
                                     </li>
                                     <li>
-                                        <i className="fal fa-calendar-alt"></i> {Moment(article.created_at).format('d MMM, YYYY')}
+                                        <i className="fal fa-calendar-alt"></i> {Moment(article.created_at).format('d MMM YYYY')}
                                     </li>
                                     <li>
                                         <i className="far fa-comments"></i> {article.comments_count} Komentar
@@ -162,7 +162,7 @@ export default function ArticleShowContentLeft() {
                                             <h4 className="name">
                                                 <a href={ENV.baseURL('user/' + comment.user.id)} rel="external nofollow ugc" className="url">{comment.user.name}</a>
                                             </h4>
-                                            <span className="comment-date text-end">{Moment(comment.created_at).format('d MMM, YYYY')}</span>
+                                            <span className="comment-date text-end">{Moment(comment.created_at).format('d MMM YYYY')}</span>
                                             <p>{comment.body}</p>
                                         </div>
                                     </div>
@@ -215,7 +215,7 @@ export default function ArticleShowContentLeft() {
                                                 <a href={ENV.baseURL('user/' + row.user.id)} title={"Diposting oleh" + row.user.name} rel="author">{row.user.name}</a>
                                             </li>
                                             <li>
-                                                <i className="fal fa-calendar-alt"></i> {Moment(row.created_at).format('d MMM, YYYY')}
+                                                <i className="fal fa-calendar-alt"></i> {Moment(row.created_at).format('d MMM YYYY')}
                                             </li>
                                         </ul>
                                     </div>
