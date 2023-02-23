@@ -7,11 +7,13 @@ import Moment from 'moment';
 export default function ArticleSearchContentLeft() {
     let [article, setArticle] = React.useState([]);
 
-    const getArticle = async () => {
-        const response = await API.article();
-        setArticle(response.data.data);
-    }
-    getArticle();
+    React.useEffect(() => {
+        const getArticle = async () => {
+            const response = await API.article();
+            setArticle(response.data.data);
+        }
+        getArticle();
+    }, [])
     return (
         <section>
             {article.length > 0 ?

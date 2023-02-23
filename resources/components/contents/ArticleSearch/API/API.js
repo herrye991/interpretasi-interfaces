@@ -8,7 +8,7 @@ const requestOptions = {
     headers: { 'Accept': 'application/json' },
 };
 const queryParameters = new URLSearchParams(window.location.search)
-const query = queryParameters.get("q")
+const query = queryParameters.get("q") ? queryParameters.get("q") : '';
 
 const API = {
     article: async () => {

@@ -1,26 +1,28 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import Category from '../../helpers/Category';
 import ENV from '../../helpers/ENV';
 import API from './API/API';
 import Moment from 'moment';
 
 export default function ArticleCategoryContentLeft() {
-    let [article, setArticle] = React.useState([]);
-
-    const getArticle = async () => {
-        const response = await API.article();
-        setArticle(response.data.data);
-    }
-    getArticle();
+    let [article, setArticle] = useState([]);
+    useEffect(() => {
+        const getArticle = async () => {
+            const response = await API.article();
+            setArticle(response.data.data);
+        }
+        getArticle();
+    }, []);
     return (
         <div className="bnq-post-list-item">
             {article.map((row, idx) =>
                 <article key={idx} className="pfy-post-item d-flex align-items-center pfy-scale post-741 post type-post status-publish format-video has-post-thumbnail hentry category-food tag-apps tag-asia tag-food post_format-post-format-video">
                     <div className="pfy-post-thumb pfy-img-commn-style">
-                        <a href={ ENV.articleURL(row.url) }><img width="1500" height="1000" src={row.image} className="attachment-full size-full wp-post-image" alt="" decoding="async" sizes="(max-width: 1500px) 100vw, 1500px" /></a>
+                        <a href={ENV.articleURL(row.url)}><img width="1500" height="1000" src={row.image} className="attachment-full size-full wp-post-image" alt="" decoding="async" sizes="(max-width: 1500px) 100vw, 1500px" /></a>
                     </div>
                     <div className="pfy-post-content no_thumb_cat">
-                        {Category(row.category_id).map((cat, idx) => { return <a key={idx} className="benqu-cate-badge" href={ENV.categoryURL(cat.unique_name)} style={cat.background_color}><span>{cat.name}</span></a>})}
+                        {Category(row.category_id).map((cat, idx) => { return <a key={idx} className="benqu-cate-badge" href={ENV.categoryURL(cat.unique_name)} style={cat.background_color}><span>{cat.name}</span></a> })}
                         <h3 title={row.title} className="pfy-post-title"><a href={ENV.articleURL(row.url)}>{row.title}</a></h3>
                         {/* <div className="pfy-post-excerpt"></div> */}
                         <ul className="pfy-post-gd-meta">
@@ -31,6 +33,20 @@ export default function ArticleCategoryContentLeft() {
                     </div>
                 </article>
             )}
+            {/* <div className="pfy-pagination">
+                <ul className="page-numbers">
+                    <li><span className="page-numbers current">1</span></li>
+                    {(() => {
+                        const arr = [];
+                        for(var i = 0; i < paginate; i++) {
+                            arr.push(
+                                <li key={i}><a className="page-numbers" href={'#'+i}>{i}</a></li>
+                            )
+                        }
+                        return arr;
+                    })()}
+                </ul>
+            </div> */}
         </div>
     );
 }
