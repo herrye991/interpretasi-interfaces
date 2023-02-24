@@ -67,7 +67,7 @@ export default function ArticleShowContentLeft() {
                                         <a className="fb" href="#">
                                             <i className="fab fa-facebook-f"></i>
                                         </a>
-                                        <a className="wh" href="#">
+                                        <a className="wh" href={"https://api.whatsapp.com/send?text=" + article.title + "%0a" + ENV.articleURL(article.url)}>
                                             <i className="fab fa-whatsapp"></i>
                                         </a>
                                         <a className="tw" href="#">
@@ -86,7 +86,7 @@ export default function ArticleShowContentLeft() {
                                     <a className="fb" href="#">
                                         <i className="fab fa-facebook-f"></i>
                                     </a>
-                                    <a className="wh" href="#">
+                                    <a className="wh" href={article.title + "\n" + "https://api.whatsapp.com/send?text=" + ENV.articleURL(article.url)}>
                                         <i className="fab fa-whatsapp"></i>
                                     </a>
                                     <a className="pt" href="#">
@@ -111,7 +111,7 @@ export default function ArticleShowContentLeft() {
                                         <a className="fb" href="#">
                                             <i className="fab fa-facebook-f"></i>
                                         </a>
-                                        <a className="wh" href="#">
+                                        <a className="wh" href={article.title + "\n" + "https://api.whatsapp.com/send?text=" + ENV.articleURL(article.url)}>
                                             <i className="fab fa-whatsapp"></i>
                                         </a>
                                         <a className="tw" href="#">
