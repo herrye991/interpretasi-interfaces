@@ -20,6 +20,7 @@ Route::get('/', [AppController::class, 'index']);
 Route::get('/article/{url}', [AppController::class, 'show']);
 Route::get('/category/{name}', [AppController::class, 'category']);
 Route::get('/search', [AppController::class, 'search']);
+Route::get('/tag', [AppController::class, 'tag']);
 
 Route::group(['prefix' => 'account'], function() {
     Route::group(['prefix' => 'accept'], function() {

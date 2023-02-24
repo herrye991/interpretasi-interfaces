@@ -7,13 +7,13 @@ import Moment from 'moment';
 
 export default function ArticleCategoryContentLeft() {
     let [article, setArticle] = useState([]);
-    useEffect(() => {
+    // useEffect(() => {
         const getArticle = async () => {
             const response = await API.article();
             setArticle(response.data.data);
         }
         getArticle();
-    }, []);
+    // }, []);
     return (
         <div className="bnq-post-list-item">
             {article.map((row, idx) =>

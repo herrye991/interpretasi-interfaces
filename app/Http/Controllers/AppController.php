@@ -29,4 +29,9 @@ class AppController extends Controller
     {
         return view('app', Helpers::requirements('search'));
     }
+
+    public function tag()
+    {
+        return view('app', Helpers::requirements('tag'));
+    }
 }
