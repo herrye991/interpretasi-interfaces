@@ -9,11 +9,12 @@ const requestOptions = {
 };
 const queryParameters = new URLSearchParams(window.location.search)
 const query = queryParameters.get("q") ? queryParameters.get("q") : '';
+const page = queryParameters.get("page") ? queryParameters.get("page") : '';
 
 const API = {
     article: async () => {
         try {
-            const data = await axios.get(ENV.apiURL('article?find=' + query), requestOptions)
+            const data = await axios.get(ENV.apiURL('article?find=' + query + "&page=" + page), requestOptions)
             return data
         } catch (error) {
             console.error('error',error);
