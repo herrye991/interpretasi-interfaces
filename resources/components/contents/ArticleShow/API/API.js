@@ -50,7 +50,7 @@ const API = {
     },
     preview: async () => {
         try {
-            const data = await axios.post(ENV.apiURL('article/' + id + '/preview'), requestOptions)
+            const data = await axios.post(ENV.apiURL('article/' + id + '/view'), requestOptions)
             return data
         } catch (error) {
             console.error('error',error);
