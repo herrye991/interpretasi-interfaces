@@ -40,3 +40,12 @@ function Search() {
 if (document.getElementById('search')) {
     ReactDOM.render(<Search />, document.getElementById('search'));
 }
+
+function Tag() {
+    return (
+        <ArticleTag />
+    );
+}
+if (document.getElementById('tag')) {
+    ReactDOM.render(<Tag />, document.getElementById('tag'));
+}
