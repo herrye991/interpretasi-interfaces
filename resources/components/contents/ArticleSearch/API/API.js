@@ -9,7 +9,7 @@ const requestOptions = {
 };
 const queryParameters = new URLSearchParams(window.location.search)
 const query = queryParameters.get("q") ? queryParameters.get("q") : '';
-const page = queryParameters.get("page") ? queryParameters.get("page") : '';
+const page = queryParameters.get("p") ? queryParameters.get("p") : '';
 
 const API = {
     article: async () => {

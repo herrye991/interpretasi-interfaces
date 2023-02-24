@@ -11,7 +11,7 @@
         </div>
         <div class="menu-primary-menu-container">
             <ul id="pfy-mobile-menu" class="menu">
-                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1767"><a href="{{ url('/') }}}">Utama</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1767"><a href="{{ url('/') }}">Utama</a></li>
                 @foreach ($first_categories as $row)
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1767"><a href="{{ url('category/'.$row->unique_name) }}">{{ $row->name }}</a></li>
                 @endforeach
