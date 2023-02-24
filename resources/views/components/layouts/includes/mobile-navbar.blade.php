@@ -4,8 +4,8 @@
     </div>
     <nav class="side-mobile-menu d-lg-none">
         <div class="header-mobile-search">
-            <form action="#" method="get">
-                <input type="search" name="s" id="search-id" value="" placeholder="Search Here">
+            <form action={{ url('search') }} method="get">
+                <input type="search" name="q" value="" placeholder="Percarian ...">
                 <button type="submit"><i class="ti-search"></i></button>
             </form>
         </div>

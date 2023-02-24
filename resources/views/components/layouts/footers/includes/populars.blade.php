@@ -8,7 +8,7 @@
                 </div>
                 <div class="pfy-post-content">
                     <div class="pfy-post-meta-tb d-flex">
-                        <a class="benqu-cate-name" href="{{ url('category/'.$row->category->unique_name) }}" style="font-size:12px; color:#7fc61b">
+                        <a class="benqu-cate-name" href="{{ url('category/'.$row->category->unique_name) }}" style="font-size:12px; color:#6f5ef3">
                             <span>{{ $row->category->name }}</span>
                         </a>
                         <span class="pfy-post-date"><i class="fal fa-calendar-alt"></i> {{ Carbon\Carbon::parse($row->created_at)->format('M d, Y') }}</span>

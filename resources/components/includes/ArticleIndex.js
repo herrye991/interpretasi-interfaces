@@ -9,7 +9,7 @@ export default function ArticleIndex() {
         <div data-elementor-type="wp-page" data-elementor-id="12" className="elementor elementor-12">
             <FirstSection />
             <SecondSection />
-            <ThirdSection />
+            {/* <ThirdSection /> */}
             <FourthSection />
         </div>
     );

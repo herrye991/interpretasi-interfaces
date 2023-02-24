@@ -107,11 +107,11 @@ export default function ArticleShowContentRight() {
                         </div>
                     )}
                 </section>
-                <section id="media_image-3" className="widget widget_media_image">
+                {/* <section id="media_image-3" className="widget widget_media_image">
                     <a href="#" style={{ contentAlign: "center" }}>
                         <img width="351" height="545" src="https://interpretasi.id/assets/images/adds.jpg" className="image wp-image-1492  attachment-full size-full" alt="" decoding="async" loading="lazy" style={{ maxWidth: "100%", height: "auto" }} sizes="(max-width: 351px) 100vw, 351px" />
                     </a>
-                </section>
+                </section> */}
             </aside>
             <div className="resize-sensor" style={{ position: "absolute", inset: "0px", overflow: "hidden", zIndex: "-1", visibility: "hidden" }}>
                 <div className="resize-sensor-expand" style={{ position: "absolute", left: "0", top: "0", right: "0", bottom: "0", overflow: "hidden", zIndex: "-1", visibility: "hidden" }}>
