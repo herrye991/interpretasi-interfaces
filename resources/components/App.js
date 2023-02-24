@@ -4,6 +4,7 @@ import ArticleShow from './includes/ArticleShow';
 import ArticleIndex from './includes/ArticleIndex';
 import ArticleCategory from './includes/ArticleCategory';
 import ArticleSearch from './includes/ArticleSearch';
+import ArticleTag from './includes/ArticleTag';
 
 function Index() {
     return (
