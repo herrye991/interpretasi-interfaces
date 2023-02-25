@@ -7,10 +7,14 @@ import Moment from 'moment';
 
 export default function ArticleCategoryContentLeft() {
     let [article, setArticle] = useState([]);
+    let [paginate, setPaginate] = React.useState([]);
+    const currentURL = window.location.href;
+    const newURL = currentURL.replace('?p=' + paginate.current_page, '')
     // useEffect(() => {
         const getArticle = async () => {
             const response = await API.article();
             setArticle(response.data.data);
+            setPaginate(response.data.meta);
         }
         getArticle();
     // }, []);
@@ -33,20 +37,72 @@ export default function ArticleCategoryContentLeft() {
                     </div>
                 </article>
             )}
-            {/* <div className="pfy-pagination">
-                <ul className="page-numbers">
-                    <li><span className="page-numbers current">1</span></li>
-                    {(() => {
-                        const arr = [];
-                        for(var i = 0; i < paginate; i++) {
-                            arr.push(
-                                <li key={i}><a className="page-numbers" href={'#'+i}>{i}</a></li>
-                            )
-                        }
-                        return arr;
-                    })()}
-                </ul>
-            </div> */}
+            <div className="pfy-pagination">
+                        <ul className="page-numbers">
+                            {(() => {
+                                if (paginate.last_page > 1) {
+                                    if (paginate.current_page == 1) {
+                                        return (
+                                            <div>
+                                                <li><span className="page-numbers current">{paginate.current_page}</span></li>
+                                                <li><span className="page-numbers dots">…</span></li>
+                                                <li><a className="page-numbers" href={newURL + "?p=" + paginate.last_page}>{paginate.last_page}</a></li>
+                                                <li><a className="next page-numbers" href={newURL + "?p=" + (paginate.current_page + 1)}><i className="fal fa-long-arrow-right"></i></a></li>
+                                            </div>
+                                        )
+                                    } else {
+                                        if (paginate.current_page !== paginate.last_page) {
+                                            if (paginate.current_page == 2) {
+                                                return (
+                                                    <div>
+                                                        <li><a className="prev page-numbers" href={newURL + "?p=" + (paginate.current_page - 1)}><i className="fal fa-long-arrow-left"></i></a></li>
+                                                        <li><a className="page-numbers" href={newURL + "?p=" + (paginate.current_page - 1)}>{(paginate.current_page - 1)}</a></li>
+                                                        <li><span className="page-numbers current">{paginate.current_page}</span></li>
+                                                        <li><span className="page-numbers dots">…</span></li>
+                                                        <li><a className="page-numbers" href={newURL + "?p=" + paginate.last_page}>{paginate.last_page}</a></li>
+                                                        <li><a className="next page-numbers" href={newURL + "?p=" + (paginate.current_page + 1)}><i className="fal fa-long-arrow-right"></i></a></li>
+                                                    </div>
+                                                )
+                                            } else if (paginate.current_page == (paginate.last_page - 1)) {
+                                                return (
+                                                    <div>
+                                                        <li><a className="prev page-numbers" href={newURL + "?p=" + (paginate.current_page - 1)}><i className="fal fa-long-arrow-left"></i></a></li>
+                                                        <li><a className="page-numbers" href={newURL + "?p=" + 1}>1</a></li>
+                                                        <li><span className="page-numbers dots">…</span></li>
+                                                        <li><span className="page-numbers current">{paginate.current_page}</span></li>
+                                                        <li><a className="page-numbers" href={newURL + "?p=" + paginate.last_page}>{paginate.last_page}</a></li>
+                                                        <li><a className="next page-numbers" href={newURL + "?p=" + (paginate.current_page + 1)}><i className="fal fa-long-arrow-right"></i></a></li>
+                                                    </div>
+                                                )
+                                            } else {
+                                                return (
+                                                    <div>
+                                                        <li><a className="prev page-numbers" href={newURL + "?p=" + (paginate.current_page - 1)}><i className="fal fa-long-arrow-left"></i></a></li>
+                                                        <li><a className="page-numbers" href={newURL + "?p=" + 1}>1</a></li>
+                                                        <li><span className="page-numbers dots">…</span></li>
+                                                        <li><span className="page-numbers current">{paginate.current_page}</span></li>
+                                                        <li><span className="page-numbers dots">…</span></li>
+                                                        <li><a className="page-numbers" href={newURL + "?p=" + paginate.last_page}>{paginate.last_page}</a></li>
+                                                        <li><a className="next page-numbers" href={newURL + "?p=" + (paginate.current_page + 1)}><i className="fal fa-long-arrow-right"></i></a></li>
+                                                    </div>
+                                                )
+                                            }
+                                            
+                                        } else {
+                                            return (
+                                                <div>
+                                                    <li><a className="prev page-numbers" href={newURL + "?p=" + (paginate.current_page - 1)}><i className="fal fa-long-arrow-left"></i></a></li>
+                                                    <li><a className="page-numbers" href={newURL + "?p=" + 1}>1</a></li>
+                                                    <li><span className="page-numbers dots">…</span></li>
+                                                    <li><span className="page-numbers current">{paginate.current_page}</span></li>
+                                                </div>
+                                            )
+                                        }
+                                    }
+                                }
+                            })()}
+                        </ul>
+                    </div>
         </div>
     );
 }

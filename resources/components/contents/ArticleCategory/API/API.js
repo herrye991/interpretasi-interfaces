@@ -9,6 +9,8 @@ const requestOptions = {
 };
 var currentURL = window.location.pathname;
 var id = currentURL.replace('/category/', '')
+const queryParameters = new URLSearchParams(window.location.search)
+const page = queryParameters.get("p") ? queryParameters.get("p") : '';
 
 const API = {
     article: async () => {
@@ -19,7 +21,7 @@ const API = {
             })
         }, []);
         try {
-            const data = await axios.get(ENV.apiURL('article?category=' + category.id), requestOptions)
+            const data = await axios.get(ENV.apiURL('article?category=' + category.id + '&page=' + page), requestOptions)
             return data
         } catch (error) {
             console.error('error',error);
