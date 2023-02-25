@@ -88,7 +88,7 @@ export default function ArticleSearchContentLeft() {
                                                     </div>
                                                 )
                                             }
-                                            
+
                                         } else {
                                             return (
                                                 <div>

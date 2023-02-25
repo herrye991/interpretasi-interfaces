@@ -6,11 +6,13 @@ const requestOptions = {
 };
 var currentURL = window.location.pathname;
 var id = currentURL.replace('/tag/', '')
+const queryParameters = new URLSearchParams(window.location.search)
+const page = queryParameters.get("p") ? queryParameters.get("p") : '';
 
 const API = {
     article: async () => {
         try {
-            const data = await axios.get(ENV.apiURL('article/tag/' + id), requestOptions)
+            const data = await axios.get(ENV.apiURL('article/tag/' + id + '?page=' + page), requestOptions)
             return data
         } catch (error) {
             console.error('error',error);
