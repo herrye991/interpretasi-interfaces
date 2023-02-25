@@ -16,10 +16,11 @@
                 </a>
             </div>
             <div class="col-xl-4 col-lg-4 col-md-5">
-                <div class="header-right d-flex justify-content-end align-items-center">
-                    @include('components.layouts.headers.includes.search')
-                    @include('components.layouts.headers.includes.login-button')
-                </div>
+                <form method="get" action={{ url('search') }}>
+                    <div class="header-right d-flex justify-content-end align-items-center">
+                        @include('components.layouts.headers.includes.search')
+                    </div>
+                </form>
             </div>
         </div>
     </div>

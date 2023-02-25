@@ -1,6 +1,6 @@
 <div class="bnq-search">
-    <form method="get" action={{ url('search') }}>
-        <input type="search" name="q" value="" placeholder="Pencarian ..." />
-        <button type="submit"><i class="far fa-search"></i></button>
-    </form>
+    <input type="search" name="q" value="{{ request()->q }}" placeholder="Pencarian ..." required />
+</div>
+<div class="menu-right">
+    <button type="submit" class="btn pfy-btn pfy-btn-primery search-btn">Cari</button>
 </div>

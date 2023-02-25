@@ -61040,7 +61040,7 @@ screen and (max-height:300px) {
     margin-bottom: 24px
 }
 
-.pfy-default-post-ly.sticky .pfy-post-item a.pfy-btn.pfy-btn-primery:hover {
+.pfy-default-post-ly.sticky .pfy-post-item .pfy-btn.pfy-btn-primery:hover {
     color: #1d2027
 }
 
@@ -61215,7 +61215,7 @@ button.search-btn,
     margin-bottom: 1.5em
 }
 
-.pfy-default-post-ly.sticky a.pfy-btn.pfy-btn-primery {
+.pfy-default-post-ly.sticky .pfy-btn.pfy-btn-primery {
     border-color: #fff;
     background: #fff;
     color: #1d2027
@@ -62420,7 +62420,7 @@ button.benqu-post-grid-loadmore:hover {
     margin-left: 12px
 }
 
-a.pfy-btn.pfy-btn-primery.login-btn {
+.pfy-btn.pfy-btn-primery.search-btn {
     border-radius: 5px;
     padding: 0;
     width: 80px;
@@ -62428,7 +62428,7 @@ a.pfy-btn.pfy-btn-primery.login-btn {
     line-height: 40px
 }
 
-a.pfy-btn.pfy-btn-primery {
+.pfy-btn.pfy-btn-primery {
     background-color: var(--color-primary);
     width: 170px;
     height: 50px;
@@ -62437,7 +62437,7 @@ a.pfy-btn.pfy-btn-primery {
     border: 1px solid var(--color-primary)
 }
 
-a.pfy-btn.pfy-btn-primery:hover {
+.pfy-btn.pfy-btn-primery:hover {
     border: 1px solid var(--color-primary);
     background: transparent;
     color: var(--color-primary)
@@ -69492,7 +69492,7 @@ h2.woocommerce-loop-product__title {
         margin-bottom: 15px
     }
 
-    .pfy-header-4 a.pfy-btn.pfy-btn-primery.login-btn {
+    .pfy-header-4 .pfy-btn.pfy-btn-primery.search-btn {
         display: none
     }
 

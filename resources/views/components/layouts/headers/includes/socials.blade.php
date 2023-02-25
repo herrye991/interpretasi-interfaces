@@ -1,3 +1,6 @@
+<div class="user-login">
+    <a href="{{ url('author/#/') }}"><i class="fas fa-user-alt"></i></a>
+</div>
 <div class="socila-title">
     <h5>Follow Us</h5>
 </div>
