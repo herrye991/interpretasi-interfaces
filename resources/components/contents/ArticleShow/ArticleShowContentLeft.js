@@ -4,6 +4,7 @@ import Moment from 'moment';
 import ENV from '../../helpers/ENV';
 import Category from "../../helpers/Category";
 import API from './API/API';
+import Text from '../../helpers/Text';
 
 export default function ArticleShowContentLeft() {
     let [article, setArticle] = useState([]);
@@ -124,7 +125,7 @@ export default function ArticleShowContentLeft() {
                     </article>
                     <div className="benqu__author_bio__Wrapper">
                         <div className="author-thumb">
-                            <a href={ENV.baseURL('user/' + author.id)}><img alt="" src={author.photo} className="avatar avatar-180 photo" height="180" width="180" loading="lazy" decoding="async" /></a>
+                            <a href={ENV.baseURL('user/' + author.id + '/' + Text.specialRemove(author.name))}><img alt="" src={author.photo} className="avatar avatar-180 photo" height="180" width="180" loading="lazy" decoding="async" /></a>
                         </div>
                         <div className="theme_author_Info">
                             <a href={ENV.baseURL('user/' + author.id)}><h4 className="theme_author__Name">{author.name}</h4></a>

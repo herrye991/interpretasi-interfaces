@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="hamburger_menu d-lg-none">
-                <a href="#javascript:void(0);" class="active">
+                <a href="#" class="active">
                     <div class="icon bar">
                         <span><i class="far fa-bars"></i></span>
                     </div>

@@ -8,7 +8,7 @@
     </li>
     @endforeach
     <li id="menu-item-1729" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1729">
-        <a href="javascript:void(0);">Lainnya</a>
+        <a href="#">Lainnya</a>
         <ul class="sub-menu">
             @foreach ($etc_categories as $row)
             <li class="menu-item menu-item-type-taxonomy menu-item-object-category">

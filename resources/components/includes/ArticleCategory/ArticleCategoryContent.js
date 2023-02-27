@@ -8,16 +8,16 @@ export default function ArticleCategoryContent() {
     var id = pathURL.replace('/category/', '')
     return (
         <div className="row benqu-sticky-wrap" style={{ transform: "none" }}>
-            <div class="benqu-breadcrumb">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <ol class="breadcrumb-item">
+            <div className="benqu-breadcrumb">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <ol className="breadcrumb-item">
                                 <li>
-                                    <a href="javascript:void(0);">Kategori</a>
+                                    <a href="#">Kategori</a>
                                 </li>
                                 <li>
-                                    {Category(id).map((cat, idx) => { return <a key={idx} href="javascript:void(0);">{cat.name}</a> })}
+                                    {Category(id).map((cat, idx) => { return <a key={idx} href="#">{cat.name}</a> })}
                                 </li>
                             </ol>
                         </div>

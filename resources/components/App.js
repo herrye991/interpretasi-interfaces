@@ -5,6 +5,7 @@ import ArticleIndex from './includes/ArticleIndex';
 import ArticleCategory from './includes/ArticleCategory';
 import ArticleSearch from './includes/ArticleSearch';
 import ArticleTag from './includes/ArticleTag';
+import ArticleUser from './includes/ArticleUser';
 
 function Index() {
     return (
@@ -49,4 +50,13 @@ function Tag() {
 }
 if (document.getElementById('tag')) {
     ReactDOM.render(<Tag />, document.getElementById('tag'));
+}
+
+function User() {
+    return (
+        <ArticleUser />
+    );
+}
+if (document.getElementById('user')) {
+    ReactDOM.render(<User />, document.getElementById('user'));
 }

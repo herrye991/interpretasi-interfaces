@@ -1,6 +1,6 @@
 <div class="slide-bar">
     <div class="close-mobile-menu">
-        <a href="#javascript:void(0);"><i class="fal fa-times"></i></a>
+        <a href="#"><i class="fal fa-times"></i></a>
     </div>
     <nav class="side-mobile-menu d-lg-none">
         <div class="header-mobile-search">
@@ -16,7 +16,7 @@
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1767"><a href="{{ url('category/'.$row->unique_name) }}">{{ $row->name }}</a></li>
                 @endforeach
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1767">
-                    <a href="javascript:void(0);" aria-current="page">Lainnya</a>
+                    <a href="#" aria-current="page">Lainnya</a>
                     <ul class="sub-menu">
                         @foreach ($etc_categories as $row)
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-12 current_page_item menu-item-1721"><a href="{{ url('category/'.$row->unique_name) }}" aria-current="page">{{ $row->name }}</a></li>
