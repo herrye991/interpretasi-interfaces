@@ -36,9 +36,9 @@ class AppController extends Controller
         return view('app', Helpers::requirements('tag'));
     }
 
-    public function user($user)
+    public function user($id, $name)
     {
-        User::where('id', $user)->firstOrFail();
+        User::where('id', $id)->firstOrFail();
         return view('app', Helpers::requirements('user'));
     }
 }
