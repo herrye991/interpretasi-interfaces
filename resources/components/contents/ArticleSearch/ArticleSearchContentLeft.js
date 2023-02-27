@@ -3,6 +3,7 @@ import API from './API/API';
 import ENV from '../../helpers/ENV';
 import Category from '../../helpers/Category';
 import Moment from 'moment';
+import Text from '../../helpers/Text';
 
 export default function ArticleSearchContentLeft() {
     let [article, setArticle] = React.useState([]);
@@ -31,7 +32,7 @@ export default function ArticleSearchContentLeft() {
                                 {Category(row.category_id).map((cat, idx) => { return <a key={idx} className="benqu-cate-badge" href={ENV.categoryURL(cat.unique_name)} style={cat.background_color}><span>{cat.name}</span></a> })}
                                 <h3 title={row.title} className="pfy-post-title"><a href={ENV.articleURL(row.url)}>{row.title}</a></h3>
                                 <ul className="pfy-post-gd-meta">
-                                    <li>Oleh <a href={ENV.userURL(row.user.id)} title={"Diposting oleh " + row.user.name} rel="author">{row.user.name}</a></li>
+                                    <li>Oleh <a href={ENV.userURL(row.user.id + '/' + Text.specialRemove(row.user.name))} title={"Diposting oleh " + row.user.name} rel="author">{row.user.name}</a></li>
                                     <li><i className="fal fa-calendar-alt"></i> {Moment(row.created_at).format('d MMM YYYY')}</li>
                                     <li><i className="far fa-comments"></i> {row.comments_count} Komentar</li>
                                 </ul>

@@ -1,8 +1,5 @@
 import ENV from '../../../helpers/ENV';
 import axios from 'axios';
-import React from 'react';
-import { useState, useEffect } from 'react';
-import Category from '../../../helpers/Category';
 
 const requestOptions = {
     headers: { 'Accept': 'application/json' },
@@ -14,9 +11,17 @@ const page = queryParameters.get("p") ? queryParameters.get("p") : '';
 const arr = id.split("/")
 
 const API = {
+    user: async () => {
+        try {
+            const data = await axios.get(ENV.apiURL('user/' + arr[0]), requestOptions)
+            return data
+        } catch (error) {
+            console.error('error',error);
+        }
+    },
     article: async () => {
         try {
-            const data = await axios.get(ENV.apiURL('user/' + arr[0] + '/show'), requestOptions)
+            const data = await axios.get(ENV.apiURL('user/' + arr[0] + '?show=articles&page=' + page), requestOptions)
             return data
         } catch (error) {
             console.error('error',error);

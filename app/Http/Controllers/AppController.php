@@ -38,7 +38,9 @@ class AppController extends Controller
 
     public function user($id, $name)
     {
-        User::where('id', $id)->firstOrFail();
+        User::where('id', $id)
+        ->whereRaw("REPLACE(`name`, ' ', '') = ? ", $name)
+        ->firstOrFail();
         return view('app', Helpers::requirements('user'));
     }
 }

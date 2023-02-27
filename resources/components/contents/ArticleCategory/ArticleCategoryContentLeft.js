@@ -4,6 +4,7 @@ import Category from '../../helpers/Category';
 import ENV from '../../helpers/ENV';
 import API from './API/API';
 import Moment from 'moment';
+import Text from '../../helpers/Text';
 
 export default function ArticleCategoryContentLeft() {
     let [article, setArticle] = useState([]);
@@ -30,7 +31,7 @@ export default function ArticleCategoryContentLeft() {
                         <h3 title={row.title} className="pfy-post-title"><a href={ENV.articleURL(row.url)}>{row.title}</a></h3>
                         {/* <div className="pfy-post-excerpt"></div> */}
                         <ul className="pfy-post-gd-meta">
-                            <li>Oleh <a href={ENV.userURL(row.user.id)} title={"Diposting oleh " + row.user.name} rel="author">{row.user.name}</a></li>
+                            <li>Oleh <a href={ENV.userURL(row.user.id + '/' + Text.specialRemove(row.user.name))} title={"Diposting oleh " + row.user.name} rel="author">{row.user.name}</a></li>
                             <li><i className="fal fa-calendar-alt"></i> {Moment(row.created_at).format('d MMM YYYY')}</li>
                             <li><i className="far fa-comments"></i> {row.comments_count} Komentar</li>
                         </ul>

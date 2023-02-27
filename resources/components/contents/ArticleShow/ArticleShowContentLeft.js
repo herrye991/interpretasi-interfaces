@@ -51,7 +51,7 @@ export default function ArticleShowContentLeft() {
                             <div className="pfy-single-post-meta d-flex align-items-center">
                                 <ul>
                                     <li>
-                                        <span className="auth_by">OLEH</span> {author.name}
+                                        <span className="auth_by">OLEH</span> <a href={ENV.userURL(author.id + '/' + Text.specialRemove(author.name))}>{author.name}</a>
                                     </li>
                                     <li>
                                         <i className="fal fa-calendar-alt"></i> {Moment(article.created_at).format('d MMM YYYY')}
@@ -125,10 +125,10 @@ export default function ArticleShowContentLeft() {
                     </article>
                     <div className="benqu__author_bio__Wrapper">
                         <div className="author-thumb">
-                            <a href={ENV.baseURL('user/' + author.id + '/' + Text.specialRemove(author.name))}><img alt="" src={author.photo} className="avatar avatar-180 photo" height="180" width="180" loading="lazy" decoding="async" /></a>
+                            <a href={ENV.userURL(author.id + '/' + Text.specialRemove(author.name))}><img alt="" src={author.photo} className="avatar avatar-180 photo" height="180" width="180" loading="lazy" decoding="async" /></a>
                         </div>
                         <div className="theme_author_Info">
-                            <a href={ENV.baseURL('user/' + author.id)}><h4 className="theme_author__Name">{author.name}</h4></a>
+                            <a href={ENV.userURL(author.id + '/' + Text.specialRemove(author.name))}><h4 className="theme_author__Name">{author.name}</h4></a>
                             <h6 className="theme_author_Title">Tentang Penulis</h6>
                             <p className="theme_author__Description">{author.bio}</p>
                             {/* <div className="theme_author_socials_icon">
@@ -157,11 +157,11 @@ export default function ArticleShowContentLeft() {
                                 {comment.map((comment, idx) =>
                                     <div key={idx} className="comment-body">
                                         <div className="author-thumb">
-                                            <a href={ENV.baseURL('user/' + comment.user.id)}><img alt="" src={comment.user.photo} className="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async" /></a>
+                                            <a href={ENV.userURL(comment.user.id + '/' + Text.specialRemove(comment.user.name))}><img alt="" src={comment.user.photo} className="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async" /></a>
                                         </div>
                                         <div className="comment-content">
                                             <h4 className="name">
-                                                <a href={ENV.baseURL('user/' + comment.user.id)} rel="external nofollow ugc" className="url">{comment.user.name}</a>
+                                                <a href={ENV.userURL(comment.user.id + '/' + Text.specialRemove(comment.user.name))} rel="external nofollow ugc" className="url">{comment.user.name}</a>
                                             </h4>
                                             <span className="comment-date text-end">{Moment(comment.created_at).format('d MMM YYYY')}</span>
                                             <p>{comment.body}</p>
@@ -213,7 +213,7 @@ export default function ArticleShowContentLeft() {
                                         <ul className="pfy-post-gd-meta">
                                             <li>
                                                 <i className="far fa-user"></i>
-                                                <a href={ENV.baseURL('user/' + row.user.id)} title={"Diposting oleh" + row.user.name} rel="author">{row.user.name}</a>
+                                                <a href={ENV.userURL(row.user.id + '/' + Text.specialRemove(row.user.name))} title={"Diposting oleh" + row.user.name} rel="author">{row.user.name}</a>
                                             </li>
                                             <li>
                                                 <i className="fal fa-calendar-alt"></i> {Moment(row.created_at).format('d MMM YYYY')}
