@@ -25,17 +25,22 @@ export default function SecondSectionContentLeft() {
     }, []);
     return (
         <div className="elementor-widget-wrap elementor-element-populated">
-            <div className="elementor-element elementor-element-5d3934d elementor-widget elementor-widget-benqu-post-overlay-v3" data-id="5d3934d" data-element_type="widget" data-widget_type="benqu-post-overlay-v3.default">
+            <div className="elementor-element elementor-element-c71dec9 elementor-widget elementor-widget-benqu-post-overlay-v2" data-id="c71dec9" data-element_type="widget" data-widget_type="benqu-post-overlay-v2.default">
                 <div className="elementor-widget-container">
-                    <div className="pfy-post-grid-wrap pfy-overlay-style-10">
+                    <div className="pfy-post-grid-wrap pfy-overlay-style-9">
                         <div className="pfy-post-item pfy-scale">
-                            <div className="pfy-post-thumb pfy-img-commn-style"> <a title={first.title} href={ENV.baseURL('article/' + first.url)}><img width="1500" height="1001" src={first.image} className="attachment-full size-full wp-post-image" alt="" decoding="async" loading="lazy" sizes="(max-width: 1500px) 100vw, 1500px" /></a> </div>
+                            <div className="pfy-post-thumb pfy-img-commn-style">
+                                <a title={ first.title } href={ ENV.baseURL('article/' + first.url) }><img loading="lazy" width="1500" height="1000" src={first.image} className="attachment-full size-full wp-post-image" alt="" decoding="async" /></a>
+                            </div>
                             <div className="pfy-post-content">
-                                <h2 className="pfy-post-title"><a href={ENV.baseURL('article/' + first.url)}>{first.title}</a></h2>
+                                <h1 className="pfy-post-title">
+                                    <a href={ ENV.baseURL('article/' + first.url) }>{first.title}</a>
+                                </h1>
                                 <ul className="pfy-post-gd-meta">
-                                    <li>OLEH <a href={ENV.userURL(firstUser.id + '/' + Text.specialRemove(firstUser.name))} title={"Posts by " + firstUser.name} rel="author">{firstUser.name}</a></li>
-                                    <li><i className="fal fa-calendar-alt"></i> {Moment(first.created_at).format('d MMM YYYY')}</li>
-                                    <li><i className="far fa-comments"></i> {first.comments_count} Komentar </li>
+                                    <li>Oleh <a href={ENV.userURL(firstUser.id + '/' + Text.specialRemove(firstUser.name))} title={"Diposting oleh" + firstUser.name} rel="author">{ firstUser.name }</a></li>
+                                    <li><i className="fal fa-calendar-alt"></i> { Moment(first.created_at).format('d MMM YYYY') }</li>
+                                    <li><i className="far fa-comments"></i> { first.comments_count } Komentar </li>
+                                    <li><i className="far fa-eye"></i> { first.viewers } Dilihat </li>
                                 </ul>
                             </div>
                         </div>
