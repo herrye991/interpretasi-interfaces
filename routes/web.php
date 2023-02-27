@@ -21,6 +21,7 @@ Route::get('/article/{url}', [AppController::class, 'show']);
 Route::get('/category/{name}', [AppController::class, 'category']);
 Route::get('/search', [AppController::class, 'search']);
 Route::get('/tag/{tag}', [AppController::class, 'tag']);
+Route::get('/user/{user}', [AppController::class, 'user']);
 
 Route::group(['prefix' => 'account'], function() {
     Route::group(['prefix' => 'accept'], function() {

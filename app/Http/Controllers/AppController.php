@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Helpers;
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AppController extends Controller
@@ -33,5 +34,11 @@ class AppController extends Controller
     public function tag()
     {
         return view('app', Helpers::requirements('tag'));
+    }
+
+    public function user($user)
+    {
+        User::where('id', $user)->firstOrFail();
+        return view('app', Helpers::requirements('user'));
     }
 }
