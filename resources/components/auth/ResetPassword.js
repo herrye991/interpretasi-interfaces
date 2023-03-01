@@ -19,7 +19,7 @@ import Copyright from './includes/Copyright';
 
 const theme = createTheme();
 
-function ResetPassword() {
+export default function ResetPassword() {
     var icon = <AccessTimeOutlinedIcon />
     var message = 'Memuat...';
     var currentURL = String(window.location.href);
@@ -113,10 +113,4 @@ function ResetPassword() {
             <Copyright />
         </ThemeProvider>
     );
-}
-
-export default ResetPassword
-
-if (document.getElementById('reset-password')) {
-    ReactDOM.render(<ResetPassword />, document.getElementById('reset-password'));
 }

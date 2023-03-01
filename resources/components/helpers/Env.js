@@ -1,6 +1,10 @@
 import React from 'react';
 
 const ENV = {
+    appName: 
+    function() {
+        return 'Interpretasi ID';
+    },
     baseURL: 
     function(path = null) {
         return 'https://interpretasi.id/' + path;

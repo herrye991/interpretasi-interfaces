@@ -44,4 +44,5 @@ mix.scripts([
 
 ], 'public_html/assets/js/app.js').version();
 
-mix.js('resources/js/react/react.js', 'assets/js');
+mix.js('resources/js/react/core.js', 'assets/js');
+mix.js('resources/js/react/mui.js', 'assets/js');

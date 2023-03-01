@@ -11,7 +11,7 @@
 <body>
     {!! $element !!}
     <script src="{{ asset('assets/js/app.js') }}" defer></script>
-    <script src="{{ asset('assets/js/react.js') }}" defer></script>
+    <script src="{{ asset('assets/js/mui.js') }}" defer></script>
     <script src="{{ asset('assets/js/jquery/jquery.min.js') }}" id="jquery-core-js"></script>
 </body>
 </html>

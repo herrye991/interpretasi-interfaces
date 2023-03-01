@@ -14,7 +14,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme();
 
-function EmailVerified() {
+export default function EmailVerified() {
     let [responseData, setResponseData] = React.useState('')
     const requestOptions = {
         method: 'GET',
@@ -60,10 +60,4 @@ function EmailVerified() {
             </Container>
         </ThemeProvider>
     );
-}
-
-export default EmailVerified
-
-if (document.getElementById('email-verified')) {
-    ReactDOM.render(<EmailVerified />, document.getElementById('email-verified'));
 }

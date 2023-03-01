@@ -6,67 +6,27 @@ import ArticleCategory from './includes/ArticleCategory';
 import ArticleSearch from './includes/ArticleSearch';
 import ArticleTag from './includes/ArticleTag';
 import ArticleUser from './includes/ArticleUser';
-import SignIn from './auth/Signin';
-
-function Index() {
-    return (
-        <ArticleIndex />
-    );
-}
+awd
 if (document.getElementById('index')) {
-    ReactDOM.render(<Index />, document.getElementById('index'));
+    ReactDOM.render(<ArticleIndex />, document.getElementById('index'));
 }
 
-function Show() {
-    return (
-        <ArticleShow />
-    );
-}
 if (document.getElementById('show')) {
-    ReactDOM.render(<Show />, document.getElementById('show'));
+    ReactDOM.render(<ArticleShow />, document.getElementById('show'));
 }
 
-function Category() {
-    return (
-        <ArticleCategory />
-    );
-}
 if (document.getElementById('category')) {
-    ReactDOM.render(<Category />, document.getElementById('category'));
+    ReactDOM.render(<ArticleCategory />, document.getElementById('category'));
 }
 
-function Search() {
-    return (
-        <ArticleSearch />
-    );
-}
 if (document.getElementById('search')) {
-    ReactDOM.render(<Search />, document.getElementById('search'));
+    ReactDOM.render(<ArticleSearch />, document.getElementById('search'));
 }
 
-function Tag() {
-    return (
-        <ArticleTag />
-    );
-}
 if (document.getElementById('tag')) {
-    ReactDOM.render(<Tag />, document.getElementById('tag'));
+    ReactDOM.render(<ArticleTag />, document.getElementById('tag'));
 }
 
-function User() {
-    return (
-        <ArticleUser />
-    );
-}
 if (document.getElementById('user')) {
-    ReactDOM.render(<User />, document.getElementById('user'));
-}
-
-function Signin() {
-    return (
-        <SignIn />
-    );
-}
-if (document.getElementById('signin')) {
-    ReactDOM.render(<Signin />, document.getElementById('signin'));
+    ReactDOM.render(<ArticleUser />, document.getElementById('user'));
 }

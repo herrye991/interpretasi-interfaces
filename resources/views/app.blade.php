@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en-US">
+<html lang="id">
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
@@ -38,7 +38,7 @@
     @include('components.layouts.includes.switch-theme')
         
     <script src="{{ asset('assets/js/app.js') }}" defer></script>
-    <script src="{{ asset('assets/js/react.js') }}" defer></script>
+    <script src="{{ asset('assets/js/core.js') }}" defer></script>
     <script src="{{ asset('assets/js/jquery/jquery.min.js') }}" id="jquery-core-js"></script>
 </body>
 
