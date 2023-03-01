@@ -1,4 +1,5 @@
 import * as React from 'react';
+import axios from 'axios';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -26,16 +27,38 @@ function Copyright(props) {
   );
 }
 
-const theme = createTheme();
+function SigninPost(email, password) {
+  let [token, setToken] = useState([]);
+  const requestOptions = {
+    headers: { 'Accept': 'application/json' },
+  };
+  useEffect(() => {
+    axios.post(ENV.apiURL('signin'), {email: email, password: password}, requestOptions)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+  }, [])
+}
 
 export default function SignIn() {
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#5541f8',
+      },
+      secondary: {
+        main: '#5541f8',
+      },
+    },
+  });
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    SigninPost(data.get('email'), data.get('password'));
   };
 
   return (
@@ -54,9 +77,9 @@ export default function SignIn() {
             <img src={ENV.baseURL('assets/images/favicon.png')} style={{ maxWidth: "40px", maxHeight: "40px" }} />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Login
+            Masuk
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -91,12 +114,12 @@ export default function SignIn() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link href={ENV.baseURL('forgot')} variant="body2">
                   Lupa Sandi?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href={ENV.baseURL('signup')} variant="body2">
                   {"Tidak punya akun? Daftar Sekarang"}
                 </Link>
               </Grid>

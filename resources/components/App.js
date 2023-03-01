@@ -6,7 +6,7 @@ import ArticleCategory from './includes/ArticleCategory';
 import ArticleSearch from './includes/ArticleSearch';
 import ArticleTag from './includes/ArticleTag';
 import ArticleUser from './includes/ArticleUser';
-awd
+
 if (document.getElementById('index')) {
     ReactDOM.render(<ArticleIndex />, document.getElementById('index'));
 }
