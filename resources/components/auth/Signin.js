@@ -1,5 +1,4 @@
-import * as React from 'react';
-import axios from 'axios';
+import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,52 +12,41 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ENV from '../helpers/ENV';
+import API from '../helpers/API';
+import Copyright from './includes/Copyright';
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href={ENV.baseURL()}>
-        {ENV.appName()}
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-function SigninPost(email, password) {
-  let [token, setToken] = useState([]);
-  const requestOptions = {
-    headers: { 'Accept': 'application/json' },
-  };
-  useEffect(() => {
-    axios.post(ENV.apiURL('signin'), {email: email, password: password}, requestOptions)
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
-  }, [])
-}
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#5541f8',
+    },
+    secondary: {
+      main: '#5541f8',
+    },
+  },
+});
 
 export default function SignIn() {
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: '#5541f8',
-      },
-      secondary: {
-        main: '#5541f8',
-      },
-    },
-  });
+  React.useEffect(async () => {
+    const session = await API.session();
+    if (session == 200) {
+      window.location.href = ENV.baseURL('account/dashboard')
+    }
+  }, [])
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    const requestOptions = {
+      headers: { 'Accept': 'application/json' },
+    };
     const data = new FormData(event.currentTarget);
-    SigninPost(data.get('email'), data.get('password'));
+    const body = {email: data.get('email'), password: data.get('password')};
+    const auth = await API.signin(body);
+    if (auth == 200) {
+      window.location.href = ENV.baseURL('account/dashboard')
+    } else {
+      window.location.href = ENV.baseURL('account/signin')
+    }
   };
 
   return (
@@ -77,7 +65,7 @@ export default function SignIn() {
             <img src={ENV.baseURL('assets/images/favicon.png')} style={{ maxWidth: "40px", maxHeight: "40px" }} />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Masuk
+            LOGIN
           </Typography>
           <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
             <TextField
@@ -114,12 +102,12 @@ export default function SignIn() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href={ENV.baseURL('forgot')} variant="body2">
+                <Link href={ENV.baseURL('account/forgot')} variant="body2">
                   Lupa Sandi?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href={ENV.baseURL('signup')} variant="body2">
+                <Link href={ENV.baseURL('account/signup')} variant="body2">
                   {"Tidak punya akun? Daftar Sekarang"}
                 </Link>
               </Grid>
