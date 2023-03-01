@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Helpers;
 use Illuminate\Support\Facades\Hash;
 use App\Models\PasswordReset;
 use App\Models\User;
@@ -14,6 +15,11 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->now = Carbon::now();
+    }
+
+    public function signin()
+    {
+        return view('components.empty', Helpers::requirements('signin'));
     }
 
     public function verify($token, Request $request)
@@ -32,8 +38,7 @@ class AuthController extends Controller
                 $verify->delete();
             }
         } else {
-            $type = 'email-verified';
-            return view('components.empty', compact(['type']));
+            return view('components.empty', Helpers::requirements('email-verified'));
         }
     }
 
@@ -47,8 +52,7 @@ class AuthController extends Controller
             }
             return response()->json(['validity' => false, 'token' => null]);
         }
-        $type = 'reset-password';
-        return view('components.empty', compact('type'));
+        return view('components.empty', Helpers::requirements('reset-password'));
     }
 
     public function resetPost(Request $request, $token)

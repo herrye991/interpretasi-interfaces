@@ -24,6 +24,7 @@ Route::get('/tag/{tag}', [AppController::class, 'tag']);
 Route::get('/user/{id}/{name}', [AppController::class, 'user']);
 
 Route::group(['prefix' => 'account'], function() {
+    Route::get('/signin', [AuthController::class, 'signin']);
     Route::group(['prefix' => 'accept'], function() {
         Route::get('/{token}', [AuthController::class, 'verify']);
     });

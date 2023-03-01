@@ -6,6 +6,7 @@ import ArticleCategory from './includes/ArticleCategory';
 import ArticleSearch from './includes/ArticleSearch';
 import ArticleTag from './includes/ArticleTag';
 import ArticleUser from './includes/ArticleUser';
+import SignIn from './auth/Signin';
 
 function Index() {
     return (
@@ -59,4 +60,13 @@ function User() {
 }
 if (document.getElementById('user')) {
     ReactDOM.render(<User />, document.getElementById('user'));
+}
+
+function Signin() {
+    return (
+        <SignIn />
+    );
+}
+if (document.getElementById('signin')) {
+    ReactDOM.render(<Signin />, document.getElementById('signin'));
 }

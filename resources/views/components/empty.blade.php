@@ -9,7 +9,7 @@
     <title>Interpretasi ID</title>
 </head>
 <body>
-    <div id="{{ $type }}"></div>
+    {!! $element !!}
     <script src="{{ asset('assets/js/app.js') }}" defer></script>
     <script src="{{ asset('assets/js/react.js') }}" defer></script>
     <script src="{{ asset('assets/js/jquery/jquery.min.js') }}" id="jquery-core-js"></script>
