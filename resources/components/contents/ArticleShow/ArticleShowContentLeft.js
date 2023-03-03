@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Moment from 'moment';
 import ENV from '../../helpers/ENV';
 import Category from "../../helpers/Category";
-import API from './API/API';
+import API from '../../helpers/API';
 import Text from '../../helpers/Text';
 
 export default function ArticleShowContentLeft() {
@@ -15,7 +15,7 @@ export default function ArticleShowContentLeft() {
 
     useEffect(() => {
         const getArticle = async () => {
-            const response = await API.article();
+            const response = await API.articleShow();
             const cat_id = response.data.data.category_id;
             setArticle(response.data.data);
             setAuthor(response.data.data.user);

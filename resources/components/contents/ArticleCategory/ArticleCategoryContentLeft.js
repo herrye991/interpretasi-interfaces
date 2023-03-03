@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import Category from '../../helpers/Category';
 import ENV from '../../helpers/ENV';
-import API from './API/API';
+import API from '../../helpers/API';
 import Moment from 'moment';
 import Text from '../../helpers/Text';
 
@@ -13,7 +13,7 @@ export default function ArticleCategoryContentLeft() {
     const newURL = currentURL.replace('?p=' + paginate.current_page, '')
     // useEffect(() => {
     const getArticle = async () => {
-        const response = await API.article();
+        const response = await API.articleCategory();
         setArticle(response.data.data);
         setPaginate(response.data.meta);
     }

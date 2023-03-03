@@ -1,5 +1,5 @@
 <div class="user-login">
-    <a href="{{ url('account/signin') }}"><i class="fas fa-user-alt"></i></a>
+    <a href="{{ url('account/signin?next=') }}"><i class="fas fa-user-alt"></i></a>
 </div>
 <div class="socila-title">
     <h5>Follow Us</h5>

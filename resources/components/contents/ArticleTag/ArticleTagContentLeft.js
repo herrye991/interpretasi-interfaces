@@ -1,5 +1,5 @@
 import React from 'react';
-import API from './API/API';
+import API from '../../helpers/API';
 import ENV from '../../helpers/ENV';
 import Category from '../../helpers/Category';
 import Moment from 'moment';
@@ -13,7 +13,7 @@ export default function ArticleTagContentLeft() {
 
     React.useEffect(() => {
         const getArticle = async () => {
-            const response = await API.article();
+            const response = await API.articleTag();
             setArticle(response.data.data);
             setPaginate(response.data.meta);
         }

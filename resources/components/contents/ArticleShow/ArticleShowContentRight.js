@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Moment from 'moment';
 import ENV from '../../helpers/ENV';
 import Category from "../../helpers/Category";
-import API from './API/API';
+import API from '../../helpers/API';
 import OwlCarousel from 'react-owl-carousel';
 
 export default function ArticleShowContentRight() {
