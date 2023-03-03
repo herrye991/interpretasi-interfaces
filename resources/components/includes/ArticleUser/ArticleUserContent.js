@@ -2,7 +2,7 @@ import React from 'react';
 import ArticleUserContentLeft from '../../contents/ArticleUser/ArticleUserContentLeft';
 import ArticleShowContentRight from '../../contents/ArticleShow/ArticleShowContentRight';
 import Category from '../../helpers/Category';
-import API from '../../contents/ArticleUser/API/API';
+import API from '../../helpers/API';
 
 export default function ArticleUserContent() {
     let [author, setAuthor] = React.useState([]);
