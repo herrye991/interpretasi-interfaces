@@ -256,7 +256,184 @@ const API = {
         } catch (error) {
             console.error('error', error);
         }
-    }
+    },
+    // Article Index
+    firstTrendIndex: async () => {
+        try {
+            const data = await axios.get(ENV.apiURL('article/?tending=1&skip=0&take=1'), requestOptions).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.status);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+            return data
+        } catch (error) {
+            console.error('error', error);
+        }
+    },
+    secondTrendIndex: async () => {
+        try {
+            const data = await axios.get(ENV.apiURL('article/?tending=1&skip=1&take=2'), requestOptions).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.status);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+            return data
+        } catch (error) {
+            console.error('error', error);
+        }
+    },
+    latestIndex: async () => {
+        try {
+            const data = await axios.get(ENV.apiURL('article/?skip=0&take=6&orderBy=latest'), requestOptions).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.status);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+            return data
+        } catch (error) {
+            console.error('error', error);
+        }
+    },
+    popularIndex: async () => {
+        try {
+            const data = await axios.get(ENV.apiURL('article/?skip=0&take=6&trending=0'), requestOptions).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.status);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+            return data
+        } catch (error) {
+            console.error('error', error);
+        }
+    },
+    trendingIndex: async () => {
+        try {
+            const data = await axios.get(ENV.apiURL('article/?skip=3&take=6&trending=1'), requestOptions).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.status);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+            return data
+        } catch (error) {
+            console.error('error', error);
+        }
+    },
+    firstNewsIndex: async () => {
+        try {
+            const data = await axios.get(ENV.apiURL('article?orderBy=mostView&category=2&skip=0&take=1'), requestOptions).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.status);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+            return data
+        } catch (error) {
+            console.error('error', error);
+        }
+    },
+    secondNewsIndex: async () => {
+        try {
+            const data = await axios.get(ENV.apiURL('article?orderBy=mostView&category=2&skip=1&take=3'), requestOptions).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.status);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+            return data
+        } catch (error) {
+            console.error('error', error);
+        }
+    },
+    etcNewsIndex: async () => {
+        try {
+            const data = await axios.get(ENV.apiURL('article?orderBy=mostView&category=2&skip=4&take=5'), requestOptions).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.status);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+            return data
+        } catch (error) {
+            console.error('error', error);
+        }
+    },
+    firstEntertainmentIndex: async () => {
+        try {
+            const data = await axios.get(ENV.apiURL('article?orderBy=mostView&category=12&skip=0&take=1'), requestOptions).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.status);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+            return data
+        } catch (error) {
+            console.error('error', error);
+        }
+    },
+    secondEntertainmentIndex: async () => {
+        try {
+            const data = await axios.get(ENV.apiURL('article?orderBy=mostView&category=12&skip=1&take=3'), requestOptions).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.status);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+            return data
+        } catch (error) {
+            console.error('error', error);
+        }
+    },
+    etcEntertainmentIndex: async () => {
+        try {
+            const data = await axios.get(ENV.apiURL('article?orderBy=mostView&category=12&skip=4&take=5'), requestOptions).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.status);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+            return data
+        } catch (error) {
+            console.error('error', error);
+        }
+    },
 }
 
 export default API

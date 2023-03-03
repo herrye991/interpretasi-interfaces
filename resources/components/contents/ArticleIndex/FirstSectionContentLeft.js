@@ -3,8 +3,7 @@ import {useEffect} from 'react';
 import ENV from "../../helpers/ENV";
 import Moment from 'moment';
 import Category from "../../helpers/Category";
-import CategoryAPI from "../../helpers/CategoryAPI";
-import API from "./API/API";
+import API from "../../helpers/API";
 import Text from "../../helpers/Text";
 
 export default function FirstSectionContentLeft() {
@@ -13,13 +12,13 @@ export default function FirstSectionContentLeft() {
     let [second, setSecond] = React.useState([])
     useEffect(() => {
         const getFirst = async () => {
-            const response = await API.firstTrend()
+            const response = await API.firstTrendIndex()
             setFirst(response.data.data[0]);
             setFirstUser(response.data.data[0].user);
         }
         getFirst();
         const getSecond = async () => {
-            const response = await API.secondTrend()
+            const response = await API.secondTrendIndex()
             setSecond(response.data.data);
         }
         getSecond();

@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from 'react';
 import ENV from "../../helpers/ENV";
 import Moment from 'moment';
-import API from "./API/API";
+import API from "../../helpers/API";
 import Text from "../../helpers/Text";
 
 export default function FourthSectionContentLeft() {
@@ -12,13 +12,13 @@ export default function FourthSectionContentLeft() {
     
     useEffect(() => {
         const getFirst = async () => {
-            const response = await API.firstEntertainment()
+            const response = await API.firstEntertainmentIndex()
             setFirst(response.data.data[0]);
             setFirstUser(response.data.data[0].user);
         }
         getFirst();
         const getSecond = async () => {
-            const response = await API.secondEntertainment()
+            const response = await API.secondEntertainmentIndex()
             setSecond(response.data.data);
         }
         getSecond();

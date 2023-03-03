@@ -2,14 +2,14 @@ import React from "react";
 import { useEffect } from 'react';
 import ENV from "../../helpers/ENV";
 import Moment from 'moment';
-import API from "./API/API";
+import API from "../../helpers/API";
 
 export default function FourthSectionContentRight() {
     let [entertainment, setEntertainment] = React.useState([]);
 
     useEffect(() => {
         const getSecond = async () => {
-            const response = await API.etcEntertainment()
+            const response = await API.etcEntertainmentIndex()
             setEntertainment(response.data.data);
         }
         getSecond();

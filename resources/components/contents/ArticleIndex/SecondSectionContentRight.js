@@ -2,14 +2,14 @@ import React from "react";
 import { useEffect } from 'react';
 import ENV from "../../helpers/ENV";
 import Moment from 'moment';
-import API from "./API/API";
+import API from "../../helpers/API";
 
 export default function SecondSectionContentRight() {
     let [news, setNews] = React.useState([]);
 
     useEffect(() => {
         const getSecond = async () => {
-            const response = await API.etcNews()
+            const response = await API.etcNewsIndex()
             setNews(response.data.data);
         }
         getSecond();

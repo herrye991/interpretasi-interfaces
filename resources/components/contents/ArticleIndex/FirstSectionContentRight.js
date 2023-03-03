@@ -4,7 +4,7 @@ import axios from 'axios';
 import ENV from "../../helpers/ENV";
 import Moment from 'moment';
 import Category from "../../helpers/Category";
-import API from "./API/API";
+import API from "../../helpers/API";
 
 export default function FirstSectionContentRight() {
 
@@ -17,17 +17,17 @@ export default function FirstSectionContentRight() {
 
     useEffect(() => {
         const getLatest = async () => {
-            const response = await API.latest()
+            const response = await API.latestIndex()
             setLatest(response.data.data);
         }
         getLatest();
         const getPopular = async () => {
-            const response = await API.latest()
+            const response = await API.popularIndex()
             setPopular(response.data.data);
         }
         getPopular();
         const getTrending = async () => {
-            const response = await API.latest()
+            const response = await API.trendingIndex()
             setTrending(response.data.data);
         }
         getTrending();
