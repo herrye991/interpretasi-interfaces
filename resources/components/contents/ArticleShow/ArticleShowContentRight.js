@@ -59,7 +59,7 @@ export default function ArticleShowContentRight() {
                                                             <div className="pfy-post-meta">
                                                                 <ul className="justify-content-center">
                                                                     <li>
-                                                                        <i className="fal fa-calendar-alt"></i> {Moment(row.created_at).format('d MMM YYYY')}
+                                                                        <i className="fal fa-calendar-alt"></i> {Moment(row.created_at).format('DD MMM YYYY')}
                                                                     </li>
                                                                 </ul>
                                                             </div>
@@ -94,7 +94,7 @@ export default function ArticleShowContentRight() {
                                                 <div className="pfy-post-meta-tb d-flex">
                                                     {Category(row.category_id).map((cat, idx) => { return <a key={idx} className="benqu-cate-name" href={ENV.baseURL('category/' + cat.unique_name)} style={cat.color}><span>{cat.name}</span></a> })}
                                                     <span className="pfy-post-date">
-                                                        <i className="fal fa-calendar-alt"></i> {Moment(row.created_at).format('d MMM YYYY')} </span>
+                                                        <i className="fal fa-calendar-alt"></i> {Moment(row.created_at).format('DD MMM YYYY')} </span>
                                                 </div>
                                                 <h4 className="benqu__post-title pfy-post-title hover-title">
                                                     <a href={ENV.baseURL('article/' + row.url)} rel="bookmark" title={row.title}>{row.title.length > 58 ? `${row.title.substring(0, 58)}...` : row.title}</a>

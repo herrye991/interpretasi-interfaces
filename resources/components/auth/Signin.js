@@ -42,8 +42,19 @@ export default function SignIn() {
     const data = new FormData(event.currentTarget);
     const body = {email: data.get('email'), password: data.get('password')};
     const auth = await API.signin(body);
+    const queryParameters = new URLSearchParams(window.location.search)
+    const next = queryParameters.get("next") ? queryParameters.get("next") : '';
+    const comment = queryParameters.get("comment") ? queryParameters.get("comment") : '';
     if (auth == 200) {
-      window.location.href = ENV.baseURL('account/dashboard')
+      if (next !== '') {
+        if (comment !== '') {
+          window.location.href = next + '?comment=' + comment
+        } else {
+          window.location.href = next
+        }
+      } else {
+        window.location.href = ENV.baseURL('account/dashboard')
+      }
     } else {
       window.location.href = ENV.baseURL('account/signin')
     }

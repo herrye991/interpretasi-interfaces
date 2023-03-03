@@ -27,7 +27,7 @@ export default function FourthSectionContentRight() {
                             </div>
                             <div className="pfy-post-content">
                                 <h4 className="pfy-post-title"><a href={ENV.baseURL('article/' + res.url)}>{res.title.length > 58 ? `${res.title.substring(0, 58)}...` : res.title}</a></h4>
-                                <span className="pfy-post-date"><i className="fal fa-calendar-alt"></i> {Moment(res.created_at).format('d MMM YYYY')}</span>
+                                <span className="pfy-post-date"><i className="fal fa-calendar-alt"></i> {Moment(res.created_at).format('DD MMM YYYY')}</span>
                             </div>
                         </div>
                         )}

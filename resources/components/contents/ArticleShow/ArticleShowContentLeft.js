@@ -5,15 +5,24 @@ import ENV from '../../helpers/ENV';
 import Category from "../../helpers/Category";
 import API from '../../helpers/API';
 import Text from '../../helpers/Text';
+import Base64 from 'crypto-js/enc-base64';
 
 export default function ArticleShowContentLeft() {
+    let [session, setSession] = useState(0);
     let [article, setArticle] = useState([]);
     let [author, setAuthor] = useState([]);
     let [comment, setComment] = useState([]);
     let [tags, setTags] = useState([]);
     let [related, setRelated] = useState([]);
 
+    const queryParameters = new URLSearchParams(window.location.search)
+    const commentParameter = queryParameters.get("comment") ? decodeURI(atob(queryParameters.get("comment"))) : '';
+
     useEffect(() => {
+        const getSession = async () => {
+            const response = await API.session();
+            setSession(response);
+        }
         const getArticle = async () => {
             const response = await API.articleShow();
             const cat_id = response.data.data.category_id;
@@ -33,12 +42,31 @@ export default function ArticleShowContentLeft() {
         const postPreview = async () => {
             await API.preview();
         }
-        getArticle(); getComment();
+        getSession(); getArticle(); getComment();
         setTimeout(() => {
             postPreview();
         }, 30000);
         return () => clearTimeout(timeout);
     }, []);
+
+    const commentSubmit = async (event) => {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        const body = {body: data.get('body')};
+        if (session !== 200) {
+            console.log(session)
+            const next = window.location.href
+            window.location.href = ENV.baseURL('account/signin' + '?next=' + next + '&comment=' + btoa(data.get('body')));
+        } else {
+            try {
+                const commentPost = await API.commentPost(body);
+                console.log(commentPost)
+                location.reload();
+            } catch (error) {
+                console.error('error', error);
+            }
+        }
+    }
 
     return (
         <div className="theiaStickySidebar" style={{ paddingTop: "0px", paddingBottom: "1px", position: "static", transform: "none" }}>
@@ -54,7 +82,7 @@ export default function ArticleShowContentLeft() {
                                         <span className="auth_by">OLEH</span> <a href={ENV.userURL(author.id + '/' + Text.specialRemove(author.name))}>{author.name}</a>
                                     </li>
                                     <li>
-                                        <i className="fal fa-calendar-alt"></i> {Moment(article.created_at).format('d MMM YYYY')}
+                                        <i className="fal fa-calendar-alt"></i> {Moment(article.created_at).format('DD MMM YYYY')}
                                     </li>
                                     <li>
                                         <i className="far fa-comments"></i> {article.comments_count} Komentar
@@ -163,7 +191,7 @@ export default function ArticleShowContentLeft() {
                                             <h4 className="name">
                                                 <a href={ENV.userURL(comment.user.id + '/' + Text.specialRemove(comment.user.name))} rel="external nofollow ugc" className="url">{comment.user.name}</a>
                                             </h4>
-                                            <span className="comment-date text-end">{Moment(comment.created_at).format('d MMM YYYY')}</span>
+                                            <span className="comment-date text-end">{Moment(comment.created_at).format('DD MMM YYYY')}</span>
                                             <p>{comment.body}</p>
                                         </div>
                                     </div>
@@ -175,11 +203,11 @@ export default function ArticleShowContentLeft() {
                                 <a rel="nofollow" id="cancel-comment-reply-link" href="#" style={{ display: "none" }}>Cancel reply</a>
                             </small>
                             </h3>
-                            <form action="#" method="post" id="commentform" className="comment-form">
+                            <form onSubmit={commentSubmit} className="comment-form">
                                 <div className="row">
                                     <div className="col-md-12">
                                         <div className="input-field mb-30">
-                                            <textarea id="comment" className="form_control" name="comment" cols="77" rows="3" placeholder="Comment" aria-required="true" required></textarea>
+                                            <textarea className="form_control" name="body" cols="77" rows="3" placeholder="Tulis komentar..." aria-required="true" required defaultValue={ commentParameter }></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -216,7 +244,7 @@ export default function ArticleShowContentLeft() {
                                                 <a href={ENV.userURL(row.user.id + '/' + Text.specialRemove(row.user.name))} title={"Diposting oleh" + row.user.name} rel="author">{row.user.name}</a>
                                             </li>
                                             <li>
-                                                <i className="fal fa-calendar-alt"></i> {Moment(row.created_at).format('d MMM YYYY')}
+                                                <i className="fal fa-calendar-alt"></i> {Moment(row.created_at).format('DD MMM YYYY')}
                                             </li>
                                         </ul>
                                     </div>

@@ -38,7 +38,7 @@ export default function FourthSectionContentLeft() {
                                 </h1>
                                 <ul className="pfy-post-gd-meta">
                                     <li>Oleh <a href={ENV.userURL(firstUser.id + '/' + Text.specialRemove(firstUser.name))} title={"Diposting oleh" + firstUser.name} rel="author">{ firstUser.name }</a></li>
-                                    <li><i className="fal fa-calendar-alt"></i> { Moment(first.created_at).format('d MMM YYYY') }</li>
+                                    <li><i className="fal fa-calendar-alt"></i> { Moment(first.created_at).format('DD MMM YYYY') }</li>
                                     <li><i className="far fa-comments"></i> { first.comments_count } Komentar </li>
                                     <li><i className="far fa-eye"></i> { first.viewers } Dilihat </li>
                                 </ul>
@@ -62,7 +62,7 @@ export default function FourthSectionContentLeft() {
                                         <div className="pfy-post-content">
                                             <h4 className="pfy-post-title"><a href={ENV.baseURL('article/' + res.url)} title={ res.title }>{res.title.length > 58 ? `${res.title.substring(0, 58)}...` : res.title}</a></h4>
                                             <ul className="pfy-post-gd-meta">
-                                                <li><i className="fal fa-calendar-alt"></i> {Moment(res.created_at).format('d MMM YYYY')} </li>
+                                                <li><i className="fal fa-calendar-alt"></i> {Moment(res.created_at).format('DD MMM YYYY')} </li>
                                             </ul>
                                         </div>
                                     </div>
