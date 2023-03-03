@@ -16,7 +16,7 @@ export default function ArticleShowContentLeft() {
     let [related, setRelated] = useState([]);
 
     const queryParameters = new URLSearchParams(window.location.search)
-    const commentParameter = queryParameters.get("comment") ? decodeURI(atob(queryParameters.get("comment"))) : '';
+    const commentParameter = queryParameters.get("comment") ? decodeURI(queryParameters.get("comment")) : '';
 
     useEffect(() => {
         const getSession = async () => {
@@ -56,12 +56,12 @@ export default function ArticleShowContentLeft() {
         if (session !== 200) {
             console.log(session)
             const next = window.location.href
-            window.location.href = ENV.baseURL('account/signin' + '?next=' + next + '&comment=' + btoa(data.get('body')));
+            window.location.href = ENV.baseURL('account/signin' + '?next=' + next + '&comment=' + data.get('body'));
         } else {
             try {
                 const commentPost = await API.commentPost(body);
                 console.log(commentPost)
-                location.reload();
+                window.location.href = ENV.currentURL();
             } catch (error) {
                 console.error('error', error);
             }
@@ -181,22 +181,20 @@ export default function ArticleShowContentLeft() {
                     <div id="comments" className="comments-area">
                         <h2 className="comments-title"> {article.comments_count} Komentar </h2>
                         <ol className="comment-list">
-                            <li className="comment even thread-even depth-1 comment" id="comment-1">
-                                {comment.map((comment, idx) =>
-                                    <div key={idx} className="comment-body">
-                                        <div className="author-thumb">
-                                            <a href={ENV.userURL(comment.user.id + '/' + Text.specialRemove(comment.user.name))}><img alt="" src={comment.user.photo} className="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async" /></a>
-                                        </div>
-                                        <div className="comment-content">
-                                            <h4 className="name">
-                                                <a href={ENV.userURL(comment.user.id + '/' + Text.specialRemove(comment.user.name))} rel="external nofollow ugc" className="url">{comment.user.name}</a>
-                                            </h4>
-                                            <span className="comment-date text-end">{Moment(comment.created_at).format('DD MMM YYYY')}</span>
-                                            <p>{comment.body}</p>
-                                        </div>
+                            {comment.map((comment, idx) =>
+                            <li key={idx} className="comment even thread-even depth-1 comment">
+                                <div className="comment-body">
+                                    <div className="author-thumb">
+                                        <a href={ENV.userURL(comment.user.id + '/' + Text.specialRemove(comment.user.name))}><img alt="" src={comment.user.photo} className="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async" /></a>
                                     </div>
-                                )}
+                                    <div className="comment-content">
+                                        <h4 className="name"><a href={ENV.userURL(comment.user.id + '/' + Text.specialRemove(comment.user.name))} rel="external nofollow ugc" className="url">{comment.user.name}</a></h4>
+                                        <span className="comment-date text-end">{Moment(comment.created_at).format('DD MMM YYYY (HH:mm)')}</span>
+                                        <p>{comment.body}</p>
+                                    </div>
+                                </div>
                             </li>
+                            )}
                         </ol>
                         <div id="respond" className="comment-respond">
                             <h3 id="reply-title" className="comment-reply-title">Tinggalkan komentar <small>

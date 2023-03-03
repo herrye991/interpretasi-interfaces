@@ -13,6 +13,10 @@ const ENV = {
     function(path = null) {
         return 'https://interpretasi.id/api/v1/' + path;
     },
+    currentURL:
+    function(path = null) {
+        return location.protocol + '//' + location.host + location.pathname;
+    },
     articleURL:
     function(path = null) {
         return 'https://interpretasi.id/article/' + path;

@@ -48,9 +48,9 @@ export default function SignIn() {
     if (auth == 200) {
       if (next !== '') {
         if (comment !== '') {
-          window.location.href = next + '?comment=' + comment
+          window.location.href = decodeURI(next + '?comment=' + comment)
         } else {
-          window.location.href = next
+          window.location.href = decodeURI(next)
         }
       } else {
         window.location.href = ENV.baseURL('account/dashboard')
