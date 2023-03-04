@@ -9,6 +9,7 @@ import Base64 from 'crypto-js/enc-base64';
 
 export default function ArticleShowContentLeft() {
     let [session, setSession] = useState(0);
+    let [currentUser, setCurrentUser] = useState([]);
     let [article, setArticle] = useState([]);
     let [author, setAuthor] = useState([]);
     let [comment, setComment] = useState([]);
@@ -22,6 +23,10 @@ export default function ArticleShowContentLeft() {
         const getSession = async () => {
             const response = await API.session();
             setSession(response);
+        }
+        const getCurrentUser = async () => {
+            const response = await API.currentUser();
+            setCurrentUser(response.data.data);
         }
         const getArticle = async () => {
             const response = await API.articleShow();
@@ -42,7 +47,7 @@ export default function ArticleShowContentLeft() {
         const postPreview = async () => {
             await API.preview();
         }
-        getSession(); getArticle(); getComment();
+        getCurrentUser(); getSession(); getArticle(); getComment();
         setTimeout(() => {
             postPreview();
         }, 30000);
@@ -52,19 +57,47 @@ export default function ArticleShowContentLeft() {
     const commentSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        const body = {body: data.get('body')};
-        if (session !== 200) {
-            console.log(session)
-            const next = window.location.href
-            window.location.href = ENV.baseURL('account/signin' + '?next=' + next + '&comment=' + data.get('body'));
-        } else {
+        const body = { body: data.get('body') };
+        if (session == 200) {
             try {
-                const commentPost = await API.commentPost(body);
-                console.log(commentPost)
+                await API.commentPost(body);
                 window.location.href = ENV.currentURL();
             } catch (error) {
                 console.error('error', error);
             }
+        } else {
+            const next = window.location.href
+            window.location.href = ENV.baseURL('account/signin' + '?next=' + next + '&comment=' + data.get('body'));
+        }
+    }
+
+    const deleteComment = async (commentId) => {
+        if (session == 200) {
+            try {
+                await API.commentDelete(commentId);
+                window.location.href = ENV.currentURL();
+            } catch (error) {
+                console.error('error', error);
+            }
+        } else {
+            const next = window.location.href
+            window.location.href = ENV.baseURL('account/signin' + '?next=' + next);
+        }
+    }
+
+    const reportComment = async (event) => {
+        event.preventDefault();
+        const commentId = event.target.getAttribute("data-id");
+        if (session == 200) {
+            // try {
+            //     await API.commentReport(commentId);
+            //     window.location.href = ENV.currentURL();
+            // } catch (error) {
+            //     console.error('error', error);
+            // }
+        } else {
+            const next = window.location.href
+            window.location.href = ENV.baseURL('account/signin' + '?next=' + next);
         }
     }
 
@@ -181,20 +214,41 @@ export default function ArticleShowContentLeft() {
                     <div id="comments" className="comments-area">
                         <h2 className="comments-title"> {article.comments_count} Komentar </h2>
                         <ol className="comment-list">
-                            {comment.map((comment, idx) =>
-                            <li key={idx} className="comment even thread-even depth-1 comment">
-                                <div className="comment-body">
-                                    <div className="author-thumb">
-                                        <a href={ENV.userURL(comment.user.id + '/' + Text.specialRemove(comment.user.name))}><img alt="" src={comment.user.photo} className="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async" /></a>
-                                    </div>
-                                    <div className="comment-content">
-                                        <h4 className="name"><a href={ENV.userURL(comment.user.id + '/' + Text.specialRemove(comment.user.name))} rel="external nofollow ugc" className="url">{comment.user.name}</a></h4>
-                                        <span className="comment-date text-end">{Moment(comment.created_at).format('DD MMM YYYY (HH:mm)')}</span>
-                                        <p>{comment.body}</p>
-                                    </div>
-                                </div>
-                            </li>
-                            )}
+                            {comment.map((comment, idx) => {
+                                if (currentUser.id == comment.user.id) {
+                                    return (
+                                        <li key={idx} className="comment even thread-even depth-1 comment">
+                                            <div className="comment-body" style={{ textAlign: "left" }}>
+                                                <div className="author-thumb">
+                                                    <a href={ENV.userURL(comment.user.id + '/' + Text.specialRemove(comment.user.name))}><img alt="" src={comment.user.photo} className="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async" /></a>
+                                                </div>
+                                                <div className="comment-content">
+                                                    <h4 className="name"><a href={ENV.userURL(comment.user.id + '/' + Text.specialRemove(comment.user.name))} rel="external nofollow ugc" className="url">{comment.user.name}</a></h4>
+                                                    <button onClick={() => { window.confirm('Kamu yakin ingin menghapus komentar ini?', ) && deleteComment(comment.id)}} title="Hapus" className="btn" style={{ float: "right", border: "1px solid #e3e3e3" }}><i className="fa fa-trash" style={{ color: "#666", fontSize: "12px" }}></i></button>
+                                                    <span className="comment-date text-end">{Moment(comment.created_at).format('DD MMM YYYY (HH:mm)')}</span>
+                                                    <p>{comment.body}</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    )
+                                } else {
+                                    return (
+                                        <li key={idx} className="comment even thread-even depth-1 comment">
+                                            <div className="comment-body" style={{ textAlign: "left" }}>
+                                                <div className="author-thumb">
+                                                    <a href={ENV.userURL(comment.user.id + '/' + Text.specialRemove(comment.user.name))}><img alt="" src={comment.user.photo} className="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async" /></a>
+                                                </div>
+                                                <div className="comment-content">
+                                                    <h4 className="name"><a href={ENV.userURL(comment.user.id + '/' + Text.specialRemove(comment.user.name))} rel="external nofollow ugc" className="url">{comment.user.name}</a></h4>
+                                                    <button data-id={comment.id} onClick={reportComment} title="Laporkan" className="btn" style={{ float: "right", border: "1px solid #e3e3e3" }}><i className="fa fa-exclamation-triangle" style={{ color: "#666", fontSize: "12px" }}></i></button>
+                                                    <span className="comment-date text-end">{Moment(comment.created_at).format('DD MMM YYYY (HH:mm)')}</span>
+                                                    <p>{comment.body}</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    )
+                                }
+                            })}
                         </ol>
                         <div id="respond" className="comment-respond">
                             <h3 id="reply-title" className="comment-reply-title">Tinggalkan komentar <small>
@@ -205,7 +259,7 @@ export default function ArticleShowContentLeft() {
                                 <div className="row">
                                     <div className="col-md-12">
                                         <div className="input-field mb-30">
-                                            <textarea className="form_control" name="body" cols="77" rows="3" placeholder="Tulis komentar..." aria-required="true" required defaultValue={ commentParameter }></textarea>
+                                            <textarea className="form_control" name="body" cols="77" rows="3" placeholder="Tulis komentar..." aria-required="true" required defaultValue={commentParameter}></textarea>
                                         </div>
                                     </div>
                                 </div>

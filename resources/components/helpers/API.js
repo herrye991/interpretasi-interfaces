@@ -37,6 +37,22 @@ const API = {
             console.error('error', error);
         }
     },
+    currentUser: async () => {
+        try {
+            const response = await axios.get(ENV.apiURL('user/profile'), requestOptions).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.status);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+            return response
+        } catch (error) {
+            console.error('error', error);
+        }
+    },
     // Core
     session: async () => {
         try {
@@ -154,6 +170,38 @@ const API = {
     commentPost: async (body) => {
         try {
             const data = await axios.post(ENV.apiURL('article/' + articleId + '/comment'), body, requestOptions).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.status);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+            return data
+        } catch (error) {
+            console.error('error', error);
+        }
+    },
+    commentDelete: async (commentId) => {
+        try {
+            const data = await axios.delete(ENV.apiURL('article/' + articleId + '/comment/' + commentId), requestOptions).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.status);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+            return data
+        } catch (error) {
+            console.error('error', error);
+        }
+    },
+    commentReport: async (commentId, body) => {
+        try {
+            const data = await axios.post(ENV.apiURL('article/' + articleId + '/comment' + commentId + '/report'), body, requestOptions).catch(function (error) {
                 if (error.response) {
                     console.log(error.response.status);
                 } else if (error.request) {
