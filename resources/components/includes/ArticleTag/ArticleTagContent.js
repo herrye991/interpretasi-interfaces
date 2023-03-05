@@ -16,7 +16,7 @@ export default function ArticleTagContent() {
                                     <a href="#">Topik</a>
                                 </li>
                                 <li>
-                                    <a href="#">{id}</a>
+                                    <a href="#">{decodeURI(id)}</a>
                                 </li>
                             </ol>
                         </div>
