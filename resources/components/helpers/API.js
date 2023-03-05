@@ -215,6 +215,38 @@ const API = {
             console.error('error', error);
         }
     },
+    articleReport: async (body) => {
+        try {
+            const data = await axios.post(ENV.apiURL('article/' + articleId + '/report'), body, requestOptions).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.status);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+            return data
+        } catch (error) {
+            console.error('error', error);
+        }
+    },
+    articleLike: async () => {
+        try {
+            const data = await axios.post(ENV.apiURL('article/' + articleId + '/like'), requestOptions).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.status);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+            return data
+        } catch (error) {
+            console.error('error', error);
+        }
+    },
     // Search
     articleSearch: async () => {
         try {
