@@ -129,13 +129,13 @@ export default function ArticleShowContentLeft() {
                         <header className="entry-header">
                             {Category(article.category_id).map((cat, idx) => { return <a key={idx} className="benqu-cate-badge" href={ENV.baseURL('category/' + cat.unique_name)} style={cat.background_color}><span>{cat.name}</span></a> })}
                             <h1 className="entry-title">{article.title}</h1>
-                            <div className="pfy-single-post-meta d-flex align-items-center">
+                            <div className="pfy-single-post-meta d-flex">
                                 <ul>
                                     <li>
-                                        <span className="auth_by">OLEH</span> <a href={ENV.userURL(author.id + '/' + Text.specialRemove(author.name))}>{author.name}</a>
+                                        <i className="fal fa-calendar-alt"></i> {Moment(article.created_at).format('DD MMM YYYY')}
                                     </li>
                                     <li>
-                                        <i className="fal fa-calendar-alt"></i> {Moment(article.created_at).format('DD MMM YYYY')}
+                                        <i className="fal fa-thumbs-up"></i> {article.likes_count} Suka
                                     </li>
                                     <li>
                                         <i className="far fa-comments"></i> {article.comments_count} Komentar
@@ -145,16 +145,19 @@ export default function ArticleShowContentLeft() {
                                     </li>
                                 </ul>
                                 <div className="bnq__social-top">
-                                    <div className="social-box socila-box-two">
-                                        <a className="fb" href="#">
-                                            <i className="fab fa-facebook-f"></i>
-                                        </a>
-                                        <a className="wh" href={"https://api.whatsapp.com/send?text=" + article.title + "%0a" + ENV.articleURL(article.url)}>
-                                            <i className="fab fa-whatsapp"></i>
-                                        </a>
-                                        <a className="tw" href="#">
-                                            <i className="fab fa-twitter"></i>
-                                        </a>
+                                    <div className="social-box socila-box-two" style={{ textAlign: "left" }}>
+                                        <div className="dropdown" style={{ float: "right" }}>
+                                            <a href="#" className="fb" id="dropdownMenuButtonShare" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i className="fas fa-ellipsis-v"></i>
+                                            </a>
+                                            <div className="dropdown-menu" aria-labelledby="dropdownMenuButtonShare" data-popper-placement="bottom-end">
+                                                <button className="dropdown-item">Bagikan ke Facebook</button>
+                                                <button className="dropdown-item" onClick={() => { window.open("https://api.whatsapp.com/send?text=" + article.title + "%0a" + ENV.articleURL(article.url), '_blank') }}>Bagikan ke Whatsapp</button>
+                                                <button className="dropdown-item">Bagikan ke Twitter</button>
+                                                <button className="dropdown-item" onClick={() => {navigator.clipboard.writeText(ENV.currentURL())}}>Salin Tautan</button>
+                                                <button className="dropdown-item">Laporkan Artikel</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -163,22 +166,6 @@ export default function ArticleShowContentLeft() {
                             <img width="1296" height="700" src={article.image} className="img-fluid wp-post-image" alt="" decoding="async" sizes="(max-width: 1296px) 100vw, 1296px" />
                         </div>
                         <div className="bnq-single-con ">
-                            {/* <div className="bnq-inner-social">
-                                <div className="social-box socila-box-two">
-                                    <a className="fb" href="#">
-                                        <i className="fab fa-facebook-f"></i>
-                                    </a>
-                                    <a className="wh" href={article.title + "\n" + "https://api.whatsapp.com/send?text=" + ENV.articleURL(article.url)}>
-                                        <i className="fab fa-whatsapp"></i>
-                                    </a>
-                                    <a className="pt" href="#">
-                                        <i className="fab fa-pinterest"></i>
-                                    </a>
-                                    <a className="em" href="#">
-                                        <i className="fab fa-twitter"></i>
-                                    </a>
-                                </div>
-                            </div> */}
                             <div className="entry-content">
                                 <div dangerouslySetInnerHTML={{ __html: article.content }}></div>
                             </div>
@@ -212,23 +199,6 @@ export default function ArticleShowContentLeft() {
                             <a href={ENV.userURL(author.id + '/' + Text.specialRemove(author.name))}><h4 className="theme_author__Name">{author.name}</h4></a>
                             <h6 className="theme_author_Title">Tentang Penulis</h6>
                             <p className="theme_author__Description">{author.bio}</p>
-                            {/* <div className="theme_author_socials_icon">
-                                        <a href="#" target="_blank" rel="nofollow" className="fb_aut" title="Facebook">
-                                            <i className="fab fa-facebook-f"></i>
-                                        </a>
-                                        <a href="#" target="_blank" rel="nofollow" className="twi_aut" title="Twitter">
-                                            <i className="fab fa-twitter"></i>
-                                        </a>
-                                        <a href="#" target="_blank" rel="nofollow" className="inst_aut" title="Instagram">
-                                            <i className="fab fa-instagram"></i>
-                                        </a>
-                                        <a href="#" target="_blank" rel="nofollow" className="pint_aut" title="Pinterest">
-                                            <i className="fab fa-pinterest-p"></i>
-                                        </a>
-                                        <a href="#" target="_blank" rel="nofollow" className="link_aut" title="linkedin">
-                                            <i className="fab fa-linkedin-in"></i>
-                                        </a>
-                                    </div> */}
                         </div>
                     </div>
                     <div id="comments" className="comments-area">
@@ -260,7 +230,7 @@ export default function ArticleShowContentLeft() {
                                                 </div>
                                                 <div className="comment-content">
                                                     <h4 className="name"><a href={ENV.userURL(comment.user.id + '/' + Text.specialRemove(comment.user.name))} rel="external nofollow ugc" className="url">{comment.user.name}</a></h4>
-                                                    <button onClick={() => {showPopup(comment.id)}} title="Laporkan" className="btn" style={{ float: "right", border: "1px solid #e3e3e3" }}><i className="fa fa-exclamation-triangle" style={{ color: "#666", fontSize: "12px" }}></i></button>
+                                                    <button onClick={() => { showPopup(comment.id) }} title="Laporkan" className="btn" style={{ float: "right", border: "1px solid #e3e3e3" }}><i className="fa fa-exclamation-triangle" style={{ color: "#666", fontSize: "12px" }}></i></button>
                                                     <span className="comment-date text-end">{Moment(comment.created_at).format('DD MMM YYYY (HH:mm)')}</span>
                                                     <p>{comment.body}</p>
                                                 </div>
