@@ -85,16 +85,36 @@ export default function ArticleShowContentLeft() {
         }
     }
 
+    const showPopup = (commentId) => {
+        const reportPopup = document.getElementById('report-popup');
+        if (session == 200) {
+            reportPopup.classList.add('active-newsletter-popup');
+            reportPopup.setAttribute('data-id', commentId);
+        } else {
+            const next = window.location.href
+            window.location.href = ENV.baseURL('account/signin' + '?next=' + next);
+        }
+    }
+
+    const closePopup = () => {
+        const reportPopup = document.getElementById('report-popup');
+        reportPopup.classList.remove('active-newsletter-popup')
+        reportPopup.setAttribute('data-id', 0);
+    }
+
     const reportComment = async (event) => {
         event.preventDefault();
-        const commentId = event.target.getAttribute("data-id");
+        const reportPopup = document.getElementById('report-popup');
+        const commentId = reportPopup.getAttribute('data-id');
+        const data = new FormData(event.currentTarget);
+        const body = { reason: data.get('reason') };
         if (session == 200) {
-            // try {
-            //     await API.commentReport(commentId);
-            //     window.location.href = ENV.currentURL();
-            // } catch (error) {
-            //     console.error('error', error);
-            // }
+            try {
+                const response = await API.commentReport(commentId, body)
+                window.location.href = ENV.currentURL();
+            } catch (error) {
+                console.error('error', error);
+            }
         } else {
             const next = window.location.href
             window.location.href = ENV.baseURL('account/signin' + '?next=' + next);
@@ -224,7 +244,7 @@ export default function ArticleShowContentLeft() {
                                                 </div>
                                                 <div className="comment-content">
                                                     <h4 className="name"><a href={ENV.userURL(comment.user.id + '/' + Text.specialRemove(comment.user.name))} rel="external nofollow ugc" className="url">{comment.user.name}</a></h4>
-                                                    <button onClick={() => { window.confirm('Kamu yakin ingin menghapus komentar ini?', ) && deleteComment(comment.id)}} title="Hapus" className="btn" style={{ float: "right", border: "1px solid #e3e3e3" }}><i className="fa fa-trash" style={{ color: "#666", fontSize: "12px" }}></i></button>
+                                                    <button onClick={() => { window.confirm('Kamu yakin ingin menghapus komentar ini?',) && deleteComment(comment.id) }} title="Hapus" className="btn" style={{ float: "right", border: "1px solid #e3e3e3" }}><i className="fa fa-trash" style={{ color: "#666", fontSize: "12px" }}></i></button>
                                                     <span className="comment-date text-end">{Moment(comment.created_at).format('DD MMM YYYY (HH:mm)')}</span>
                                                     <p>{comment.body}</p>
                                                 </div>
@@ -240,7 +260,7 @@ export default function ArticleShowContentLeft() {
                                                 </div>
                                                 <div className="comment-content">
                                                     <h4 className="name"><a href={ENV.userURL(comment.user.id + '/' + Text.specialRemove(comment.user.name))} rel="external nofollow ugc" className="url">{comment.user.name}</a></h4>
-                                                    <button data-id={comment.id} onClick={reportComment} title="Laporkan" className="btn" style={{ float: "right", border: "1px solid #e3e3e3" }}><i className="fa fa-exclamation-triangle" style={{ color: "#666", fontSize: "12px" }}></i></button>
+                                                    <button onClick={() => {showPopup(comment.id)}} title="Laporkan" className="btn" style={{ float: "right", border: "1px solid #e3e3e3" }}><i className="fa fa-exclamation-triangle" style={{ color: "#666", fontSize: "12px" }}></i></button>
                                                     <span className="comment-date text-end">{Moment(comment.created_at).format('DD MMM YYYY (HH:mm)')}</span>
                                                     <p>{comment.body}</p>
                                                 </div>
@@ -249,6 +269,22 @@ export default function ArticleShowContentLeft() {
                                     )
                                 }
                             })}
+                            <div data-id="0" id="report-popup" className="bnqu__popup_wrap">
+                                <div className="bnqu__popup_sec">
+                                    <div className="bnqu__popup_ineer">
+                                        <button className="btn newsletter-close-btn" onClick={closePopup}><i className="fal fa-times"></i></button>
+                                        <div className="details">
+                                            <h1>Laporkan Komentar ini.</h1>
+                                            <form className="mc4wp-form mc4wp-form-448" onSubmit={reportComment} style={{ textAlign: "center" }}>
+                                                <div className="mc4wp-form-fields" style={{ marginBottom: "20px" }}>
+                                                    <textarea name="reason" className="form-control" placeholder="Alasan anda melaporkan komentar ini..." required=""></textarea>
+                                                </div>
+                                                <button className="btn btn-primary">Submit</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </ol>
                         <div id="respond" className="comment-respond">
                             <h3 id="reply-title" className="comment-reply-title">Tinggalkan komentar <small>

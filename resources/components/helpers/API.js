@@ -201,7 +201,7 @@ const API = {
     },
     commentReport: async (commentId, body) => {
         try {
-            const data = await axios.post(ENV.apiURL('article/' + articleId + '/comment' + commentId + '/report'), body, requestOptions).catch(function (error) {
+            const data = await axios.post(ENV.apiURL('article/' + articleId + '/comment/' + commentId + '/report'), body, requestOptions).catch(function (error) {
                 if (error.response) {
                     console.log(error.response.status);
                 } else if (error.request) {
