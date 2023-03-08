@@ -61586,6 +61586,17 @@ section.no-results.not-found .searchform {
     color: #4f5fbf
 }
 
+.pfy_single_post_wrapper .socila-box-two.social-box a.active {
+    background: #4f5fbf;
+    border: 1px solid #4f5fbf
+}
+
+.pfy_single_post_wrapper .socila-box-two.social-box a.active:hover {
+    background: transparent;
+    border: 1px solid #4f5fbf;
+    color: #4f5fbf
+}
+
 .pfy_single_post_wrapper .socila-box-two.social-box a.fb:hover {
     background: #4f5fbf;
     border: 1px solid #4f5fbf
@@ -67559,7 +67570,7 @@ div#comments.comments-area .comment-list {
 
 @media (max-width:991px) {
     .bnqu__popup_wrap {
-        display: none
+        display: block
     }
 }
 

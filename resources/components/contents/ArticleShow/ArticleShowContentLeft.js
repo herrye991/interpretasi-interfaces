@@ -5,7 +5,6 @@ import ENV from '../../helpers/ENV';
 import Category from "../../helpers/Category";
 import API from '../../helpers/API';
 import Text from '../../helpers/Text';
-import Base64 from 'crypto-js/enc-base64';
 
 export default function ArticleShowContentLeft() {
     let [session, setSession] = useState(0);
@@ -15,6 +14,8 @@ export default function ArticleShowContentLeft() {
     let [comment, setComment] = useState([]);
     let [tags, setTags] = useState([]);
     let [related, setRelated] = useState([]);
+    let [like, setLiked] = useState(false);
+    let [popupBody, setPopupBody] = useState(null);
 
     const queryParameters = new URLSearchParams(window.location.search)
     const commentParameter = queryParameters.get("comment") ? decodeURI(queryParameters.get("comment")) : '';
@@ -44,10 +45,15 @@ export default function ArticleShowContentLeft() {
             const response = await API.comment();
             setComment(response.data.data);
         }
+        const getLiked = async () => {
+            const response = await API.articleLikeCheck();
+            setLiked(response.data.data);
+            console.log(response.data.data)
+        }
         const postPreview = async () => {
             await API.preview();
         }
-        getCurrentUser(); getSession(); getArticle(); getComment();
+        getCurrentUser(); getSession(); getArticle(); getComment(); getLiked();
         setTimeout(() => {
             postPreview();
         }, 30000);
@@ -85,11 +91,34 @@ export default function ArticleShowContentLeft() {
         }
     }
 
-    const showPopup = (commentId) => {
-        const reportPopup = document.getElementById('report-popup');
+    const showPopup = (id, type) => {
+        const reportPopup = document.getElementById('popup');
         if (session == 200) {
             reportPopup.classList.add('active-newsletter-popup');
-            reportPopup.setAttribute('data-id', commentId);
+            reportPopup.setAttribute('data-id', id);
+            var title = '';
+            var action = '';
+            if (type == 'comment') {
+                title = 'Laporkan Komentar ini';
+                action = reportComment
+            } else if (type == 'article') {
+                title = 'Laporkan Artikel ini';
+                action = reportArticle
+            } else if (type == 'author') {
+                title = 'Laporkan Penulis ini';
+                action = reportAuthor
+            }
+            setPopupBody(
+                <div className="details">
+                    <h1>{title}</h1>
+                    <form className="mc4wp-form mc4wp-form-448" onSubmit={action} style={{ textAlign: "center" }}>
+                        <div className="mc4wp-form-fields" style={{ marginBottom: "20px" }}>
+                            <textarea name="reason" className="form-control" placeholder="Alasan anda melaporkan komentar ini..." required></textarea>
+                        </div>
+                        <button className="btn btn-primary">Kirim</button>
+                    </form>
+                </div>
+            )
         } else {
             const next = window.location.href
             window.location.href = ENV.baseURL('account/signin' + '?next=' + next);
@@ -97,24 +126,73 @@ export default function ArticleShowContentLeft() {
     }
 
     const closePopup = () => {
-        const reportPopup = document.getElementById('report-popup');
+        const reportPopup = document.getElementById('popup');
         reportPopup.classList.remove('active-newsletter-popup')
         reportPopup.setAttribute('data-id', 0);
     }
 
     const reportComment = async (event) => {
         event.preventDefault();
-        const reportPopup = document.getElementById('report-popup');
-        const commentId = reportPopup.getAttribute('data-id');
+        const reportPopup = document.getElementById('popup');
+        const id = reportPopup.getAttribute('data-id');
         const data = new FormData(event.currentTarget);
         const body = { reason: data.get('reason') };
         if (session == 200) {
             try {
-                const response = await API.commentReport(commentId, body)
+                await API.commentReport(id, body)
                 window.location.href = ENV.currentURL();
             } catch (error) {
                 console.error('error', error);
             }
+        } else {
+            const next = window.location.href
+            window.location.href = ENV.baseURL('account/signin' + '?next=' + next);
+        }
+    }
+
+    const reportArticle = async (event) => {
+        event.preventDefault();
+        const reportPopup = document.getElementById('popup');
+        const id = reportPopup.getAttribute('data-id');
+        const data = new FormData(event.currentTarget);
+        const body = { reason: data.get('reason') };
+        if (session == 200) {
+            try {
+                await API.articleReport(id, body);
+                window.location.href = ENV.currentURL();
+            } catch (error) {
+                console.error('error', error);
+            }
+        } else {
+            const next = window.location.href
+            window.location.href = ENV.baseURL('account/signin' + '?next=' + next);
+        }
+    }
+
+    const reportAuthor = async (event) => {
+        event.preventDefault();
+        const reportPopup = document.getElementById('popup');
+        const id = reportPopup.getAttribute('data-id');
+        const data = new FormData(event.currentTarget);
+        const body = { reason: data.get('reason') };
+        if (session == 200) {
+            try {
+                await API.authorReport(id, body)
+                window.location.href = ENV.currentURL();
+            } catch (error) {
+                console.error('error', error);
+            }
+        } else {
+            const next = window.location.href
+            window.location.href = ENV.baseURL('account/signin' + '?next=' + next);
+        }
+    }
+
+    const likeAction = async () => {
+        if (session == 200) {
+            const response = await API.articleLike();
+            console.log(response);
+            window.location.href = ENV.currentURL();
         } else {
             const next = window.location.href
             window.location.href = ENV.baseURL('account/signin' + '?next=' + next);
@@ -147,15 +225,25 @@ export default function ArticleShowContentLeft() {
                                 <div className="bnq__social-top">
                                     <div className="social-box socila-box-two" style={{ textAlign: "left" }}>
                                         <div className="dropdown" style={{ float: "right" }}>
-                                            <a href="#" className="fb" id="dropdownMenuButtonShare" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <a href="#" className="fb" id="dropdownMenuButtonEtc" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i className="fas fa-ellipsis-v"></i>
+                                            </a>
+                                            <div className="dropdown-menu" aria-labelledby="dropdownMenuButtonEtc" data-popper-placement="bottom-end">
+                                                <button className="dropdown-item" onClick={() => { navigator.clipboard.writeText(ENV.currentURL()) }}>Salin Tautan</button>
+                                                <button className="dropdown-item" onClick={() => { showPopup(article.url, 'article') }}>Laporkan Artikel</button>
+                                            </div>
+                                        </div>
+                                        <div className="dropdown" style={{ float: "right" }}>
+                                            <a href="#" onClick={likeAction} title={`${like ? "Batalkan menyukai artikel ini." : "Sukai artikel ini."}`} className={`${like ? "active" : "fb"}`}>
+                                                <i className="far fa-thumbs-up"></i>
+                                            </a>
+                                            <a href="#" className="fb" id="dropdownMenuButtonShare" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i className="fa fa-share-alt"></i>
                                             </a>
                                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButtonShare" data-popper-placement="bottom-end">
                                                 <button className="dropdown-item">Bagikan ke Facebook</button>
                                                 <button className="dropdown-item" onClick={() => { window.open("https://api.whatsapp.com/send?text=" + article.title + "%0a" + ENV.articleURL(article.url), '_blank') }}>Bagikan ke Whatsapp</button>
                                                 <button className="dropdown-item">Bagikan ke Twitter</button>
-                                                <button className="dropdown-item" onClick={() => {navigator.clipboard.writeText(ENV.currentURL())}}>Salin Tautan</button>
-                                                <button className="dropdown-item">Laporkan Artikel</button>
                                             </div>
                                         </div>
                                     </div>
@@ -195,10 +283,11 @@ export default function ArticleShowContentLeft() {
                         <div className="author-thumb">
                             <a href={ENV.userURL(author.id + '/' + Text.specialRemove(author.name))}><img alt="" src={author.photo} className="avatar avatar-180 photo" height="180" width="180" loading="lazy" decoding="async" /></a>
                         </div>
-                        <div className="theme_author_Info">
+                        <div className="theme_author_Info" style={{ textAlign: "left" }}>
                             <a href={ENV.userURL(author.id + '/' + Text.specialRemove(author.name))}><h4 className="theme_author__Name">{author.name}</h4></a>
                             <h6 className="theme_author_Title">Tentang Penulis</h6>
                             <p className="theme_author__Description">{author.bio}</p>
+                            <button onClick={() => { showPopup(author.id, 'author') }} title="Laporkan" className="btn" style={{ float: "right", border: "1px solid #e3e3e3" }}><i className="fa fa-exclamation-triangle" style={{ color: "#666", fontSize: "12px" }}></i></button>
                         </div>
                     </div>
                     <div id="comments" className="comments-area">
@@ -230,7 +319,7 @@ export default function ArticleShowContentLeft() {
                                                 </div>
                                                 <div className="comment-content">
                                                     <h4 className="name"><a href={ENV.userURL(comment.user.id + '/' + Text.specialRemove(comment.user.name))} rel="external nofollow ugc" className="url">{comment.user.name}</a></h4>
-                                                    <button onClick={() => { showPopup(comment.id) }} title="Laporkan" className="btn" style={{ float: "right", border: "1px solid #e3e3e3" }}><i className="fa fa-exclamation-triangle" style={{ color: "#666", fontSize: "12px" }}></i></button>
+                                                    <button onClick={() => { showPopup(comment.id, 'comment') }} title="Laporkan" className="btn" style={{ float: "right", border: "1px solid #e3e3e3" }}><i className="fa fa-exclamation-triangle" style={{ color: "#666", fontSize: "12px" }}></i></button>
                                                     <span className="comment-date text-end">{Moment(comment.created_at).format('DD MMM YYYY (HH:mm)')}</span>
                                                     <p>{comment.body}</p>
                                                 </div>
@@ -239,22 +328,6 @@ export default function ArticleShowContentLeft() {
                                     )
                                 }
                             })}
-                            <div data-id="0" id="report-popup" className="bnqu__popup_wrap">
-                                <div className="bnqu__popup_sec">
-                                    <div className="bnqu__popup_ineer">
-                                        <button className="btn newsletter-close-btn" onClick={closePopup}><i className="fal fa-times"></i></button>
-                                        <div className="details">
-                                            <h1>Laporkan Komentar ini.</h1>
-                                            <form className="mc4wp-form mc4wp-form-448" onSubmit={reportComment} style={{ textAlign: "center" }}>
-                                                <div className="mc4wp-form-fields" style={{ marginBottom: "20px" }}>
-                                                    <textarea name="reason" className="form-control" placeholder="Alasan anda melaporkan komentar ini..." required=""></textarea>
-                                                </div>
-                                                <button className="btn btn-primary">Submit</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </ol>
                         <div id="respond" className="comment-respond">
                             <h3 id="reply-title" className="comment-reply-title">Tinggalkan komentar <small>
@@ -317,6 +390,14 @@ export default function ArticleShowContentLeft() {
                     </div>
                     <div className="resize-sensor-shrink" style={{ position: "absolute", left: "0", top: "0", right: "0", bottom: "0", overflow: "hidden", zIndex: "-1", visibility: "hidden" }}>
                         <div style={{ position: "absolute", left: "0", top: "0, transition: 0s", width: "200%", height: "200%" }}></div>
+                    </div>
+                </div>
+            </div>
+            <div data-id="0" id="popup" className="bnqu__popup_wrap">
+                <div className="bnqu__popup_sec">
+                    <div className="bnqu__popup_ineer">
+                        <button className="btn newsletter-close-btn" onClick={closePopup}><i className="fal fa-times"></i></button>
+                        {popupBody}
                     </div>
                 </div>
             </div>

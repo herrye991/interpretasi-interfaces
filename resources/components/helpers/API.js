@@ -215,9 +215,41 @@ const API = {
             console.error('error', error);
         }
     },
-    articleReport: async (body) => {
+    articleReport: async (articleURL, body) => {
         try {
-            const data = await axios.post(ENV.apiURL('article/' + articleId + '/report'), body, requestOptions).catch(function (error) {
+            const data = await axios.post(ENV.apiURL('article/' + articleURL + '/report'), body, requestOptions).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.status);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+            return data
+        } catch (error) {
+            console.error('error', error);
+        }
+    },
+    authorReport: async (userId, body) => {
+        try {
+            const data = await axios.post(ENV.apiURL('user/' + userId + '/report'), body, requestOptions).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.status);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+            return data
+        } catch (error) {
+            console.error('error', error);
+        }
+    },
+    articleLikeCheck: async () => {
+        try {
+            const data = await axios.get(ENV.apiURL('article/' + articleId + '/like'), requestOptions).catch(function (error) {
                 if (error.response) {
                     console.log(error.response.status);
                 } else if (error.request) {
@@ -233,7 +265,7 @@ const API = {
     },
     articleLike: async () => {
         try {
-            const data = await axios.post(ENV.apiURL('article/' + articleId + '/like'), requestOptions).catch(function (error) {
+            const data = await axios.post(ENV.apiURL('article/' + articleId + '/like'), {}, requestOptions).catch(function (error) {
                 if (error.response) {
                     console.log(error.response.status);
                 } else if (error.request) {
