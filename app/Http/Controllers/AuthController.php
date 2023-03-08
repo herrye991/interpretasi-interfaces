@@ -22,6 +22,16 @@ class AuthController extends Controller
         return view('components.empty', Helpers::requirements('signin'));
     }
 
+    public function signup()
+    {
+        return view('components.empty', Helpers::requirements('signup'));
+    }
+
+    public function forgot()
+    {
+        return view('components.empty', Helpers::requirements('forgot'));
+    }
+
     public function verify($token, Request $request)
     {
         if ($request->header('Accept') == 'application/json') {

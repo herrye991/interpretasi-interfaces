@@ -25,6 +25,8 @@ Route::get('/user/{id}/{name}', [AppController::class, 'user']);
 
 Route::group(['prefix' => 'account'], function() {
     Route::get('/signin', [AuthController::class, 'signin']);
+    Route::get('/signup', [AuthController::class, 'signup']);
+    Route::get('/forgot', [AuthController::class, 'forgot']);
     Route::group(['prefix' => 'accept'], function() {
         Route::get('/{token}', [AuthController::class, 'verify']);
     });
