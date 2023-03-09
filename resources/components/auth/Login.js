@@ -54,6 +54,8 @@ export default function Login() {
       } else {
         window.location.href = ENV.baseURL('account/dashboard')
       }
+    } else {
+      window.location.href = ENV.baseURL('account/signin')
     }
   };
 
@@ -79,6 +81,7 @@ export default function Login() {
             <GoogleButton onClick={() => { console.log('Google button clicked') }} label="Masuk dengan Google" style={{ width: "100%" }} />
             <Divider sx={{ marginTop: 2 }}>ATAU</Divider>
             <TextField
+              type="email"
               margin="normal"
               required
               fullWidth

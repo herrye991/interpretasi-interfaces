@@ -48,7 +48,7 @@ const API = {
                     console.log('Error', error.message);
                 }
             })
-            return 'Email sended';
+            return response;
         } catch (error) {
             console.error('error', error);
         }
