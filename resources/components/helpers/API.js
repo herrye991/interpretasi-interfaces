@@ -37,6 +37,22 @@ const API = {
             console.error('error', error);
         }
     },
+    signup: async (body = {}) => {
+        try {
+            const response = await axios.post(ENV.apiURL('signup'), body, requestOptions).catch(function (error) {
+                if (error.response) {
+                    console.log(error.response.status);
+                } else if (error.request) {
+                    console.log(error.request);
+                } else {
+                    console.log('Error', error.message);
+                }
+            })
+            return 'Email sended';
+        } catch (error) {
+            console.error('error', error);
+        }
+    },
     currentUser: async () => {
         try {
             const response = await axios.get(ENV.apiURL('user/profile'), requestOptions).catch(function (error) {

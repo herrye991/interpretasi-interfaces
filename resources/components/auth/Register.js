@@ -3,13 +3,17 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import Divider from '@mui/material/Divider';
+import Alert from '@mui/material/Alert';
+import IconButton from '@mui/material/IconButton';
+import Collapse from '@mui/material/Collapse';
+import CloseIcon from '@mui/icons-material/Close';
+import GoogleButton from 'react-google-button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ENV from '../helpers/ENV';
 import API from '../helpers/API';
@@ -26,7 +30,9 @@ const theme = createTheme({
   },
 });
 
-export default function SignIn() {
+export default function Register() {
+  let [open, setOpen] = React.useState(true);
+
   React.useEffect(async () => {
     const session = await API.session();
     if (session == 200) {
@@ -36,30 +42,13 @@ export default function SignIn() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const requestOptions = {
-      headers: { 'Accept': 'application/json' },
-    };
     const data = new FormData(event.currentTarget);
-    const body = {email: data.get('email'), password: data.get('password')};
-    const auth = await API.signin(body);
-    const queryParameters = new URLSearchParams(window.location.search)
-    const next = queryParameters.get("next") ? queryParameters.get("next") : '';
-    const comment = queryParameters.get("comment") ? queryParameters.get("comment") : '';
+    const body = { email: data.get('email') };
+    const auth = await API.signup(body);
     if (auth == 200) {
-      if (next !== '') {
-        if (comment !== '') {
-          window.location.href = decodeURI(next + '?comment=' + comment)
-        } else {
-          window.location.href = decodeURI(next)
-        }
-      } else {
-        window.location.href = ENV.baseURL('account/dashboard')
-      }
-    } else {
-      window.location.href = ENV.baseURL('account/signin')
+      window.location.href = ENV.baseURL('account/dashboard')
     }
   };
-
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -76,9 +65,11 @@ export default function SignIn() {
             <img src={ENV.baseURL('assets/images/favicon.png')} style={{ maxWidth: "40px", maxHeight: "40px" }} />
           </Avatar>
           <Typography component="h1" variant="h5">
-            LOGIN
+            REGISTRASI
           </Typography>
           <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <GoogleButton onClick={() => { console.log('Google button clicked') }} label="Masuk dengan Google" style={{ width: "100%" }} />
+            <Divider sx={{ marginTop: 2 }}>ATAU</Divider>
             <TextField
               margin="normal"
               required
@@ -89,27 +80,17 @@ export default function SignIn() {
               autoComplete="email"
               autoFocus
             />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Kata Sandi"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Ingat saya"
-            />
+            <Typography variant="body2">
+              {"Dengan mendaftar, Saya setuju dengan "}
+              <Link href={ENV.baseURL('account/term_and_condition')} variant="body2">Syarat dan Ketentuan</Link>{" Dan "}<Link href={ENV.baseURL('account/privacy_policy')} variant="body2">Kebijakan Privasi</Link>
+            </Typography>
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Login
+              Daftar
             </Button>
             <Grid container>
               <Grid item xs>
@@ -118,9 +99,12 @@ export default function SignIn() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href={ENV.baseURL('account/signup')} variant="body2">
-                  {"Tidak punya akun? Daftar Sekarang"}
-                </Link>
+                <Typography variant="body2">
+                  {"Sudah punya akun? "}
+                  <Link href={ENV.baseURL('account/signup')} variant="body2">
+                    {"Masuk"}
+                  </Link>
+                </Typography>
               </Grid>
             </Grid>
           </Box>
